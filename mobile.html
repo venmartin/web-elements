@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+
+		.calculator_container {
+			display: flex;
+			flex-direction: column;
+			background-color: #F9F9F9;
+			height: 100vh;
+			font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+			padding: 10px;
+		}
+
+		.calculator_title {
+			padding: 15px 20px;
+			background-color: #4E4EF2;
+			color: white;
+			text-align: center;
+			border-radius: 4px;
+			font-size: 22px;
+		}
+
+		.calculator_total {
+			border-radius: 4px;
+			border: 1px solid rgba(196, 196, 196, 0.4);
+			background-color: white;
+			min-height: 200px;
+			margin-top: 30px;
+			display: flex;
+			align-items: flex-end;
+			justify-content: flex-end;
+			padding: 22px;
+		}
+
+		.total_container {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.developer_title {
+			color: #504B48;
+			font-size: 16px;
+			margin-bottom: 10px;
+		}
+
+		.month {
+			color: black;
+			font-size: 28px;
+			font-weight: 500;
+			margin-inline: 10px;
+		}
+
+		.total_calculator_container {
+			background-color: black;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			padding: 25px 20px;
+			color: white;
+			font-size: 24px;
+			margin-top: 30px;
+			border-radius: 4px;
+		}
+
+		.keyboard_container {
+			display: flex;
+			flex-direction: column;
+			margin-top: 30px;
+		}
+
+		.row {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			align-items: center;
+			gap: 10px;
+			margin-bottom: 10px;
+		}
+
+		.row:last-child {
+			margin-bottom: 0;
+		}
+
+		.number {
+			height: 80px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 4px;
+			font-size: 24px;
+			background-color: #D7D7F8;
+		}
+
+		.role {
+			height: 80px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			border-radius: 4px;
+			font-size: 24px;
+			background-color: #4E4EF2;
+		}
+
+		.role_title {
+			font-size: 14px;
+			color: white;
+			margin-top: 14px;
+		}
+
+		.calculator_hours {
+			height: 80px;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			border-radius: 4px;
+			font-size: 24px;
+			background-color: #7E7EAA;
+
+		}
+
+		.hours_title {
+			text-align: center;
+			font-size: 14px;
+			color: white;
+			margin-top: 10px;
+		}
+
+		.calculaotor_months {
+			display: flex;
+			align-items: center;
+		}
+
+
+
+		.blinking-cursor {
+			font-weight: 100;
+			font-size: 30px;
+			color: #2E3D48;
+			animation: 1s blink step-end infinite;
+		}
+
+		@keyframes blink {
+			from,
+			to {
+				color: transparent;
+			}
+			50% {
+				color: black;
+			}
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="calculator_container">
+		<div class="calculator_title">
+			<span class="title">
+				Software Developer Rates <br />
+				(excluding GST)
+			</span>
+		</div>
+
+		<div class="calculator_total">
+			<div class="total_container">
+				<span class="developer_title">React.js Developer</span>
+				<span class="developer_title">$49 x 2 x 174h x</span>
+				<div class="calculaotor_months">
+					<span class="month">6</span>
+					<span class="blinking-cursor">|</span>
+					<span class="month">Months</span>
+				</div>
+			</div>
+		</div>
+
+		<div class="total_calculator_container">
+			<span>Total</span>
+			<span>$ 20</span>
+		</div>
+
+		<div class="keyboard_container">
+			<div class="row">
+				<div class="number">7</div>
+				<div class="number">8</div>
+				<div class="number">9</div>
+				<div class="calculator_hours">
+					<img src="./multiply.png" alt="back" />
+					<span class="hours_title">Team members</span>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="number">4</div>
+				<div class="number">5</div>
+				<div class="number">6</div>
+				<div class="calculator_hours">
+					<img src="./multiply.png" alt="back" />
+					<span class="hours_title">Hours per month</span>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="number">1</div>
+				<div class="number">2</div>
+				<div class="number">3</div>
+				<div class="role">
+					<img src="./multiply.png" alt="back" />
+					<span class="role_title">Months</span>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="number">.</div>
+				<div class="number">0</div>
+				<div class="number">
+					<img src="./back.png" alt="back" />
+				</div>
+				<div class="role">
+					<img src="./plus.png" alt="back" />
+					<span class="role_title">Role</span>
+
+				</div>
+			</div>
+		</div>
+
+
+
+	</div>
+
+</body>
+
+</html>
