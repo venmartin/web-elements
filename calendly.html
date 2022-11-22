@@ -1,0 +1,51 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<!--copy from below here-->
+<style>
+    .calendly-thank-you {
+        position: absolute;
+        bottom: 0;
+        align-items: center;
+        left: 0;
+        right: 0;
+        justify-content: center;
+        background: white;
+        /*desktop + mobile*/
+        height: calc((229px + 261px) / 2);
+        display: none;
+    }
+</style>
+<div
+        class="calendly-inline-widget"
+        data-url="https://calendly.com/scaleupconsulting/free?hide_event_type_details=1&hide_gdpr_banner=1"
+        style="min-width: 320px; height: 646px"
+>
+    <div class="calendly-thank-you">
+        Thank you
+    </div>
+</div>
+<script
+        type="text/javascript"
+        src="https://assets.calendly.com/assets/external/widget.js"
+        async
+></script>
+<script>
+  function isCalendlyEvent(e) {
+    return (
+      e.origin === "https://calendly.com" &&
+      e.data.event &&
+      e.data.event.indexOf("calendly.") === 0
+    );
+  }
+
+  window.addEventListener("message", function (e) {
+    if (isCalendlyEvent(e)) {
+      // ga('send', 'event', 'calendly', e.data.event);
+      gtag('event', e.data.event, {'event_category': 'calendly'});
+      if (e.data.event === 'calendly.event_scheduled') {
+        document.querySelector('.calendly-thank-you').style.display = 'flex';
+      }
+    }
+  });
+</script>
