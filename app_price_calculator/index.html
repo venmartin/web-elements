@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./index.css">
+	<title>Document</title>
+</head>
+
+<body>
+	<div class="mainContainer">
+		<div class="container">
+			<span class="title">What platforms are you targeting?</span>
+			<div class="appContainer">
+				<div class="application">
+					<div id="mobile" class="imageContainer">
+						<img src="./images/mobile.svg" class="mobileImage" alt="mobile" />
+					</div>
+					<span class="mobileName">Mobile App</span>
+				</div>
+
+				<div class="application">
+					<div id="computer" class="imageContainer">
+						<img src="./images/computer.svg" class="mobileImage" alt="mobile" />
+					</div>
+					<span class="mobileName">Web App</span>
+				</div>
+			</div>
+
+			<div class="appContainer">
+				<div class="application">
+					<div id="android" class="imageContainer">
+						<img src="./images/android.svg" class="mobileImage" alt="mobile" />
+					</div>
+					<span class="mobileName">Android App</span>
+				</div>
+				<div class="application">
+					<div id="windows" class="imageContainer">
+						<img src="./images/windows.svg" class="mobileImage" alt="mobile" />
+					</div>
+					<span class="mobileName">Windows App</span>
+				</div>
+			</div>
+
+			<div class="appContainer">
+				<div class="application">
+					<div id="ios" class="imageContainer">
+						<img src="./images/apple.svg" class="mobileImage" alt="mobile" />
+					</div>
+					<span class="mobileName">Ios App</span>
+				</div>
+				<div class="application">
+					<div id="apple" class="imageContainer">
+						<img src="./images/apple.svg" class="mobileImage" alt="mobile" />
+					</div>
+					<span class="mobileName">MacOS App</span>
+				</div>
+			</div>
+
+			<div class="buttonContainer">
+				<span class="pageNumber">1/6</span>
+				<button id="button" class="button">
+					<a href="./source.html">Next</a>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		const mobile = document.getElementById("mobile");
+		const computer = document.getElementById("computer");
+		const android = document.getElementById("android");
+		const windows = document.getElementById("windows");
+		const ios = document.getElementById("ios");
+		const apple = document.getElementById("apple");
+		const button = document.getElementById("button").disabled = true;
+
+		mobile.addEventListener("click", () => {
+			mobile.classList.toggle("active");
+			if (mobile.classList.contains("active")) {
+				const button = document.getElementById("button").disabled = false;
+			} else {
+				const button = document.getElementById("button").disabled = true;
+			}
+		});
+
+		computer.addEventListener("click", () => {
+			computer.classList.toggle("active");
+			if (computer.classList.contains("active")) {
+				const button = document.getElementById("button").disabled = false;
+			} else {
+				const button = document.getElementById("button").disabled = true;
+			}
+		});
+
+		android.addEventListener("click", () => {
+			android.classList.toggle("active");
+			if (android.classList.contains("active")) {
+				const button = document.getElementById("button").disabled = false;
+			} else {
+				const button = document.getElementById("button").disabled = true;
+			}
+		});
+
+		windows.addEventListener("click", () => {
+			windows.classList.toggle("active");
+			if (windows.classList.contains("active")) {
+				const button = document.getElementById("button").disabled = false;
+			} else {
+				const button = document.getElementById("button").disabled = true;
+			}
+		});
+
+		ios.addEventListener("click", () => {
+			ios.classList.toggle("active");
+			if (ios.classList.contains("active")) {
+				const button = document.getElementById("button").disabled = false;
+			} else {
+				const button = document.getElementById("button").disabled = true;
+			}
+		});
+
+		apple.addEventListener("click", () => {
+			apple.classList.toggle("active");
+			if (apple.classList.contains("active")) {
+				const button = document.getElementById("button").disabled = false;
+			} else {
+				const button = document.getElementById("button").disabled = true;
+			}
+		});
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="./source.css">
+
+</head>
+
+<body>
+	<div class="mainContainer">
+		<div class="headerContainer">
+			<img src="./images/back.svg" class="back" alt="back" />
+			<div class="totalContainer">
+				<span class="totalTitle">Total</span>
+				<span class="total">$3000</span>
+			</div>
+		</div>
+		<div class="container">
+			<div class="middleContainer">
+			<span class="title">From how many sources do you need extract data(ETL)?</span>
+				<div class="inputContainer">
+					<input id="apiData" class="inputCheck" type="number" min="0" onfocus="this.value === '' && (this.value = '1')">
+					<label for="apiData" class="label">API with clean data</label>
+				</div>
+
+				<div class="inputContainer">
+					<input id="dynamicData" min="0" class="inputCheck" type="number" onfocus="this.value === '' && (this.value = '1')">
+					<label for="dynamicData" class="label">Dynamic web pages</label>
+				</div>
+
+				<div class="inputContainer">
+					<input id="protectionData" min="0" class="inputCheck" type="number" onfocus="this.value === '' && (this.value = '1')">
+					<label for="protectionData" class="label">Dynamic web pages with bot protection</label>
+				</div>
+			</div>
+
+			<div class="buttonContainer">
+				<span class="pageNumber">2/6</span>
+				<button class="button">
+					<a href="./payment.html">Next</a>
+				</button>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
