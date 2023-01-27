@@ -18,14 +18,14 @@
 					<div id="mobile" class="imageContainer">
 						<img src="./images/mobile.svg" class="mobileImage" alt="mobile" />
 					</div>
-					<span class="mobileName">Mobile App</span>
+					<span class="mobileName">Mobile Web</span>
 				</div>
 
 				<div class="application">
 					<div id="computer" class="imageContainer">
 						<img src="./images/computer.svg" class="mobileImage" alt="mobile" />
 					</div>
-					<span class="mobileName">Web App</span>
+					<span class="mobileName">Desktop Web</span>
 				</div>
 			</div>
 
@@ -49,13 +49,13 @@
 					<div id="ios" class="imageContainer">
 						<img src="./images/apple.svg" class="mobileImage" alt="mobile" />
 					</div>
-					<span class="mobileName">Ios App</span>
+					<span class="mobileName">iOS App</span>
 				</div>
 				<div class="application">
 					<div id="apple" class="imageContainer">
 						<img src="./images/apple.svg" class="mobileImage" alt="mobile" />
 					</div>
-					<span class="mobileName">MacOS App</span>
+					<span class="mobileName">macOS App</span>
 				</div>
 			</div>
 
@@ -75,59 +75,60 @@
 		const windows = document.getElementById("windows");
 		const ios = document.getElementById("ios");
 		const apple = document.getElementById("apple");
-		const button = document.getElementById("button").disabled = true;
+		const button = document.getElementById("button");
+		button.disabled = true;
 
 		mobile.addEventListener("click", () => {
 			mobile.classList.toggle("active");
 			if (mobile.classList.contains("active")) {
-				const button = document.getElementById("button").disabled = false;
+				button.disabled = false;
 			} else {
-				const button = document.getElementById("button").disabled = true;
+				button.disabled = true;
 			}
 		});
 
 		computer.addEventListener("click", () => {
 			computer.classList.toggle("active");
 			if (computer.classList.contains("active")) {
-				const button = document.getElementById("button").disabled = false;
+				button.disabled = false;
 			} else {
-				const button = document.getElementById("button").disabled = true;
+				button.disabled = true;
 			}
 		});
 
 		android.addEventListener("click", () => {
 			android.classList.toggle("active");
 			if (android.classList.contains("active")) {
-				const button = document.getElementById("button").disabled = false;
+				button.disabled = false;
 			} else {
-				const button = document.getElementById("button").disabled = true;
+				button.disabled = true;
 			}
 		});
 
 		windows.addEventListener("click", () => {
 			windows.classList.toggle("active");
 			if (windows.classList.contains("active")) {
-				const button = document.getElementById("button").disabled = false;
+				button.disabled = false;
 			} else {
-				const button = document.getElementById("button").disabled = true;
+				button.disabled = true;
 			}
 		});
 
 		ios.addEventListener("click", () => {
 			ios.classList.toggle("active");
 			if (ios.classList.contains("active")) {
-				const button = document.getElementById("button").disabled = false;
+				button.disabled = false;
 			} else {
-				const button = document.getElementById("button").disabled = true;
+				button.disabled = true;
 			}
 		});
 
 		apple.addEventListener("click", () => {
 			apple.classList.toggle("active");
 			if (apple.classList.contains("active")) {
-				const button = document.getElementById("button").disabled = false;
+				button.disabled = false;
 			} else {
-				const button = document.getElementById("button").disabled = true;
+				button.disabled = true;
 			}
 		});
 	</script>
