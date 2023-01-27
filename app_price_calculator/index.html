@@ -62,73 +62,41 @@
 			<div class="buttonContainer">
 				<span class="pageNumber">1/6</span>
 				<button id="button" class="button">
-					<a href="./source.html">Next</a>
+					Next
 				</button>
 			</div>
 		</div>
 	</div>
 
+	<script src="./price.js"></script>
 	<script>
-		const mobile = document.getElementById("mobile");
-		const computer = document.getElementById("computer");
-		const android = document.getElementById("android");
-		const windows = document.getElementById("windows");
-		const ios = document.getElementById("ios");
-		const apple = document.getElementById("apple");
-		const button = document.getElementById("button").disabled = true;
-
-		mobile.addEventListener("click", () => {
-			mobile.classList.toggle("active");
-			if (mobile.classList.contains("active")) {
-				const button = document.getElementById("button").disabled = false;
-			} else {
-				const button = document.getElementById("button").disabled = true;
+		const ids = Object.keys(platformPrices);
+		for (let i = 0; i < ids.length; i++) {
+			const id = ids[i];
+			const element = document.getElementById(id);
+			const active = localStorage.getItem(id);
+			if (active === "true") {
+				element.classList.add("active");
 			}
-		});
 
-		computer.addEventListener("click", () => {
-			computer.classList.toggle("active");
-			if (computer.classList.contains("active")) {
-				const button = document.getElementById("button").disabled = false;
-			} else {
-				const button = document.getElementById("button").disabled = true;
-			}
-		});
+			element.addEventListener("click", () => {
+				element.classList.toggle("active");
+				localStorage.setItem(id, element.classList.contains("active"));
+				let disabled = true;
+				for (let j = 0; j < ids.length; j++) {
+					const id = ids[j];
+					const element = document.getElementById(id);
+					if (element.classList.contains("active")) {
+						disabled = false;
+						break;
+					}
+				}
+				document.getElementById("button").disabled = disabled;
+			});
+		}
 
-		android.addEventListener("click", () => {
-			android.classList.toggle("active");
-			if (android.classList.contains("active")) {
-				const button = document.getElementById("button").disabled = false;
-			} else {
-				const button = document.getElementById("button").disabled = true;
-			}
-		});
-
-		windows.addEventListener("click", () => {
-			windows.classList.toggle("active");
-			if (windows.classList.contains("active")) {
-				const button = document.getElementById("button").disabled = false;
-			} else {
-				const button = document.getElementById("button").disabled = true;
-			}
-		});
-
-		ios.addEventListener("click", () => {
-			ios.classList.toggle("active");
-			if (ios.classList.contains("active")) {
-				const button = document.getElementById("button").disabled = false;
-			} else {
-				const button = document.getElementById("button").disabled = true;
-			}
-		});
-
-		apple.addEventListener("click", () => {
-			apple.classList.toggle("active");
-			if (apple.classList.contains("active")) {
-				const button = document.getElementById("button").disabled = false;
-			} else {
-				const button = document.getElementById("button").disabled = true;
-			}
+		button.addEventListener("click", () => {
+			window.location.href = "source.html";
 		});
 	</script>
 

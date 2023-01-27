@@ -13,10 +13,12 @@
 <body>
 	<div class="mainContainer">
 		<div class="headerContainer">
-			<img src="./images/back.svg" class="back" alt="back" />
+			<a href="index.html">
+				<img  src="./images/back.svg" class="back" alt="back" />
+			</a>
 			<div class="totalContainer">
-				<span class="totalTitle">Total</span>
-				<span class="total">$3000</span>
+				<span class="totalTitle">Estimate</span>
+				<span id="total" class="total"></span>
 			</div>
 		</div>
 		<div class="container">
@@ -41,10 +43,39 @@
 			<div class="buttonContainer">
 				<span class="pageNumber">2/6</span>
 				<button class="button">
-					<a href="./payment.html">Next</a>
+					<a href="payment.html">Next</a>
 				</button>
 			</div>
 		</div>
 	</div>
+	<script src="price.js"></script>
+	<script>
+		const ids = Object.keys(sourcePrices);
+		const button = document.querySelector('.button');		
+		for (let i = 0; i < ids.length; i++) {
+			const element = document.getElementById(ids[i]);
+			element.addEventListener('input', (e) => {
+				const value = e.target.value;
+				if (value < 0) {
+					e.target.value = 0;
+				}
+				localStorage.setItem(ids[i], value);
+				showPrice();
+			});
+			element.addEventListener('focus', (e) => {
+				const value = e.target.value;
+				if (value === '') {
+					e.target.value = '1';
+				}
+				// save value to local storage
+				localStorage.setItem(ids[i], value);
+				showPrice();	
+				
+			});
+			element.value = localStorage.getItem(ids[i]);
+		}
+
+		showPrice();
+	</script>
 </body>
 </html>

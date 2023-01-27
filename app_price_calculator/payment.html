@@ -2,25 +2,27 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./source.css">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./source.css">
+	<title>Document</title>
 </head>
 
 <body>
 
-    <div class="mainContainer">
+	<div class="mainContainer">
 		<div class="headerContainer">
-			<img src="./images/back.svg" class="back" alt="back" />
+			<a href="source.html">
+				<img id="backButton" src="./images/back.svg" class="back" alt="back" />
+			</a>
 			<div class="totalContainer">
-				<span class="totalTitle">Total</span>
-				<span class="total">$3000</span>
+				<span class="totalTitle">Estimate</span>
+				<span id="total" class="total"></span>
 			</div>
 		</div>
-        <div class="container">
-            <div class="middleContainer">
+		<div class="container">
+			<div class="middleContainer">
 				<span class="title">Do you need to process payments?</span>
 				<div class="paymentInputContainer">
 					<input id="masterCard" class="checkbox" type="checkbox">
@@ -37,14 +39,38 @@
 					<label for="market" class="label">For a marketplace</label>
 				</div>
 			</div>
-            <div class="buttonContainer">
+			<div class="buttonContainer">
 				<span class="pageNumber">3/6</span>
 				<button class="button">
-					<a href="./features.html">Next</a>
+					<a href="features.html">Next</a>
 				</button>
 			</div>
-        </div>
-    </div>
+		</div>
+	</div>
+	<script src="price.js"></script>
+	<script>
+		const ids = Object.keys(paymentPrice);
+		for (let i = 0; i < ids.length; i++) {
+			const id = ids[i];
+			const element = document.getElementById(ids[i]);
+			element.addEventListener("input", () => {
+				if (element.checked) {
+					localStorage.setItem(id, element.checked);
+				} else {
+					localStorage.setItem(id, element.checked);
+				}
+				showPrice();
+			});
+
+			// when the page is loaded, check if the item is in the local storage
+			if (localStorage.getItem(id) === "true") {
+				element.checked = true;
+			}
+
+
+		}
+		showPrice();
+	</script>
 
 </body>
 

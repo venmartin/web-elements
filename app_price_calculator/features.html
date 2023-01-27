@@ -12,15 +12,17 @@
 <body>
     <div class="mainContainer">
         <div class="headerContainer">
-			<img src="./images/back.svg" class="back" alt="back" />
-			<div class="totalContainer">
-				<span class="totalTitle">Total</span>
-				<span class="total">$3000</span>
-			</div>
-		</div>
+            <a href="payment.html">
+                <img src="./images/back.svg" class="back" alt="back" />
+            </a>
+            <div class="totalContainer">
+                <span class="totalTitle">Estimate</span>
+                <span id="total" class="total"></span>
+            </div>
+        </div>
         <div class="container">
             <div class="middleContainer">
-            <span class="title">Any realtime features?</span>
+                <span class="title">Any realtime features?</span>
                 <div class="paymentInputContainer">
                     <input id="Instant" class="checkbox" type="checkbox">
                     <label for="Instant" class="label">Instant messaging</label>
@@ -32,13 +34,40 @@
                 </div>
             </div>
             <div class="buttonContainer">
-				<span class="pageNumber">4/6</span>
+                <span class="pageNumber">4/6</span>
                 <button class="button">
-                    <a href="./map.html">Next</a>
+                    <a href="map.html">Next</a>
                 </button>
             </div>
         </div>
     </div>
+
+    <script src="price.js"></script>
+    <script>
+        const ids = Object.keys(featurePrices);
+        for (let i = 0; i < ids.length; i++) {
+            const id = ids[i];
+            const element = document.getElementById(ids[i]);
+            element.addEventListener("input", () => {
+                if (element.checked) {
+                    localStorage.setItem(id, element.checked);
+                    showPrice();
+
+                } else {
+                    localStorage.setItem(id, element.checked);
+                    showPrice();
+
+                }
+            });
+
+
+            // when the page is loaded, check if the item is in the local storage
+            if (localStorage.getItem(id) === "true") {
+                element.checked = true;
+            }
+        }
+        showPrice();
+    </script>
 </body>
 
 </html>
