@@ -87,8 +87,3 @@ border: 5px solid blue;
     outline: none;
     border: none;
 }
-
-.button > a{
-    color: white;
-    text-decoration: none;
-}

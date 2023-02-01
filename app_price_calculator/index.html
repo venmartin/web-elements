@@ -71,6 +71,8 @@
 	<script src="./price.js"></script>
 	<script>
 		const ids = Object.keys(platformPrices);
+		const button = document.getElementById("button");
+		button.disabled = true;
 		for (let i = 0; i < ids.length; i++) {
 			const id = ids[i];
 			const element = document.getElementById(id);
@@ -82,16 +84,15 @@
 			element.addEventListener("click", () => {
 				element.classList.toggle("active");
 				localStorage.setItem(id, element.classList.contains("active"));
-				let disabled = true;
+				button.disabled = true;
 				for (let j = 0; j < ids.length; j++) {
 					const id = ids[j];
 					const element = document.getElementById(id);
 					if (element.classList.contains("active")) {
-						disabled = false;
+						button.disabled = false;
 						break;
 					}
 				}
-				document.getElementById("button").disabled = disabled;
 			});
 		}
 
