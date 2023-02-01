@@ -5,7 +5,6 @@ const platformPrices = {
     "windows": 5000,
     "ios": 10000,
     "apple": 10000,
-    "linux": 5000,
 };
 
 const sourcePrices = {
