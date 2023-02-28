@@ -9,4 +9,4 @@
 set -e
 set -u
 
-rsync -aP --del ./ scaleupconsulting.com.au:www/web-elements.scaleupconsulting.com.au/public_html/
+rsync -aP --exclude=.* --delete-excluded --del ./ scaleupconsulting.com.au:www/web-elements.scaleupconsulting.com.au/public_html/
