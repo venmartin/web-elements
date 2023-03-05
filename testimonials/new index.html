@@ -1,3 +1,5 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- copy below this for HTML element -->
 <style>
     .testimonial-area {
       background: #dedef2;
@@ -39,8 +41,11 @@
     }
 
     .testimonial-image img {
-        width: 400px;
-        height: 400px;
+        float: left;
+        /* css variable */
+        --size: 215.5px;
+        width: var(--size);
+        height: var(--size);
         margin-right: 30px;
     }
 
@@ -72,7 +77,8 @@
     }
 
     .testimonial-text-content {
-        max-width: 700px;
+        /* so the text is about 80 characters wide */
+        max-width: 938px;
         min-height: 250px;
         background-color: rgba(78, 78, 242, 0.2);
         margin-top: 30px;
@@ -111,7 +117,7 @@
         border: none;
     }
 
-        
+
     @media (max-width: 300px)
     {
         .testimonial-area {
@@ -157,7 +163,7 @@
         width: 40px;
         height: 40px;
         margin-right: 10px;
-        }
+      }
 
     .testimonial-text {
         display: flex;
@@ -238,15 +244,37 @@
     <button class="slide-prev"><span class="arrow">&lt;</span></button>
     <div class="testimonial-items">
       <div class="testimonial-item">
-        <div class="testimonial-image">
-          <img src="/wp-content/uploads/2023/03/Josh-New.png" alt="Josh-New">
+        <div class="testimonial-text">
+          <div class="testimonial-text-author">
+            <h4>Trevis Waters</h4>
+            <p> COO, DFS Karma, Cleveland USA</p>
+            <p> Founder and COO, Bet Karma, Cleveland USA </p>
+            <p> Founder and CEO, Check My Vault, Orlando USA </p>
+          </div>
+          <div class="testimonial-text-content">
+            <div class="testimonial-image">
+              <img src="/wp-content/uploads/2023/03/Trevis-Image-for-Testimonial.png" alt="Trevis-1">
+            </div>
+            <p>We're excited to have added some of the best developers in the world to our DFS Karma and Bet Karma teams.
+              After searching for two years,<span class="font-bold">I finally came across someone who made my life easier</span>.
+              and helped us develop the necessary tools for Bet Karma.</p>
+
+            <p>Thanks to their expertise, we're now better equipped to build and grow our platforms, and we're confident
+              in our ability to provide the best user experience for our customers. We're grateful for the contributions
+              of our new team members and excited for the future of DFS Karma and Bet Karma.</p>
+          </div>
         </div>
+      </div>
+      <div class="testimonial-item">
         <div class="testimonial-text">
           <div class="testimonial-text-author">
             <h4>Josh Al Din</h4>
             <p>Founder & CTO, GoSupply, Sydney Australia</p>
           </div>
           <div class="testimonial-text-content">
+            <div class="testimonial-image">
+              <img src="/wp-content/uploads/2023/03/Josh-New.png" alt="Josh-New">
+            </div>
             <p>I have worked with numerous developers throughout my businesses, but the team at <span class="font-bold">Scaleup
                         Consulting stands out as the most knowledgeable and gets things done as well as explains the
                         technology</span>. I cannot speak highly enough of their services and professionalism, and they
@@ -262,15 +290,15 @@
         </div>
       </div>
       <div class="testimonial-item">
-        <div class="testimonial-image">
-          <img src="/wp-content/uploads/2023/03/Austin-New.png" alt="Austin-New">
-        </div>  
         <div class="testimonial-text">
           <div class="testimonial-text-author">
             <h4>Austin R.</h4>
             <p>Founder and CEO, Renewable Energy Company, Denver USA</p>
           </div>
           <div class="testimonial-text-content">
+            <div class="testimonial-image">
+              <img src="/wp-content/uploads/2023/03/Austin-New.png" alt="Austin-New">
+            </div>
             <p>Jayen and his team are top-notch developers who consistently go above and beyond their responsibilities. 
               Jayen's exceptional ability to develop robust code and provide support at the level of a CTO make him an 
               invaluable resource for small businesses facing highly technical challenges. He is a rare talent who 
@@ -282,28 +310,6 @@
                to develop an impressive MVP quickly, demonstrating their technical expertise and commitment to 
                delivering results. In summary, for small businesses looking for a dependable and skilled team to 
                overcome technical challenges, Jayen's team is the ideal partner..</p>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-item">
-        <div class="testimonial-image">
-          <img src="/wp-content/uploads/2023/03/Trevis-Image-for-Testimonial.png" alt="Trevis-1">
-        </div>
-        <div class="testimonial-text">
-          <div class="testimonial-text-author">
-            <h4>Trevis Waters</h4>
-            <p> COO, DFS Karma, Cleveland USA</p>
-            <p> Founder and COO, Bet Karma, Cleveland USA </p>
-            <p> Founder and CEO, Check My Vault, Orlando USA </p>
-          </div>
-          <div class="testimonial-text-content">
-            <p>We're excited to have added some of the best developers in the world to our DFS Karma and Bet Karma teams. 
-              After searching for two years,<span class="font-bold">I finally came across someone who made my life easier</span>. 
-              and helped us develop the necessary tools for Bet Karma.</p>
-
-            <p>Thanks to their expertise, we're now better equipped to build and grow our platforms, and we're confident 
-              in our ability to provide the best user experience for our customers. We're grateful for the contributions 
-              of our new team members and excited for the future of DFS Karma and Bet Karma.</p>
           </div>
         </div>
       </div>
