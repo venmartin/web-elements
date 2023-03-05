@@ -1,5 +1,8 @@
 <style>
     .testimonial-area {
+      background: #dedef2;
+      border-radius: 16px;
+      padding-bottom: 32px;
     }
 
     .testimonial-heading {
@@ -7,9 +10,10 @@
         background-color: #4e4ef2;
         color: white;
         text-align: center;
-        padding: 10px;
-        font-size: 80px;
-        font-family: 'Source Sans Pro', sans-serif;
+        padding: 35px;
+        font-size: 50px;
+        font-family: 'Poppins', sans-serif;
+        border-radius: 16px 16px 0 0;
     }
 
     .testimonial-slider {
@@ -106,6 +110,126 @@
         background-color: #C6C6F7;
         border: none;
     }
+
+        
+    @media (max-width: 300px)
+    {
+        .testimonial-area {
+            height: fit-content;
+            background: #dedef2;
+            border-radius: 16px;
+            padding-bottom: 32px;
+        }
+            
+       
+        .testimonial-heading
+        {
+            height: 8px;
+            background-color: #4e4ef2;
+            font-size: 15px;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .testimonial-slider {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .testimonial-items {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: hidden;
+    }
+
+    .testimonial-item {
+        flex: 0 0 100%;
+        display: flex;
+        justify-content: center;
+        align-items: end;
+    }
+
+    .testimonial-image {
+    }
+
+    .testimonial-image img {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+        }
+
+    .testimonial-text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .testimonial-text-author {
+        max-width: 300px;
+        background-color: rgba(78, 78, 242, 0.2);
+        text-align: center;
+        padding: 5px;
+        font-size: 5px;
+        font-family: 'Source Sans Pro', sans-serif;
+        margin-top: 5px;
+        border-radius: 10px;
+    }
+
+    .testimonial-text-author h3 {
+        font-size: 10px;
+        font-weight: 600;
+        margin-bottom: 5px;
+    }
+
+    .testimonial-text-author p {
+    }
+
+    .testimonial-text-content {
+        max-width: 300px;
+        max-height: fit-content;
+        background-color: rgba(78, 78, 242, 0.2);
+        margin-top: 15px;
+        text-align: justify;
+        padding: 10px;
+        font-size: 10px;
+        border-radius: 8px;
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+
+    .font-bold {
+        font-weight: bold;
+    }
+
+    .testimonial-text-content p {
+    }
+
+    .slide-prev, .slide-next {
+        background-color: #4e4ef2;
+        border: none;
+        padding: 5px;
+        line-height: 100%;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 10px;
+        color: #fff;
+        border-radius: 4px;
+        display: flex;
+        outline: none;
+        margin: 10px;
+    }
+
+    .slide-prev:hover, .slide-next:hover {
+        background-color: #C6C6F7;
+        border: none;
+    }
+        
+    }
+
+
+    
 </style>
 
 <div class="testimonial-area">
@@ -115,7 +239,7 @@
     <div class="testimonial-items">
       <div class="testimonial-item">
         <div class="testimonial-image">
-          <img src="asset/josh.png" alt="">
+          <img src="/wp-content/uploads/2023/03/Josh-New.png" alt="Josh-New">
         </div>
         <div class="testimonial-text">
           <div class="testimonial-text-author">
@@ -139,7 +263,7 @@
       </div>
       <div class="testimonial-item">
         <div class="testimonial-image">
-          <img src="asset/josh.png" alt="">
+          <img src="/wp-content/uploads/2023/03/Austin-New.png" alt="Austin-New">
         </div>  
         <div class="testimonial-text">
           <div class="testimonial-text-author">
@@ -163,7 +287,7 @@
       </div>
       <div class="testimonial-item">
         <div class="testimonial-image">
-          <img src="asset/josh.png" alt="">
+          <img src="/wp-content/uploads/2023/03/Trevis-Image-for-Testimonial.png" alt="Trevis-1">
         </div>
         <div class="testimonial-text">
           <div class="testimonial-text-author">
