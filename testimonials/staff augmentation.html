@@ -52,6 +52,7 @@ grid-template-columns: auto auto auto; */
   /* padding-bottom: 10px;  */
   padding: 0px;
   justify-content: space-between;
+  font-family: 'Source Sans Pro', sans-serif;
   }
 
 /* .box1 {
@@ -69,7 +70,7 @@ grid-template-columns: auto auto auto; */
 
 
   .box1 {
-  width: 450px;
+  width: 300px;
   /* min-height: 300px;
   max-height: fit-content;
   background-color: red; */
@@ -85,7 +86,7 @@ grid-template-columns: auto auto auto; */
   }
 
 .box2 {
-  width: 1300px;
+  width: 1100px;
   /* max-height: fit-content; */
   /* background-color: green; */
   padding-left: 20px;
@@ -95,7 +96,7 @@ grid-template-columns: auto auto auto; */
   }
 
 .box3 {
-  width: 450px;
+  width: 300px;
   /* min-height: 300px; */
   /* max-height: fit-content; */
   /* background-color: yellow; */
@@ -119,8 +120,8 @@ grid-template-columns: auto auto auto; */
     }
 
 .staff-images{
-  width: 150px;
-  height: 150px;
+  width: 200px;
+  height: 200px;
   border-radius: 100%;
   align-self: center;
   padding-bottom: 20px;
@@ -130,8 +131,7 @@ grid-template-columns: auto auto auto; */
 
 .flag-icon {
   display: inline-block;
-  width: 24px;
-  height: 16px;
+  width: 10px;
   background-size: cover;
 }
 
@@ -140,10 +140,10 @@ grid-template-columns: auto auto auto; */
 } */
 
 .availability{
-    font-size: 25px;
+    font-size: 20px;
     font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 300;
-    margin-bottom: 20px;
+    font-weight: 500;
+    margin-bottom: 15px;
     }
 
 .button{
@@ -174,10 +174,11 @@ grid-template-columns: auto auto auto; */
 
 
 .job-title {
-  font-size: 40px;
-  font-weight: 500;
+  font-size: 30px;
+  font-weight: 600;
   margin-bottom: 10px;
   font-family: 'Source Sans Pro', sans-serif;
+  color: rgb(134, 132, 132);
 
 }
 
@@ -186,14 +187,14 @@ grid-template-columns: auto auto auto; */
     padding-left: 20px;
     padding-right: 20px;
     font-size: 25px;
-    line-height: 1.4;
+    line-height: 1.5;
     color: #000;
     font-family: 'Source Sans Pro', sans-serif;
      
 }
 
 .past-project{
-  font-size: 40px;
+  font-size: 25px;
   font-weight: 500;
   margin-bottom: 10px;
   font-family: 'Source Sans Pro', sans-serif;
@@ -208,15 +209,18 @@ grid-template-columns: auto auto auto; */
 }
 
 .project-box{
-  width: calc(22% - 25px);
-  margin-bottom:10px;
+  /* width: calc(22% - 25px);   */
+  width: fit-content;
+  height: fit-content;
+  margin-bottom:20px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
-  background-color: white;
+  background-color: rgb(184, 233, 93);
   font-family: 'Source Sans Pro', sans-serif;
-  height: 50px;
+  /* height: 50px; */
   box-shadow: 2px 2px 2px 2px rgb(134, 133, 138);
+  margin-right: 20px;
 }
 
 .project-box h3{
@@ -234,7 +238,11 @@ grid-template-columns: auto auto auto; */
   text-align: center;
 }
 
-    
+.project-logo{
+  height: 30px;
+  width: 100%;
+  align-self: center;
+  }
 
 .qualification-boxes {
   display: flex;
@@ -243,7 +251,7 @@ grid-template-columns: auto auto auto; */
   }
 
 .qualification-box {
-  width: calc(22% - 10px);
+  /* width: calc(22% - 10px); */
   /* margin-bottom:10px; */
   /* padding: 5px; */
   border: 1px solid #ccc;
@@ -258,12 +266,14 @@ grid-template-columns: auto auto auto; */
 }
 
 .qualification-box p {
-  font-size: 25px;
+  font-size: 20px;
   line-height: 0.5;
   color: #4e4ef2;
   font-family: 'Source Sans Pro', sans-serif;
-  font-weight: bold;
+  font-weight: 500;
   text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .profile-icons {
@@ -285,28 +295,28 @@ grid-template-columns: auto auto auto; */
 }
 
 .rate{
-  font-size: 40px;
+  font-size: 35px;
   padding-right: 10px;
   padding-top: 20px;
   font-family: 'Source Sans Pro', sans-serif;
 }
 
 .job-success{
-  font-size: 30px;
+  font-size: 25px;
   padding-right: 10px;
   padding-top: 20px;
   font-family: 'Source Sans Pro', sans-serif;
 }
 
 .rated{
-  font-size: 30px;
+  font-size: 25px;
   padding-right: 10px;
   padding-top: 20px;
   font-family: 'Source Sans Pro', sans-serif;
 }
 
 .experience{
-  font-size: 30px;
+  font-size: 25px;
   padding-right: 10px;
   padding-top: 20px;
   font-family: 'Source Sans Pro', sans-serif;
@@ -330,8 +340,8 @@ grid-template-columns: auto auto auto; */
 
 
 .profile-icon {
-    width: 70px;
-    height: 70px;
+    width: 40px;
+    height: 40px;
     /* border-radius: 10%; */
     margin: 10px;
     box-shadow: 0 0 5px gray;
@@ -339,11 +349,11 @@ grid-template-columns: auto auto auto; */
     }
 
     .flag {
-    width: 70px;
-    height: 40px;
+    width: 35px;
+    /* height: 40px; */
     border-radius: 10%;
     margin: auto;
-    box-shadow: 0 0 5px gray;
+    box-shadow: 0 0 5px blueviolet;
     }
   
   .profile-icon:hover {
@@ -354,37 +364,33 @@ grid-template-columns: auto auto auto; */
   .innerbox1{
     align-content: center;
     vertical-align: middle;
-    font-size: 40px;
-    font-weight: 300;
+    font-size: 30px;
+    font-weight: 600;
     font-family: 'Source Sans Pro', sans-serif;
 
   }
 
 
-.project-logo{
-  height: 50px;
-  width: 100%;
-  align-self: center;
-  }
+
 </style>
 
 
 
 <div class="main-box">
     <div class="box1">
-      <div class="innerbox1"> Arun Thakur <img class="flag" src="austin - Deman IQ.jpg" alt="india" > </div>
+      <div class="innerbox1"> Arun Thakur <img class="flag" src="indian flag.jpg" alt="india" > </div>
       
-      <img class="staff-images" src="Austin - Deman IQ.jpg" alt="Josh-New">
+      <img class="staff-images" src="Arun.png" alt="Arun">
       <br>
-      <div class="availability"> Full Time </div>
+      <div class="availability"> Available Full-Time </div>
       <button class="contact-btn">Contact Arun </button>
     </div>
     
         <div class="box2"> 
 
             <div class="job-profile">
-                <div class="job-title"> Job Title </div>
-                <p class="job-details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae fuga est iure nam. Facere ratione ipsa iste animi porro, in laudantium ipsam tenetur et dolores delectus hic pariatur cupiditat?</p>
+                <div class="job-title"> Frontend Developer, Mobile/Web App Design, Websites </div>
+                <p class="job-details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores vel rerum nesciunt culpa repudiandae sit laudantium. Eveniet delectus numquam fugit sed neque velit cupiditate, nesciunt inventore possimus voluptates facilis ab reiciendis quisquam.   </p>
             
             </div>
             <div class="past-project"> Past Projects</div>
@@ -393,19 +399,19 @@ grid-template-columns: auto auto auto; */
                 <div class="project-box">
                   <!-- <h3>project 1</h3> -->
                   <!-- <p>Description of project 1</p> -->
-                  <img class="project-logo"  src="Austin - Deman IQ.jpg" alt="Josh-New">
+                  <img class="project-logo"  src="finderful.svg" alt="Josh-New">
                   </div>
                 
                 <div class="project-box">
                   <!-- <h3>project 2</h3>
                   <p>Description of project 2</p> -->
-                  <img class="project-logo"  src="Austin - Deman IQ.jpg" alt="Josh-New">
+                  <img class="project-logo"  src="ifloorplan.svg" alt="Josh-New">
                 </div>
                 
                 <div class="project-box">
                   <!-- <h3>project 3</h3>
                   <p>Description of project 3</p> -->
-                  <img class="project-logo"  src="Austin - Deman IQ.jpg" alt="Josh-New">
+                  <img class="project-logo"  src="flatmate.png" alt="Josh-New">
                 </div>
                 
                 <div class="project-box">
@@ -420,19 +426,19 @@ grid-template-columns: auto auto auto; */
             <div class="qualification-boxes">
                 <div class="qualification-box">
                   <!-- <h3>Qualification 1</h3> -->
-                  <p>Qualification 1</p>
+                  <p>Usability Testing</p>
                 </div>
                 <div class="qualification-box"> 
                   <!-- <h3>Qualification 2</h3> -->
-                  <p>Qualification 2</p>
+                  <p>UX & UI</p>
                 </div>
                 <div class="qualification-box">
                   <!-- <h3>Qualification 3</h3> -->
-                  <p>Qualification 3</p>
+                  <p>Interaction Design</p>
                 </div>
                 <div class="qualification-box">
                   <!-- <h3>Qualification 4</h3> -->
-                  <p>Qualification 4</p>
+                  <p>Mobile App Design</p>
                 </div>
               </div>
 
@@ -448,9 +454,9 @@ grid-template-columns: auto auto auto; */
                       <div class="experience"> +3 Years of Experience </div>
                           <!-- <div class="profile-icons"> -->
 
-                            <img class="profile-icon" src="austin - Deman IQ.jpg" alt="UP">
-                            <img class="profile-icon" src="austin - Deman IQ.jpg" alt="linkedin">
-                            <img class="profile-icon" src="austin - Deman IQ.jpg" alt="Codementor">
+                            <img class="profile-icon" src="toptal.png" alt="UP">
+                            <img class="profile-icon" src="upwork.webp" alt="linkedin">
+                            <img class="profile-icon" src="linkedin.png" alt="Codementor">
                               
                             <!-- <a href="https://www.linkedin.com/in/johndoe">
                                 <i class="fab fa-linkedin"></i>
