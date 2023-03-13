@@ -1,4 +1,12 @@
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+</style>
+
+<div style="width: 1512px; position: relative; margin: auto;">
+
+<!--copy below this to wordpress-->
+
+<style>
 
 /* .container {
   display: flex;
@@ -12,7 +20,6 @@
 } */
 
 .main-box {
-  display: flex;
   align-items: stretch;
   width: 100%;
   height: fit-content; 
@@ -25,7 +32,7 @@
   flex: 1;
   /* border: 1px solid black;   */
   align-content: stretch;
-  grid-template-columns: auto auto auto;
+  grid-template-columns: 24% 56% 20%;
   box-shadow: 2px 2px 2px 2px rgb(134, 133, 138);
 }
   
@@ -70,7 +77,7 @@ grid-template-columns: auto auto auto; */
 
 
   .box1 {
-  width: 300px;
+  /*width: 300px;*/
   /* min-height: 300px;
   max-height: fit-content;
   background-color: red; */
@@ -86,7 +93,7 @@ grid-template-columns: auto auto auto; */
   }
 
 .box2 {
-  width: 1100px;
+  /*width: 1100px;*/
   /* max-height: fit-content; */
   /* background-color: green; */
   padding-left: 20px;
@@ -96,7 +103,7 @@ grid-template-columns: auto auto auto; */
   }
 
 .box3 {
-  width: 300px;
+  /*width: 300px;*/
   /* min-height: 300px; */
   /* max-height: fit-content; */
   /* background-color: yellow; */
@@ -154,7 +161,7 @@ grid-template-columns: auto auto auto; */
 }
 
 .contact-btn {
-  width: 200px;
+  /*width: 200px;*/
   height: 60px;
   background-color: #4e4ef2;
   border: none;
@@ -184,8 +191,8 @@ grid-template-columns: auto auto auto; */
 
 .job-details {
     box-sizing: content-box;
-    padding-left: 20px;
-    padding-right: 20px;
+    /*padding-left: 20px;*/
+    /*padding-right: 20px;*/
     font-size: 25px;
     line-height: 1.5;
     color: #000;
@@ -204,7 +211,7 @@ grid-template-columns: auto auto auto; */
 .project-boxes{
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /*justify-content: space-between;*/
   padding-bottom: 10px;
 }
 
@@ -247,7 +254,7 @@ grid-template-columns: auto auto auto; */
 .qualification-boxes {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  /*justify-content: space-between;*/
   }
 
 .qualification-box {
@@ -257,6 +264,7 @@ grid-template-columns: auto auto auto; */
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #D7D7F7 ;
+    margin-right: 20px;
 }
 
 .qualification-box h3 {
@@ -315,6 +323,10 @@ grid-template-columns: auto auto auto; */
   font-family: 'Source Sans Pro', sans-serif;
 }
 
+.rated svg {
+    height: 1em;
+}
+
 .experience{
   font-size: 25px;
   padding-right: 10px;
@@ -324,6 +336,35 @@ grid-template-columns: auto auto auto; */
 
 .experience:hover{
   color: red;
+}
+
+.years {
+    background: lightblue;
+    border-radius: 1em;
+    width: 2em;
+    display: inline-block;
+    height: 2em;
+    text-align: center;
+    position: relative;
+}
+
+.years::before {
+    content: " ";
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    top: 10%;
+    border-radius: 1em;
+    background: white;
+}
+
+.years::after {
+    content: attr(data-years);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .rated:hover{
@@ -353,7 +394,7 @@ grid-template-columns: auto auto auto; */
     /* height: 40px; */
     border-radius: 10%;
     margin: auto;
-    box-shadow: 0 0 5px blueviolet;
+    /*box-shadow: 0 0 5px blueviolet;*/
     }
   
   .profile-icon:hover {
@@ -378,7 +419,7 @@ grid-template-columns: auto auto auto; */
 
 <div class="main-box">
     <div class="box1">
-      <div class="innerbox1"> Arun Thakur <img class="flag" src="indian flag.jpg" alt="india" > </div>
+      <div class="innerbox1"> Arun Thakur <img class="flag" src="wp-content/in.png" alt="india" > </div>
       
       <img class="staff-images" src="Arun.png" alt="Arun">
       <br>
@@ -450,8 +491,8 @@ grid-template-columns: auto auto auto; */
           
           <div class="rate"> Rate/Hour (AUD)</div>
               <div class="job-success">   80% Job Success </div>
-                  <div class="rated">   Top Rated Plus </div>
-                      <div class="experience"> +3 Years of Experience </div>
+                  <div class="rated"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-name="Layer 1" viewBox="0 0 14 14" role="img"><polygon fill="#f86d9c" points="6.98 0 0 0 0 9.21 6.98 14 13.95 9.21 13.95 0 6.98 0"></polygon><polygon fill="#fba0bd" points="0 0 14 9.21 14 0 0 0"></polygon><polygon fill="#f1367a" points="0.05 9.21 7.02 14 14 9.21 14 0 0.05 9.21"></polygon></svg>   Top Rated Plus </div>
+          <div class="experience"> <span class="years" data-years="3+">3+</span> Years of Experience </div>
                           <!-- <div class="profile-icons"> -->
 
                             <img class="profile-icon" src="toptal.png" alt="UP">
@@ -464,7 +505,7 @@ grid-template-columns: auto auto auto; */
                               <a href="https://www.upwork.com/freelancers/johndoe">
                                 <i class="fab fa-upwork"></i>
                               </a> -->
-                          </div>
+<!--                          </div>-->
                             
                           
  
@@ -472,5 +513,9 @@ grid-template-columns: auto auto auto; */
 
         </div>
 
+
+</div>
+
+<!-- copy above this to wordpress -->
 
 </div>
