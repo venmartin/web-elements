@@ -87,3 +87,7 @@ border: 5px solid blue;
     outline: none;
     border: none;
 }
+
+.button:disabled{
+opacity: 0.5;    
+}
