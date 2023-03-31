@@ -41,26 +41,23 @@
     }
 
     .testimonial-image img {
-        float: right;
         /* css variable */
         --size: 215.5px;
         width: var(--size);
         height: var(--size);
         margin-right: 30px;
         margin-right: auto;
-        transform: scalex(-1)
-        
     }
 
     .testimonial-text {
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: stretch;
         flex-direction: column;
     }
 
     .testimonial-text-author {
-        min-width: 750px;
+        max-width: 938px;
         background-color: rgba(78, 78, 242, 0.2);
         text-align: left;
         padding: 15px;
@@ -69,6 +66,12 @@
         border-radius: 25px;
         margin-top: 10px;
         color:black;
+        display: flex;
+        justify-content: space-evenly;
+    }
+
+    .testimonial-text-author .testimonial-author-text {
+        text-align: center;
     }
 
     .testimonial-text-author h4 {
@@ -277,8 +280,10 @@
               <div class="testimonial-image">
               <img src="/wp-content/uploads/2023/03/Josh-New.png" alt="Josh-New">
             </div>
-            <h4>Josh Al Din</h4>
-            <p>Founder & CTO, GoSupply, Sydney Australia</p>
+            <div class="testimonial-author-text">
+              <h4>Josh Al Din</h4>
+              <p>Founder & CTO, GoSupply, Sydney Australia</p>
+            </div>
           </a>
           <a href="https://www.gosupply.com.au/" target="_blank" class="testimonial-text-content">
             <!--<div class="testimonial-image">-->
@@ -304,8 +309,10 @@
               <div class="testimonial-image">
               <img src="/wp-content/uploads/2023/03/Austin-New.png" alt="Austin-New">
             </div>
-             <h4>Austin R.</h4>
-         <p>Founder and CEO, Renewable Energy Company, Denver USA</p>
+            <div class="testimonial-author-text">
+              <h4>Austin R.</h4>
+              <p>Founder and CEO, Renewable Energy Company, Denver USA</p>
+            </div>
           </a>
           <a href="https://www.scaleupconsulting.com.au/case-study/renewable-energy/" target="_blank" class="testimonial-text-content">
             <!--<div class="testimonial-image">-->
@@ -314,7 +321,7 @@
             <p>Jayen and his team are top-notch developers who consistently go above and beyond their responsibilities. 
               Jayen's exceptional ability to develop robust code and provide support at the level of a CTO make him an 
               invaluable resource for small businesses facing highly technical challenges. He is a rare talent who 
-              <span class="font-bold">not only gets the job done but also anticipates and covers any potential blindsides,</span> 
+              <span class="font-bold">not only gets the job done but also anticipates and covers any potential blindsides, </span> 
               ensuring that his clients have a seamless experience.</p>
 
             <p>Despite being halfway across the world, Jayen's team was easily accessible and maintained excellent
@@ -328,23 +335,25 @@
       <div class="testimonial-item">
         <div class="testimonial-text">
           <a href="https://www.linkedin.com/in/treviswaters/" target="_blank" class="testimonial-text-author">
-              <div class="testimonial-image">
+            <div class="testimonial-image">
               <img src="/wp-content/uploads/2023/03/Trevis-Image-for-Testimonial.png" alt="Trevis-1">
             </div>
-            <h4>Trevis Waters</h4>
-            <!--<p> COO, DFS Karma, Cleveland USA</p>-->
-            <!--<p> Founder and COO, Bet Karma, Cleveland USA </p>-->
-            <!--<p> Founder and CEO, Check My Vault, Orlando USA </p>-->
-            <p>COO, DFS Karma, Cleveland USA<br>
-            Founder and COO, Bet Karma, Cleveland USA <br>
-            Founder and CEO, Check My Vault, Orlando USA </p>
+            <div class="testimonial-author-text">
+              <h4>Trevis Waters</h4>
+              <!--<p> COO, DFS Karma, Cleveland USA</p>-->
+              <!--<p> Founder and COO, Bet Karma, Cleveland USA </p>-->
+              <!--<p> Founder and CEO, Check My Vault, Orlando USA </p>-->
+              <p>COO, DFS Karma, Cleveland USA<br>
+              Founder and COO, Bet Karma, Cleveland USA <br>
+              Founder and CEO, Check My Vault, Orlando USA </p>
+            </div>
           </a>
           <a href="https://betkarma.com/" target="_blank" class="testimonial-text-content">
             <!--<div class="testimonial-image">-->
             <!--  <img src="/wp-content/uploads/2023/03/Trevis-Image-for-Testimonial.png" alt="Trevis-1">-->
             <!--</div>-->
             <p>We're excited to have added some of the best developers in the world to our DFS Karma and Bet Karma teams.
-              After searching for two years,<span class="font-bold">I finally came across someone who made my life easier</span>.
+              After searching for two years, <span class="font-bold">I finally came across someone who made my life easier</span>
               and helped us develop the necessary tools for Bet Karma.</p>
 
             <p>Thanks to their expertise, we're now better equipped to build and grow our platforms, and we're confident
