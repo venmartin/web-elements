@@ -85,7 +85,6 @@
 			}
 		};
 
-		setButtonDisabled();
 		for (let i = 0; i < ids.length; i++) {
 			const id = ids[i];
 			const element = document.getElementById(id);
@@ -100,6 +99,7 @@
 				setButtonDisabled();
 			});
 		}
+		setButtonDisabled();
 
 		button.addEventListener("click", () => {
 			window.location.href = "source.html";
