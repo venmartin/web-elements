@@ -13,22 +13,22 @@
     console.log(header);
     const container = document.querySelector('.staff-profiles');
     data.forEach(profile => {
-      const [name, country, headline] = profile;
+      const [name, country, headline, review, past, skills, rate, availability, email, experience, professional ] = profile;
       container.insertAdjacentHTML('beforeend', `<div class="main-box">
     <div class="box1">
       <div class="innerbox1"> ${name} <img class="flag" src="${country}.jpg" alt="${country}" > </div>
       
       <img class="staff-images" src="Arun.png" alt="Arun">
       <br>
-      <div class="availability"> Availability Full Time </div>
-      <button class="contact-btn"> Contact Arun </button>
+      <div class="availability"> Availability: ${availability} </div>
+      <button class="contact-btn"> Contact ${name} </button>
     </div>
 
         <div class="box2">
 
             <div class="job-profile">
-                <div class="job-title"> Frontend Developer, Mobile/Web App Design, Websites </div>
-                <p class="job-details"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores vel rerum nesciunt culpa repudiandae sit laudantium. Eveniet delectus numquam fugit sed neque velit cupiditate, nesciunt inventore possimus voluptates facilis ab reiciendis quisquam.  </p>
+                <div class="job-title"> ${headline} </div>
+                <p class="job-details"> ${review}  </p>
 
             </div>
             <div class="past-project"> Past Projects </div>
@@ -86,7 +86,7 @@
         
         <div class="box3">     
           
-          <div class="rate"> $ 40/Hr </div>
+          <div class="rate"> ${rate} </div>
               <div class="job-success">   80% job success </div>
                   <div class="rated"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-name="Layer 1" viewBox="0 0 14 14" role="img"><polygon fill="#f86d9c" points="6.98 0 0 0 0 9.21 6.98 14 13.95 9.21 13.95 0 6.98 0"></polygon><polygon fill="#fba0bd" points="0 0 14 9.21 14 0 0 0"></polygon><polygon fill="#f1367a" points="0.05 9.21 7.02 14 14 9.21 14 0 0.05 9.21"></polygon></svg>   Top rated plus </div>
           <div class="experience"> <span class="years" data-years="3+">3+</span> years experience </div>
