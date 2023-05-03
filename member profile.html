@@ -10,15 +10,17 @@
     const response = await fetch('https://sheets.googleapis.com/v4/spreadsheets/1ZXFv1ZY05WbKdX5E7_J4r3Yhk0w9dFJNHTLVuWu8oHs/values/Sheet1?alt=json&key=AIzaSyD5OJq0rAFWIe4eKp_DfyWVvbIFO_p7FRs');
     const json = await response.json();
     const [header, ...data] = json.values;
-    console.log(header);
+    // console.log(header);
     const container = document.querySelector('.staff-profiles');
     data.forEach(profile => {
-      const [name, country, headline, review, past, skills, rate, availability, email, experience, professional ] = profile;
+      const [name, country, headline, review, past, skills, rate, availability, email, experience, professional,
+      project1, project2, project3, project4, project5, profile1, profile2, profile3, profile4, profile5 ] = profile; 
+      const projectList = project1?.split('|');
       container.insertAdjacentHTML('beforeend', `<div class="main-box">
     <div class="box1">
       <div class="innerbox1"> ${name} <img class="flag" src="${country}.jpg" alt="${country}" > </div>
       
-      <img class="staff-images" src="Arun.png" alt="Arun">
+      <img class="staff-images" src="images/staff/${name?.replace(/\s/g, '')}.jpg" alt="${name}">
       <br>
       <div class="availability"> Availability: ${availability} </div>
       <button class="contact-btn"> Contact ${name} </button>
@@ -34,32 +36,14 @@
             <div class="past-project"> Past Projects </div>
 
             <div class="project-boxes">
-                <div class="project-box">
-                  <!-- <h3>project 1</h3> -->
-                  <!-- <p>Description of project 1</p> -->
-                  <img class="project-logo"  src="finderful.svg" alt="Josh-New">
-                  </div>
-
-                <div class="project-box">
-                  <!-- <h3>project 2</h3>
-                  <p>Description of project 2</p> -->
-                  <img class="project-logo"  src="ifloorplan.svg" alt="Josh-New">
-                </div>
-
-                <div class="project-box">
-                  <!-- <h3>project 3</h3>
-                  <p>Description of project 3</p> -->
-                  <img class="project-logo"  src="flatmate.png" alt="Josh-New">
-                </div>
-
-                <div class="project-box">
-                  <!-- <h3>project 4</h3>
-                  <p>Description of project 4</p> -->
-                  <img class="project-logo"  src="Austin - Deman IQ.jpg" alt="Josh-New">
-                </div>
-              </div>
-
-
+              ${projectList?.map(project => (
+                `<div class="project-box">
+                  <a id="anchor${project.split(',')[0]?.replace(/\s/g, '')}" href="${project.split(',')[1]}" target="_blank">
+                    <img id="img${project.split(',')[0]?.replace(/\s/g, '')}" class="project-logo" alt="Josh-New" />
+                  </a>
+                </div>`
+              )).join('')}
+            </div>
 
             <div class="qualification-boxes">
                 <div class="qualification-box">
@@ -86,10 +70,10 @@
         
         <div class="box3">     
           
-          <div class="rate"> ${rate} </div>
+          <div class="rate"> $ ${rate}/Hr </div>
               <div class="job-success">   80% job success </div>
                   <div class="rated"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-name="Layer 1" viewBox="0 0 14 14" role="img"><polygon fill="#f86d9c" points="6.98 0 0 0 0 9.21 6.98 14 13.95 9.21 13.95 0 6.98 0"></polygon><polygon fill="#fba0bd" points="0 0 14 9.21 14 0 0 0"></polygon><polygon fill="#f1367a" points="0.05 9.21 7.02 14 14 9.21 14 0 0.05 9.21"></polygon></svg>   Top rated plus </div>
-          <div class="experience"> <span class="years" data-years="3+">3+</span> years experience </div>
+          <div class="experience"> <span class="years" data-years="${experience}+"> ${experience}</span> years experience </div>
                           <!-- <div class="profile-icons"> -->
 
                             <img class="profile-icon" src="toptal.png" alt="UP">
@@ -533,6 +517,26 @@ grid-template-columns: auto auto auto; */
     color: #1e1c23;
   }
 
+  #imgifloorplan {
+    content:url("images/ifloorplan.svg");
+  }
+
+  #imgsmartcitiestransport {
+    content:url("images/smartcitiestransport.png");
+  }
+
+  #imgscaleupconsulting {
+    content:url("images/ScaleupConsulting_Logo_Primary_Black.png");
+  }
+
+  #imgGromart {
+    content:url("images/Gromart.png");
+  }
+
+  #imgFlatmate {
+    content:url("images/flatmate.png");
+  }
+
 
 
 </style>
@@ -612,7 +616,7 @@ grid-template-columns: auto auto auto; */
         
         <div class="box3">     
           
-          <div class="rate"> $40.00/hr</div>
+          <!-- <div class="rate"> $40.00/hr</div> -->
               <div class="job-success">   80% job success </div>
                   <div class="rated"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-name="Layer 1" viewBox="0 0 14 14" role="img"><polygon fill="#f86d9c" points="6.98 0 0 0 0 9.21 6.98 14 13.95 9.21 13.95 0 6.98 0"></polygon><polygon fill="#fba0bd" points="0 0 14 9.21 14 0 0 0"></polygon><polygon fill="#f1367a" points="0.05 9.21 7.02 14 14 9.21 14 0 0.05 9.21"></polygon></svg>   Top rated plus </div>
           <div class="experience"> <span class="years" data-years="3+">3+</span> years experience </div>
