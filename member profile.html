@@ -14,8 +14,10 @@
     const container = document.querySelector('.staff-profiles');
     data.forEach(profile => {
       const [name, country, headline, review, past, skills, rate, availability, email, experience, professional,
-      project1, project2, project3, project4, project5, profile1, profile2, profile3, profile4, profile5 ] = profile; 
+      project1, project2, project3, project4, project5, profile1, profile2, profile3, profile4, profile5 ] = profile;
       const projectList = project1?.split('|');
+      const profileList = profile1?.split('|');
+      const skillList = skills?.split(',');
       container.insertAdjacentHTML('beforeend', `<div class="main-box">
     <div class="box1">
       <div class="innerbox1"> ${name} <img class="flag" src="${country}.jpg" alt="${country}" > </div>
@@ -45,24 +47,16 @@
               )).join('')}
             </div>
 
+            <div class="past-project"> Skills </div>
+
             <div class="qualification-boxes">
-                <div class="qualification-box">
-                  <!-- <h3>Qualification 1</h3> -->
-                  <p>Usability Testing</p>
-                </div>
-                <div class="qualification-box">
-                  <!-- <h3>Qualification 2</h3> -->
-                  <p>UX & UI</p>
-                </div>
-                <div class="qualification-box">
-                  <!-- <h3>Qualification 3</h3> -->
-                  <p>Interaction Design</p>
-                </div>
-                <div class="qualification-box">
+              ${skillList?.map(skill => (
+                `<div class="qualification-box">
                   <!-- <h3>Qualification 4</h3> -->
-                  <p>Mobile App Design</p>
-                </div>
-              </div>
+                  <p>${skill}</p>
+                </div>`
+              )).join('')}
+            </div>
 
               
         </div>     
@@ -76,9 +70,15 @@
           <div class="experience"> <span class="years" data-years="${experience}+"> ${experience}</span> years experience </div>
                           <!-- <div class="profile-icons"> -->
 
-                            <img class="profile-icon" src="toptal.png" alt="UP">
+                            <!-- <img class="profile-icon" src="toptal.png" alt="UP">
                             <img class="profile-icon" src="upwork.webp" alt="linkedin">
-                            <img class="profile-icon" src="linkedin.png" alt="Codementor">
+                            <img class="profile-icon" src="linkedin.png" alt="Codementor">-->
+
+                            ${profileList?.map(profile => (
+                              `<a id="anchor${profile.split(',')[0]?.replace(/\s/g, '')}" href="${profile.split(',')[1]}" target="_blank" style="text-decoration:none;">
+                                  <img id="img${profile.split(',')[0]?.replace(/\s/g, '')}" class="profile-icon" alt="Josh-New" />
+                                </a>`
+                            )).join('')}
 
                             <!-- <a href="https://www.linkedin.com/in/johndoe">
                                 <i class="fab fa-linkedin"></i>
@@ -344,6 +344,7 @@ grid-template-columns: auto auto auto; */
   height: 30px;
   width: 100%;
   align-self: center;
+  object-fit: contain;
   }
 
 .qualification-boxes {
@@ -354,7 +355,7 @@ grid-template-columns: auto auto auto; */
 
 .qualification-box {
   /* width: calc(22% - 10px); */
-  /* margin-bottom:10px; */
+  margin-bottom:10px;
   /* padding: 5px; */
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -370,13 +371,14 @@ grid-template-columns: auto auto auto; */
 
 .qualification-box p {
   font-size: 20px;
-  line-height: 0.5;
+  line-height: 1;
   color: #4e4ef2;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 600;
   text-align: center;
   padding-left: 20px;
   padding-right: 20px;
+  display: block ruby;
 }
 
 .profile-icons {
@@ -492,6 +494,7 @@ grid-template-columns: auto auto auto; */
     margin: 10px;
     /* box-shadow: 0 0 5px gray; */
     margin-top: 50px;
+    object-fit: contain;
 
     }
 
@@ -537,8 +540,150 @@ grid-template-columns: auto auto auto; */
     content:url("images/flatmate.png");
   }
 
+  #imglinkedin {
+    content:url("images/profile/linkedin.png");
+  }
+
+  #imgupwork {
+    content:url("images/profile/upwork.webp");
+  }
+
+  #imgtoptal {
+    content:url("images/toptal.png");
+    }
+
+  #imglifebeyond {
+  content:url("images/lifebeyond.webp");
+      }
+
+  #imgadvinow {
+  content:url("images/advinow.webp");
+      }    
+
+  #imgesoccer {
+content:url("images/esoccer.png");
+}
+
+  #imgdomicileready {
+content:url("images/domicile.png");
+}
+
+ #imgbfinder {
+  content:url("images/bfinder.png")
+ }
+
+  #imgalertrak {
+    content:url("images/alertrak.webp")
+  }
+
+  #imgempwear {
+    content:url("images/empwear.png") 
+  }
 
 
+  #imgmentorplus {
+content:url("images/mentorplus.webp");
+}
+
+#imgvisitant {
+content:url("images/visitant.webp");
+}
+
+#imgoneamerica {
+content:url("images/oneamerica.webp");
+}
+
+#imgguestxms {
+content:url("images/guestxms.webp");
+}
+
+#imgbehance {
+  content:url("images/behance.png")
+}
+
+#imgmbm {
+  content:url("images/mbm.svg")
+}
+
+#imglightofhope {
+  content:url("images/lightofhope.webp")
+}
+
+#imggs11 {
+  content:url("images/gs11.png")
+}
+
+#imgmarkiptv {
+  content:url("/images/markiptv.png")
+}
+
+#imglititzcollision{
+  content:url("images/lititzcollision.webp")
+}
+
+#imghizmetlerimiz{
+  content: url("images/hizmetlerimiz.png"  );
+}
+
+#imgsimplythatch{
+  content: url("images/simplythatch.svg");
+}
+
+#imgrisingtide{
+  content:url("images/risingtide.png")
+}
+
+#imgjustcanapa{
+  content:url("images/justcanapa.png")
+}
+
+#imgsmileweremoving{
+  content:url("images/smileweremoving.png")
+}
+
+#imgfiverr{
+  content:url("images/fiverr.png")
+}
+
+#imgprestigeglobal {
+  content:url("images/prestigeglobal.png");
+      }
+
+#imgvrcity {
+  content:url("images/vrcity.png");
+      }
+
+#imgbabyhands {
+  content:url("images/babyhands.png");
+      }
+
+#imghydraulickits {
+  content:url("images/hydraulickits.png");
+      }
+
+      #imgreactdashboard {
+  content:url("images/reactdashboard.png");
+      }
+
+      #imgvesta {
+  content:url("images/vesta.svg");
+      }
+
+    #imgmakemyvity{
+      content:url("images/makemyvity.png")
+    }
+
+    #imgserviceactivator{
+      content:url("images/serviceactivator.png")
+    }
+
+    #imgtoptal {
+  content:url("images/profile/toptal.png");
+        }
+
+      #imgwaverley{
+        content:url("images/waverley.png")
+      }
 </style>
 <div class="staff-profiles"></div>
 
@@ -590,6 +735,7 @@ grid-template-columns: auto auto auto; */
               </div>
 
 
+            <div class="past-project"> Skills</div>
 
             <div class="qualification-boxes">
                 <div class="qualification-box">
