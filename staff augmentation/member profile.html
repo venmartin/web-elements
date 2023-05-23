@@ -28,7 +28,7 @@
         const listProject = projects.map(project => (`
         <div class="project-box">
           <a id="anchor${project[2]?.replace(/\s/g, '')}" href="${project[4]}" target="_blank">
-            <img id="img${project[3]?.replace(/\s/g, '')}" class="project-logo" alt="Josh-New" src="${project[3]}"/>
+            <img id="img${project[3]?.replace(/\s/g, '')}" class="project-logo" alt="Josh-New" src="${project[3].replace('open', 'uc') + "&export=view"}"/>
           </a>
         </div>
         `)).join('');
