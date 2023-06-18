@@ -68,7 +68,7 @@
 				const country = contries.find(country => country.name.toLowerCase() === profile.Country.toLowerCase());
 				const countryFlag = country ? `https://flagicons.lipis.dev/${country.flag_4x3}` : '';
 
-				container.insertAdjacentHTML('beforeend',
+				container.insertAdjacentHTML('afterbegin',
 					`<div class="main-box">
 						<div class="box1">
 							
@@ -102,13 +102,13 @@
 
 						<div class="box3">
 							<div class="job-success"> ${profile.JobSuccess} job success </div>
-							<div class="rate"> Rate: ${profile.Rate} </div>
+							<div class="rate"> Rate: $${profile.Rate}/hr </div>
 							<div class="rated"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-name="Layer 1" viewBox="0 0 14 14" role="img"><polygon fill="#f86d9c" points="6.98 0 0 0 0 9.21 6.98 14 13.95 9.21 13.95 0 6.98 0"></polygon><polygon fill="#fba0bd" points="0 0 14 9.21 14 0 0 0"></polygon><polygon fill="#f1367a" points="0.05 9.21 7.02 14 14 9.21 14 0 0.05 9.21"></polygon></svg>   Top rated plus </div>
 							<div class="experience"> <span class="years" data-years="${profile.Experience}+"> ${profile.Experience}</span> years experience </div>
 							<div class="professional-links">
 								${profile.Linkedin ? `<a href="${profile.Linkedin}" target="_blank"> <img class="profile-icon" src="images/profile/linkedin.png" alt="linkedin"> </a>` : ""}
 								${profile.Codementor ? `<a href="${profile.Codementor}" target="_blank"> <img class="profile-icon" src="images/profile/codementor.png" alt="codementor"> </a>` : ""}
-								${profile.Upwork ? `<a href="${profile.Upwork}" target="_blank"> <img class="profile-icon" src="images/profile/upwork.png" alt="upwork"> </a>` : ""}
+								${profile.Upwork ? `<a href="${profile.Upwork}" target="_blank"> <img class="profile-icon" src="images/profile/upwork.webp" alt="upwork"> </a>` : ""}
 								${profile.Toptal ? `<a href="${profile.Toptal}" target="_blank"> <img class="profile-icon" src="images/profile/toptal.png" alt="toptal"> </a>` : ""}
 							</div>
 						</div>
@@ -312,8 +312,7 @@
 		}
 
 		.project-box:hover {
-			transform: scale(1.2);
-			background-color: lightslategrey;
+			box-shadow: 1px 1px 1px 2px #0006;
 		}
 
 		.project-logo {
@@ -675,6 +674,99 @@
 		}
 	</style>
 
-	<div class="staff-profiles"></div>
+	<div class="staff-profiles">
 
+
+		<div class="main-box">
+			<div class="box1">
+				<div class="innerbox1"> Arun Thakur <img class="flag" src="images/country/india.jpg" alt="india"> </div>
+	
+				<img class="staff-images" src="images/staff/arunthakur.jpg" alt="Arun">
+				<br>
+				<div class="availability"> Available Full-Time </div>
+				<button class="contact-btn">Contact Arun </button>
+			</div>
+	
+			<div class="box2">
+	
+				<div class="job-profile">
+					<div class="job-title"> Frontend Developer, Mobile/Web App Design, Websites </div>
+					<p class="job-details">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores vel rerum
+						nesciunt culpa
+						repudiandae sit laudantium. Eveniet delectus numquam fugit sed neque velit cupiditate, nesciunt
+						inventore
+						possimus voluptates facilis ab reiciendis quisquam. </p>
+	
+				</div>
+				<div class="past-project"> Past Projects</div>
+	
+				<div class="project-boxes">
+					<div class="project-box">
+						<!-- <h3>project 1</h3> -->
+						<!-- <p>Description of project 1</p> -->
+						<img class="project-logo" src="images/projects/finderful.svg" alt="Josh-New">
+					</div>
+	
+					<div class="project-box">
+						<!-- <h3>project 2</h3>
+					  <p>Description of project 2</p> -->
+						<img class="project-logo" src="images/projects/ifloorplan.svg" alt="Josh-New">
+					</div>
+	
+					<div class="project-box">
+						<!-- <h3>project 3</h3>
+					  <p>Description of project 3</p> -->
+						<img class="project-logo" src="images/projects/vesta.svg" alt="Josh-New">
+					</div>
+	
+					<div class="project-box">
+						<!-- <h3>project 4</h3>
+					  <p>Description of project 4</p> -->
+						<img class="project-logo" src="images/projects/waverley.png" alt="Josh-New">
+					</div>
+				</div>
+	
+	
+				<div class="past-project"> Skills</div>
+	
+				<div class="qualification-boxes">
+					<div class="qualification-box">
+						<p>Usability Testing</p>
+					</div>
+					<div class="qualification-box">
+						<p>UX & UI</p>
+					</div>
+					<div class="qualification-box">
+						<p>Interaction Design</p>
+					</div>
+					<div class="qualification-box">
+						<p>Mobile App Design</p>
+					</div>
+				</div>
+	
+	
+			</div>
+	
+	
+			<div class="box3">
+				<div class="job-success"> 80% job success </div>
+				<div class="rate"> Rate: $15/hr </div>
+				<div class="rated"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-name="Layer 1"
+						viewBox="0 0 14 14" role="img">
+						<polygon fill="#f86d9c" points="6.98 0 0 0 0 9.21 6.98 14 13.95 9.21 13.95 0 6.98 0"></polygon>
+						<polygon fill="#fba0bd" points="0 0 14 9.21 14 0 0 0"></polygon>
+						<polygon fill="#f1367a" points="0.05 9.21 7.02 14 14 9.21 14 0 0.05 9.21"></polygon>
+					</svg> Top rated plus </div>
+				<div class="experience"> <span class="years" data-years="3+">3+</span> years experience </div>
+	
+				<img class="profile-icon" src="images/profile/toptal.png" alt="UP">
+				<img class="profile-icon" src="images/profile/linkedin.png" alt="linkedin">
+				<img class="profile-icon" src="images/profile/upwork.webp" alt="Codementor">
+			</div>
+		</div>
+	</div>
+
+		<!-- copy above this to wordpress -->
+
+	
 </div>
