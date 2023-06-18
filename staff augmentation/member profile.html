@@ -10,7 +10,6 @@
 			const response = await fetch('https://sheets.googleapis.com/v4/spreadsheets/1Z8W8-ZiB4vCuYP1netLiP7_IoPL6z01KEMK7A2hK1SI/values/Sheet1?alt=json&key=AIzaSyAssRDe2nf-mYoaHRQb88Rk-Hmgtn_GrnE');
 			const json = await response.json();
 			const [header, ...data] = json.values;
-			console.log(json);
 
 			const projectSheet = await fetch('https://sheets.googleapis.com/v4/spreadsheets/138CTTXSygsBzIx7DBNf2siB5S1H6mmUOI9NVwcJU8PM/values/Member%20Project?alt=json&key=AIzaSyAssRDe2nf-mYoaHRQb88Rk-Hmgtn_GrnE');
 			const projectJson = await projectSheet.json();
@@ -29,7 +28,8 @@
 					return acc;
 				}, {})
 			));
-			console.log(projectData);
+
+			const contries = await fetch('https://flagicons.lipis.dev/country.json').then(res => res.json());
 
 			const container = document.querySelector('.staff-profiles');
 			data.forEach(x => {
@@ -54,7 +54,6 @@
 					acc[curr] = x[index];
 					return acc;
 				}, {});
-				console.log(profile);
 
 				const projectList = projectData.filter(data => data.Member === profile.Name);
 				const listProject = projectList.map(project => (`
@@ -64,11 +63,15 @@
 						</a>
 					</div>
 				`)).join('');
+				//https://flagicons.lipis.dev/
+				const country = contries.find(country => country.name.toLowerCase() === profile.Country.toLowerCase());
+				const countryFlag = country ? `https://flagicons.lipis.dev/${country.flag_4x3}` : '';
 
 				container.insertAdjacentHTML('beforeend',
 					`<div class="main-box">
 						<div class="box1">
-							<div class="innerbox1"> ${profile.Name} <img class="flag" src="images/country/${profile.Country.toLowerCase()}.jpg" alt="${profile.Country}" > </div>
+							
+							<div class="innerbox1"> ${profile.Name} <img class="flag" src=${countryFlag} alt="${profile.Country}" > </div>
 							<img class="staff-images" src=${profile.Avatar.replace('open', 'uc') + "&export=view"} alt="${profile.Name}">
 							<br>
 							<div class="availability"> Availability: ${profile.Availability} </div>
