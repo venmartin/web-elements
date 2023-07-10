@@ -2,8 +2,11 @@
 	@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
 </style>
 
+<head>
+	<link rel="stylesheet" href="style.css">
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
 <div style="width: 1512px; position: relative; margin: auto;">
-
 	<!--copy below this to wordpress-->
 	<script>
 		(async () => {
@@ -37,6 +40,10 @@
 			const Codementor = "Codementor Profile:";
 			const Upwork = "Upwork Profile:";
 			const Toptal = "Toptal Profile:";
+			const RisingTalent = "RisingTalent";
+			const TopRated = "TopRated";
+			const TopRatedPlus = "TopRatedPlus";
+			const ExpertVetted = "ExpertVetted";
 			/* Profile columns name*/
 
 			const projectData = projectRawData.map(data => (
@@ -49,6 +56,16 @@
 			const contries = await fetch('https://flagicons.lipis.dev/country.json').then(res => res.json());
 
 			const container = document.querySelector('.staff-profiles');
+
+			window.onSubmitForm = function (e) {
+				e.preventDefault();
+				console.log(e);
+				const service_id = 'service_me3fj46';
+				const template_id = 'template_gehkc1j';
+				const user_id = 'AxzgF3774nXj7bELh';
+				emailjs.sendForm(service_id, template_id, '#contact-form', user_id);
+			}
+
 			data.forEach(x => {
 				const profile = header.reduce((acc, curr, index) => {
 					acc[curr] = x[index];
@@ -66,614 +83,109 @@
 				//https://flagicons.lipis.dev/
 				const country = contries.find(country => country.name.toLowerCase() === profile[Country].toLowerCase());
 				const countryFlag = country ? `https://flagicons.lipis.dev/${country.flag_4x3}` : '';
-
 				container.insertAdjacentHTML('afterbegin',
 					`<div class="main-box">
-						<div class="box1">
-							
-							<div class="innerbox1"> ${profile[Name]} <img class="flag" src=${countryFlag} alt="${profile[Country]}" > </div>
-							<img class="staff-images" src=${profile[Avatar].replace('open', 'uc') + "&export=view"} alt="${profile[Name]}">
-							<br>
-							<div class="availability"> Availability: ${profile[Availability]} </div>
-							<button class="contact-btn"> Contact ${profile[Name]} </button>
-						</div> 
+						<div style="display: flex; flex-direction: row">
+							<div class="box1">
+								
+								<div class="innerbox1"> ${profile[Name]} <img class="flag" src=${countryFlag} alt="${profile[Country]}" > </div>
+								<img class="staff-images" src=${profile[Avatar] && profile[Avatar].replace('open', 'uc') + "&export=view"} alt="${profile[Name]}">
+								<br>
+								<div class="availability"> Availability: ${profile[Availability]} </div>
+								<button class="contact-btn"> Contact ${profile[Name]} </button>
+							</div> 
 
-						<div class="box2">
-							<div class="job-profile">
-								<div class="job-title"> ${profile[Title]} </div>
-								<p class="job-details"> ${profile[Review]}  </p>
-							</div>
-							<div class="past-project"> Past Projects </div>
+							<div class="box2">
+								<div class="job-profile">
+									<div class="job-title"> ${profile[Title]} </div>
+									<p class="job-details"> ${profile[Review]}  </p>
+								</div>
+								<div class="past-project"> Past Projects </div>
 
-							<div class="project-boxes">
-								${listProject}
-							</div>
-							<div class="past-project"> Preferred Technology </div>
+								<div class="project-boxes">
+									${listProject}
+								</div>
+								<div class="past-project"> Preferred Technology </div>
 
-							<div class="qualification-boxes">
-								${profile[Skills].split(',').map(skill => (
+								<div class="qualification-boxes">
+									${profile[Skills].split(',').map(skill => (
 						`<div class="qualification-box">
-										<p>${skill}</p>
-									</div>`
+											<p>${skill}</p>
+										</div>`
 					)).join('')}
+								</div>
 							</div>
-						</div>
 
-						<div class="box3">
-							${profile[JobSuccess] ? `<div class="job-success"> ${profile[JobSuccess]} job success </div>` : ""}
-							<div class="rate"> Rate: $${profile[Rate]}/hr </div>
-							<div class="rated"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-name="Layer 1" viewBox="0 0 14 14" role="img"><polygon fill="#f86d9c" points="6.98 0 0 0 0 9.21 6.98 14 13.95 9.21 13.95 0 6.98 0"></polygon><polygon fill="#fba0bd" points="0 0 14 9.21 14 0 0 0"></polygon><polygon fill="#f1367a" points="0.05 9.21 7.02 14 14 9.21 14 0 0.05 9.21"></polygon></svg>   Top rated plus </div>
-							<div class="experience"> <span class="years" data-years="${profile[Experience]}+"> ${profile[Experience]}</span> years experience </div>
-							<div class="professional-links">
+							<div class="box3">
+								${profile[JobSuccess] ? `<div class="job-success"> ${profile[JobSuccess]} job success </div>` : ""}
+								<div class="rate"> Rate: $${profile[Rate]}/hr </div>
+								${profile[RisingTalent] ? `<div class="rated"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-name="Layer 1" viewBox="0 0 14 14" role="img"><polygon fill="#1caf9d" points="7 0 0 0 0 9.21 7 14 14 9.21 14 0 7 0"></polygon></svg>   Rising Talent </div>` : ''}	
+								${profile[TopRated] ? `<div class="rated"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-name="Layer 1" viewBox="0 0 14 14" role="img"><polygon fill="#5aa2c6" points="6.98 0 0 0 0 9.21 6.98 14 13.95 9.21 13.95 0 6.98 0"></polygon><polygon fill="#0b83b2" points="0.05 9.21 7.02 14 14 9.21 14 0 0.05 9.21"></polygon></svg>   Top rated </div>` : ''}
+								${profile[TopRatedPlus] ? `<div class="rated"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-name="Layer 1" viewBox="0 0 14 14" role="img"><polygon fill="#f86d9c" points="6.98 0 0 0 0 9.21 6.98 14 13.95 9.21 13.95 0 6.98 0"></polygon><polygon fill="#fba0bd" points="0 0 14 9.21 14 0 0 0"></polygon><polygon fill="#f1367a" points="0.05 9.21 7.02 14 14 9.21 14 0 0.05 9.21"></polygon></svg>   Top rated plus </div>` : ''}
+								${profile[ExpertVetted] ? `<div class="rated"><img src="https://assets-global.website-files.com/603fea6471d9d8559d077603/6253fdd311f245fe594c9788_badge-vetted-talent.png"/>   Expert vetted </div>` : ''}
+								<div class="experience"> <span class="years" data-years="${profile[Experience]}+"> ${profile[Experience]}</span> years experience </div>
+								<div class="professional-links">
 								${profile[Linkedin] ? `<a href="${profile[Linkedin]}" target="_blank"> <img class="profile-icon" src="images/profile/linkedin.png" alt="linkedin"> </a>` : ""}
-								${profile[Codementor] ? `<a href="${profile[Codementor]}" target="_blank"> <img class="profile-icon" src="images/profile/codementor.png" alt="codementor"> </a>` : ""}
-								${profile[Upwork] ? `<a href="${profile[Upwork]}" target="_blank"> <img class="profile-icon" src="images/profile/upwork.webp" alt="upwork"> </a>` : ""}
-								${profile[Toptal] ? `<a href="${profile[Toptal]}" target="_blank"> <img class="profile-icon" src="images/profile/toptal.png" alt="toptal"> </a>` : ""}
+									${profile[Codementor] ? `<a href="${profile[Codementor]}" target="_blank"> <img class="profile-icon" src="images/profile/codementor.png" alt="codementor"> </a>` : ""}
+									${profile[Upwork] ? `<a href="${profile[Upwork]}" target="_blank"> <img class="profile-icon" src="images/profile/upwork.webp" alt="upwork"> </a>` : ""}
+									${profile[Toptal] ? `<a href="${profile[Toptal]}" target="_blank"> <img class="profile-icon" src="images/profile/toptal.png" alt="toptal"> </a>` : ""}
+								</div>
 							</div>
 						</div>
-					<div>`);
+						<div class="contact-modal">
+							<div class="modal-content" style="padding: 0 2.5rem">
+								<form method="POST" id="contact-form" onsubmit="onSubmitForm.apply(this, arguments)">
+									<div style="display: flex">
+										<input type="text" placeholder="Name" name="name" required>
+										<input type="email" placeholder="Email" name="email" required>
+										<input type="text" placeholder="Subject" name="subject" required>
+									</div>
+									<textarea placeholder="Message" name="message" required></textarea>
+									<input type="hidden" name="recipient" value="${profile[Name]}">
+									<input type="submit" value="Send" id="contact-${profile[Name]}-submit">
+								</form>
+							</div>
+						</div>
+					</div>`
+				);
+
+				var contactButton = document.querySelector(`.contact-btn`);
+				const onClickContactButton = function () {
+					const contactModal = document.querySelector('.contact-modal');
+					contactModal.style.display = contactModal.style.display == 'block' ? 'none' : 'block';
+				}
+				contactButton.addEventListener('click', onClickContactButton);
+
 			});
 		})();
 	</script>
 
-	<style>
-		.staff-profiles {
-			display: flex;
-			flex-direction: column;
-			gap: 3rem;
-			/* border: 1px solid black; */
-		}
-
-		.main-box {
-			align-items: stretch;
-			width: 100%;
-			height: fit-content;
-			display: flex;
-			flex-direction: row;
-			flex-wrap: wrap;
-			padding-top: 20px;
-			padding-bottom: 20px;
-			border-radius: 20px;
-			flex: 1;
-			align-content: stretch;
-			grid-template-columns: 24% 56% 20%;
-			background: #F7F7FA;
-			box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
-		}
-
-		.box1,
-		.box2,
-		.box3 {
-			margin: auto;
-			box-sizing: border-box;
-			height: 100%;
-			/* padding-bottom: 10px;  */
-			padding: 0px;
-			justify-content: space-between;
-			font-family: 'Source Sans Pro', sans-serif;
-		}
-
-		.box1 {
-			display: flex;
-			text-align: center;
-			border-radius: 10px;
-			flex-direction: column;
-			font-size: 25px;
-			flex: 1;
-		}
-
-		.box2 {
-			border-radius: 10px;
-			flex: 2;
-		}
-
-		.box3 {
-			text-align: end;
-			border-radius: 10px;
-			line-height: 300%;
-			vertical-align: text-bottom;
-			flex: 0.8;
-		}
-
-		.box3>div {
-			padding-right: 2.5rem;
-		}
-
-		.staff-name {
-			color: black;
-			font-family: 'Source Sans Pro', sans-serif;
-			font-size: 70px;
-		}
-
-		.staff-image {
-			width: 10px;
-			height: 10px;
-			border-radius: 100%;
-		}
-
-		.staff-images {
-			width: 180px;
-			height: 180px;
-			border-radius: 100%;
-			align-self: center;
-			padding-bottom: 20px;
-			padding-top: 20px;
-			object-fit: cover;
-		}
-
-
-		.flag-icon {
-			display: inline-block;
-			width: 10px;
-			background-size: cover;
-		}
-
-		/* .usa {
-    https://img.icons8.com/external-justicon-flat-justicon/1x/external-india-flag-countrys-flags-justicon-flat-justicon.png
-} */
-
-		.availability {
-			font-size: 20px;
-			font-family: 'Source Sans Pro', sans-serif;
-			font-weight: 600;
-			margin-bottom: 15px;
-		}
-
-		.button {
-			box-sizing: content-box;
-			color: black;
-			float: left;
-
-		}
-
-		.contact-btn {
-			/*width: 200px;*/
-			height: 45px;
-			background-color: #4e4ef2;
-			border: none;
-			color: white;
-			padding: 10px 20px;
-			text-align: center;
-			text-decoration: none;
-			display: inline-block;
-			font-size: 20px;
-			font-family: 'Source Sans Pro', sans-serif;
-			margin: 4px 2px;
-			cursor: pointer;
-			padding-bottom: 10px;
-			border-radius: 5px;
-			align-self: center;
-		}
-
-
-		.job-title {
-			font-size: 30px;
-			font-weight: 600;
-			margin-bottom: 10px;
-			font-family: 'Source Sans Pro', sans-serif;
-			color: #7e7eaa;
-		}
-
-		.job-details {
-			box-sizing: content-box;
-			/*padding-left: 20px;*/
-			/*padding-right: 20px;*/
-			font-size: 24px;
-			line-height: 1.3;
-			color: #263238;
-			font-family: 'Source Sans Pro', sans-serif;
-		}
-
-		.past-project {
-			font-size: 25px;
-			font-weight: 600;
-			margin-bottom: 10px;
-			font-family: 'Source Sans Pro', sans-serif;
-			color: #1e1c23;
-
-		}
-
-		.project-boxes {
-			display: flex;
-			flex-wrap: wrap;
-			/*justify-content: space-between;*/
-			padding-bottom: 10px;
-		}
-
-		.project-box {
-			max-width: 120px;
-			height: 30px;
-			margin-bottom: 20px;
-			padding: 10px;
-			border-radius: 5px;
-			font-family: 'Source Sans Pro', sans-serif;
-			box-shadow: 1px 1px 1px 2px rgb(234, 233, 240);
-			margin-right: 20px;
-			cursor: pointer;
-		}
-
-		.project-box h3 {
-			font-size: 25px;
-			margin-bottom: 10px;
-			font-family: 'Source Sans Pro', sans-serif;
-		}
-
-		.project-box p {
-			font-size: 16px;
-			line-height: 1.4;
-			color: red;
-			font-family: 'Source Sans Pro', sans-serif;
-			font-weight: bold;
-			text-align: center;
-		}
-
-		.project-box:hover {
-			/* box-shadow: 1px 1px 1px 2px #0006; */
-			transform: scale(1.2);
-		}
-
-		.project-logo {
-			height: 30px;
-			width: 100%;
-			align-self: center;
-			object-fit: contain;
-		}
-
-		.qualification-boxes {
-			display: flex;
-			flex-wrap: wrap;
-			/*justify-content: space-between;*/
-		}
-
-		.qualification-box {
-			/* width: calc(22% - 10px); */
-			margin-bottom: 10px;
-			/* padding: 5px; */
-			border: 1px solid #ccc;
-			border-radius: 5px;
-			background-color: #D7D7F7;
-			margin-right: 20px;
-		}
-
-		.qualification-box h3 {
-			font-size: 18px;
-			/* margin-bottom: 10px; */
-			font-family: 'Source Sans Pro', sans-serif;
-		}
-
-		.qualification-box p {
-			font-size: 20px;
-			line-height: 1;
-			color: #4e4ef2;
-			font-family: 'Source Sans Pro', sans-serif;
-			font-weight: 600;
-			text-align: center;
-			padding-left: 20px;
-			padding-right: 20px;
-			display: block ruby;
-		}
-
-		.profile-icons {
-			display: flex;
-		}
-
-		.profile-icons a {
-			display: inline-block;
-			margin-right: 10px;
-			color: #0077b5;
-			/* LinkedIn blue */
-		}
-
-		.profile-icons a:last-child {
-			margin-right: 0;
-		}
-
-		.profile-icons i {
-			font-size: 24px;
-		}
-
-		.rate {
-			font-size: 48px;
-			padding-right: 10px;
-			padding-top: 20px;
-			font-family: 'Source Sans Pro', sans-serif;
-			font-weight: 600;
-		}
-
-		.job-success {
-			font-size: 24px;
-			padding-right: 10px;
-			padding-top: 20px;
-			font-family: 'Source Sans Pro', sans-serif;
-			font-weight: 600;
-		}
-
-		.rated {
-			font-size: 24px;
-			padding-right: 10px;
-			padding-top: 20px;
-			font-family: 'Source Sans Pro', sans-serif;
-			font-weight: 600;
-			display: flex;
-			align-items: center;
-			justify-content: end;
-		}
-
-		.rated svg {
-			height: 1em;
-			margin-right: 1ex;
-		}
-
-		.experience {
-			font-size: 24px;
-			padding-right: 10px;
-			padding-top: 20px;
-			font-family: 'Source Sans Pro', sans-serif;
-			font-weight: 600;
-		}
-
-		/*.experience:hover{
-  color: red;
-}*/
-
-		.years {
-			background: lightblue;
-			border-radius: 1em;
-			width: 2em;
-			display: inline-block;
-			height: 2em;
-			text-align: center;
-			position: relative;
-
-		}
-
-		.years::before {
-			content: " ";
-			position: absolute;
-			left: 10%;
-			right: 10%;
-			bottom: 10%;
-			top: 10%;
-			border-radius: 2em;
-			background: white;
-
-		}
-
-		.years::after {
-			content: attr(data-years);
-			position: absolute;
-			left: 50%;
-			top: 50%;
-			transform: translate(-50%, -50%);
-		}
-
-		/*.rated:hover{
-  color: red;
-}
-
-.job-success:hover{
-  color: red;
-}
-
-.rate:hover{
-  color: red;
-}*/
-
-
-		.profile-icon {
-			width: 40px;
-			height: 40px;
-			/* border-radius: 10%; */
-			margin: 10px;
-			/* box-shadow: 0 0 5px gray; */
-			margin-top: 50px;
-			object-fit: contain;
-
-		}
-
-		.flag {
-			width: 35px;
-			/* height: 40px; */
-			border-radius: 10%;
-			margin: auto;
-			/*box-shadow: 0 0 5px blueviolet;*/
-		}
-
-		.profile-icon:hover {
-			transform: scale(1.2);
-			/*background-color: lightcoral;*/
-			border-color: blueviolet;
-
-		}
-
-		.innerbox1 {
-			padding: 0 1rem;
-			align-content: center;
-			vertical-align: middle;
-			font-size: 36px;
-			font-weight: 600;
-			font-family: 'Source Sans Pro', sans-serif;
-			color: #1e1c23;
-		}
-
-		#imgifloorplan {
-			content: url("images/projects/ifloorplan.svg");
-		}
-
-		#imgsmartcitiestransport {
-			content: url("images/projects/smartcitiestransport.png");
-		}
-
-		#imgscaleupconsulting {
-			content: url("images/projects/ScaleupConsulting_Logo_Primary.svg");
-		}
-
-		#imgGromart {
-			content: url("images/projects/Gromart.png");
-		}
-
-		#imgFlatmate {
-			content: url("images/projects/flatmate_logo_2020.svg");
-		}
-
-		#imglifebeyond {
-			content: url("images/projects/lifebeyond.webp");
-		}
-
-		#imgadvinow {
-			content: url("images/projects/advinow.webp");
-		}
-
-		#imgesoccer {
-			content: url("images/projects/esoccer.png");
-		}
-
-		#imgdomicileready {
-			content: url("images/projects/domicile.png");
-		}
-
-		#imgbfinder {
-			content: url("images/projects/bfinder.png")
-		}
-
-		#imgalertrak {
-			content: url("images/projects/alertrak.webp")
-		}
-
-		#imgempwear {
-			content: url("images/projects/empwear.png")
-		}
-
-
-		#imgmentorplus {
-			content: url("images/projects/mentorplus.webp");
-		}
-
-		#imgvisitant {
-			content: url("images/projects/visitant.webp");
-		}
-
-		#imgoneamerica {
-			content: url("images/projects/oneamerica.webp");
-		}
-
-		#imgguestxms {
-			content: url("images/projects/guestxms.webp");
-		}
-
-		#imgmbm {
-			content: url("images/projects/mbm.svg")
-		}
-
-		#imglightofhope {
-			content: url("images/projects/lightofhope.png")
-		}
-
-		#imggs11 {
-			content: url("images/projects/gs11.png")
-		}
-
-		#imgmarkiptv {
-			content: url("/images/projects/markiptv.png")
-		}
-
-		#imglititzcollision {
-			content: url("images/projects/lititzcollision.webp")
-		}
-
-		#imghizmetlerimiz {
-			content: url("images/projects/hizmetlerimiz.png");
-		}
-
-		#imgsimplythatch {
-			content: url("images/projects/simplythatch.svg");
-		}
-
-		#imgrisingtide {
-			content: url("images/projects/risingtide.png")
-		}
-
-		#imgjustcanapa {
-			content: url("images/projects/justcanapa.png")
-		}
-
-		#imgsmileweremoving {
-			content: url("images/projects/smileweremoving.png")
-		}
-
-		#imgprestigeglobal {
-			content: url("images/projects/prestigeglobal.png");
-		}
-
-		#imgvrcity {
-			content: url("images/projects/vrcity.png");
-		}
-
-		#imgbabyhands {
-			content: url("images/projects/babyhands.png");
-		}
-
-		#imghydraulickits {
-			content: url("images/projects/hydraulickits.png");
-		}
-
-		#imgreactdashboard {
-			content: url("images/projects/reactdashboard.png");
-		}
-
-		#imgvesta {
-			content: url("images/projects/vesta.svg");
-		}
-
-		#imgmakemyvity {
-			content: url("images/projects/makemyvity.png")
-		}
-
-		#imgserviceactivator {
-			content: url("images/projects/serviceactivator.png")
-		}
-
-		#imgwaverley {
-			content: url("images/projects/waverley.png")
-		}
-
-		#imgsenseii {
-			content: url("images/projects/senseii.png")
-		}
-
-
-		#imgtoptal {
-			content: url("images/profile/toptal.png");
-		}
-
-		#imglinkedin {
-			content: url("images/profile/linkedin.png");
-		}
-
-		#imgupwork {
-			content: url("images/profile/upwork.webp");
-		}
-
-		#imgdribbble {
-			content: url("images/profile/dribbble.svg");
-		}
-
-		#imgtoptal {
-			content: url("images/profile/toptal.png");
-		}
-
-		#imgbehance {
-			content: url("images/profile/behance.png")
-		}
-
-		#imgfiverr {
-			content: url("images/profile/fiverr.png")
-		}
-	</style>
-
 	<div class="staff-profiles"></div>
-
 	<!-- copy above this to wordpress -->
-
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			var forms = document.querySelector('#contact-form');
+			console.log(forms);
+		});
+		var forms = document.querySelector('#contact-form');
+		console.log(forms);
+		forms.forEach(form => {
+			form.addEventListener('submit', function (e) {
+				e.preventDefault();
+				console.log('submitting form')
+				// var formData = new FormData(form);
+				// var xhr = new XMLHttpRequest();
+				// xhr.open('POST', form.action, true);
+				// xhr.onload = function () {
+				// 	if (this.status == 200) {
+				// 		alert('Email sent successfully');
+				// 	} else {
+				// 		alert('Email failed to send');
+				// 	}
+				// }
+				// xhr.send(formData);
+			});
+		});
+	</script>
 
 </div>
