@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="style.css">
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
-<div style="width: 1512px; position: relative; margin: auto;">
+<div style="width: 90%; position: relative; margin: auto;">
 	<!--copy below this to wordpress-->
 	<script>
 		(async () => {
@@ -59,11 +59,15 @@
 
 			window.onSubmitForm = function (e) {
 				e.preventDefault();
-				console.log(e);
 				const service_id = 'service_me3fj46';
 				const template_id = 'template_gehkc1j';
 				const user_id = 'AxzgF3774nXj7bELh';
-				emailjs.sendForm(service_id, template_id, '#contact-form', user_id);
+				emailjs.sendForm(service_id, template_id, '#contact-form', user_id)
+				.then(function(response) {
+					window.open('https://www.scaleupconsulting.com.au/thank-you/', '_self')
+				}, function(error) {
+					console.log('FAILED...', error);
+				});
 			}
 
 			data.forEach(x => {
@@ -71,6 +75,8 @@
 					acc[curr] = x[index];
 					return acc;
 				}, {});
+
+				if (!profile[Name]) return;
 
 				const projectList = projectData.filter(data => data[Member] === profile[Name]);
 				const listProject = projectList.map(project => (`
@@ -87,12 +93,11 @@
 					`<div class="main-box">
 						<div style="display: flex; flex-direction: row">
 							<div class="box1">
-								
 								<div class="innerbox1"> ${profile[Name]} <img class="flag" src=${countryFlag} alt="${profile[Country]}" > </div>
 								<img class="staff-images" src=${profile[Avatar] && profile[Avatar].replace('open', 'uc') + "&export=view"} alt="${profile[Name]}">
 								<br>
 								<div class="availability"> Availability: ${profile[Availability]} </div>
-								<button class="contact-btn"> Contact ${profile[Name]} </button>
+								<button class="contact-btn ${profile[Name]}"> Contact ${profile[Name]} </button>
 							</div> 
 
 							<div class="box2">
@@ -132,26 +137,26 @@
 								</div>
 							</div>
 						</div>
-						<div class="contact-modal">
+						<div class="contact-modal ${profile[Name]}">
 							<div class="modal-content" style="padding: 0 2.5rem">
 								<form method="POST" id="contact-form" onsubmit="onSubmitForm.apply(this, arguments)">
 									<div style="display: flex">
-										<input type="text" placeholder="Name" name="name" required>
-										<input type="email" placeholder="Email" name="email" required>
+										<input type="text" placeholder="Name" name="from_name" required>
+										<input type="email" placeholder="Email" name="from_email" required>
 										<input type="text" placeholder="Subject" name="subject" required>
 									</div>
 									<textarea placeholder="Message" name="message" required></textarea>
-									<input type="hidden" name="recipient" value="${profile[Name]}">
-									<input type="submit" value="Send" id="contact-${profile[Name]}-submit">
+									<input type="hidden" name="to_name" value="${profile[Name]}">
+									<input type="submit" value="Send">
 								</form>
 							</div>
 						</div>
 					</div>`
 				);
 
-				var contactButton = document.querySelector(`.contact-btn`);
+				var contactButton = document.querySelector(`.contact-btn.${profile[Name].replace(' ', '.')}`);
 				const onClickContactButton = function () {
-					const contactModal = document.querySelector('.contact-modal');
+					const contactModal = document.querySelector(`.contact-modal.${profile[Name].replace(' ', '.')}`);
 					contactModal.style.display = contactModal.style.display == 'block' ? 'none' : 'block';
 				}
 				contactButton.addEventListener('click', onClickContactButton);
@@ -161,31 +166,5 @@
 	</script>
 
 	<div class="staff-profiles"></div>
-	<!-- copy above this to wordpress -->
-	<script>
-		document.addEventListener("DOMContentLoaded", function () {
-			var forms = document.querySelector('#contact-form');
-			console.log(forms);
-		});
-		var forms = document.querySelector('#contact-form');
-		console.log(forms);
-		forms.forEach(form => {
-			form.addEventListener('submit', function (e) {
-				e.preventDefault();
-				console.log('submitting form')
-				// var formData = new FormData(form);
-				// var xhr = new XMLHttpRequest();
-				// xhr.open('POST', form.action, true);
-				// xhr.onload = function () {
-				// 	if (this.status == 200) {
-				// 		alert('Email sent successfully');
-				// 	} else {
-				// 		alert('Email failed to send');
-				// 	}
-				// }
-				// xhr.send(formData);
-			});
-		});
-	</script>
 
 </div>

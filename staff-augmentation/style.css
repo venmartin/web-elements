@@ -396,4 +396,5 @@
     margin: 10px;
     width: max-content;
     cursor: pointer;
+    align-self: flex-end;
 }
