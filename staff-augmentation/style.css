@@ -23,6 +23,11 @@
     box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
 }
 
+.main-box>div:first-child {
+    display: flex;
+    flex-direction: row;
+}
+
 .box1,
 .box2,
 .box3 {
@@ -363,18 +368,18 @@
     cursor: pointer;
 }
 
-.modal-content >form {
+.modal-content>form {
     display: flex;
     flex-direction: column;
 }
 
-.modal-content >form>h2 {
+.modal-content>form>h2 {
     align-self: center;
     font-family: 'Source Sans Pro';
 }
 
-.modal-content >form>div>input,
-.modal-content >form>textarea {
+.modal-content>form>div>input,
+.modal-content>form>textarea {
     margin: 10px;
     padding: 10px;
     border-radius: 5px;
@@ -384,8 +389,8 @@
     flex: 1;
 }
 
-.modal-content >form>input[type="submit"],
-.modal-content >button {
+.modal-content>form>input[type="submit"],
+.modal-content>button {
     background-color: #4e4ef2;
     color: white;
     font-size: 20px;
@@ -397,4 +402,159 @@
     width: max-content;
     cursor: pointer;
     align-self: flex-end;
+}
+
+@media (max-width: 1080px) and (orientation: portrait) {
+    .main-box {
+        padding: 20px 40px;
+        width: auto;
+    }
+    .main-box>div:first-child {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .main-box>div:first-child>div{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .box1 {
+        flex-direction: row;
+        justify-content: flex-start;
+        margin: unset;
+        gap: 2vh;
+    }
+
+    .box1>img {
+        padding: 0
+    }
+
+    .box1>div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .rate {
+        font-size: 60px;
+        align-self: flex-start;
+    }
+
+    .innerbox1 {
+        font-size: 42px;
+        align-self: flex-start;
+        padding: 0;
+    }
+
+    .flag {
+        width: 64px;
+    }
+
+    .job-success {
+        font-size: 42px;
+        padding: 0;
+    }
+
+    .box2 {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        margin: unset;
+        gap: 2vh;
+    }
+
+    .box2>div:first-child {
+        flex: 3;
+    }
+
+    .rated {
+        justify-content: flex-start;
+        font-size: 42px;
+    }
+    
+    .box2>div:last-child {
+        flex: 2;
+    }
+
+    hr {
+        border-top: 8px solid #4e4ef2;
+        width: 50%;
+        margin: 0;
+    }
+
+    .profile-icon {
+        width: 64px;
+        height: 64px;
+    }
+
+    .experience {
+        padding: 0;
+        font-size: 42px;
+        flex: 1;
+        align-self: center;
+        display: flex;
+        gap: 10px
+    }
+
+    .experience>span {
+        align-self: center
+    }
+
+    .availability {
+        font-size: 32px;
+        padding: 0;
+        margin: 0;
+        flex:1;
+        align-self: center;
+    }
+
+    .contact-btn {
+        width: 100%;
+        font-size: 42px;
+        height: auto;
+    }
+
+    .job-profile {
+        display: flex;
+        flex-direction: column !important;
+        gap: 10px;
+    }
+
+    .job-title {
+        font-size: 42px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .job-details {
+        font-size: 32px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .past-project {
+        font-size: 42px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .project-boxes {
+        gap: 10px;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .project-box {
+        height: 80px;
+        width: auto;
+        margin: 0;
+        padding: 0;
+        max-width: unset;
+    }
+
+    .project-logo {
+        height: 96px;
+        width: auto;
+    }
 }
