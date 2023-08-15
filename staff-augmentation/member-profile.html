@@ -110,10 +110,10 @@
 								<hr > 
 								<div class="box2">
 									<div>
-										${profile[RisingTalent] ? `<div class="rated"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-name="Layer 1" viewBox="0 0 14 14" role="img"><polygon fill="#1caf9d" points="7 0 0 0 0 9.21 7 14 14 9.21 14 0 7 0"></polygon></svg>   Rising Talent </div>` : ''}	
-										${profile[TopRated] ? `<div class="rated"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-name="Layer 1" viewBox="0 0 14 14" role="img"><polygon fill="#5aa2c6" points="6.98 0 0 0 0 9.21 6.98 14 13.95 9.21 13.95 0 6.98 0"></polygon><polygon fill="#0b83b2" points="0.05 9.21 7.02 14 14 9.21 14 0 0.05 9.21"></polygon></svg>   Top rated </div>` : ''}
-										${profile[TopRatedPlus] ? `<div class="rated"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-name="Layer 1" viewBox="0 0 14 14" role="img"><polygon fill="#f86d9c" points="6.98 0 0 0 0 9.21 6.98 14 13.95 9.21 13.95 0 6.98 0"></polygon><polygon fill="#fba0bd" points="0 0 14 9.21 14 0 0 0"></polygon><polygon fill="#f1367a" points="0.05 9.21 7.02 14 14 9.21 14 0 0.05 9.21"></polygon></svg>   Top rated plus </div>` : ''}
-										${profile[ExpertVetted] ? `<div class="rated"><img src="https://assets-global.website-files.com/603fea6471d9d8559d077603/6253fdd311f245fe594c9788_badge-vetted-talent.png"/>   Expert vetted </div>` : ''}
+										${profile[RisingTalent] === "TRUE" ? `<div class="rated"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-name="Layer 1" viewBox="0 0 14 14" role="img"><polygon fill="#1caf9d" points="7 0 0 0 0 9.21 7 14 14 9.21 14 0 7 0"></polygon></svg>   Rising Talent </div>` : ''}	
+										${profile[TopRated] === "TRUE" ? `<div class="rated"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-name="Layer 1" viewBox="0 0 14 14" role="img"><polygon fill="#5aa2c6" points="6.98 0 0 0 0 9.21 6.98 14 13.95 9.21 13.95 0 6.98 0"></polygon><polygon fill="#0b83b2" points="0.05 9.21 7.02 14 14 9.21 14 0 0.05 9.21"></polygon></svg>   Top rated </div>` : ''}
+										${profile[TopRatedPlus] === "TRUE" ? `<div class="rated"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-name="Layer 1" viewBox="0 0 14 14" role="img"><polygon fill="#f86d9c" points="6.98 0 0 0 0 9.21 6.98 14 13.95 9.21 13.95 0 6.98 0"></polygon><polygon fill="#fba0bd" points="0 0 14 9.21 14 0 0 0"></polygon><polygon fill="#f1367a" points="0.05 9.21 7.02 14 14 9.21 14 0 0.05 9.21"></polygon></svg>   Top rated plus </div>` : ''}
+										${profile[ExpertVetted] === "TRUE" ? `<div class="rated"><img src="https://assets-global.website-files.com/603fea6471d9d8559d077603/6253fdd311f245fe594c9788_badge-vetted-talent.png"/>   Expert vetted </div>` : ''}
 									</div>
 									
 									<div class="professional-links">
@@ -187,10 +187,10 @@
 
 							<div class="box3">
 								<div class="rate"> Rate: $${profile[Rate]}/hr </div>
-								${profile[RisingTalent] ? `<div class="rated"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-name="Layer 1" viewBox="0 0 14 14" role="img"><polygon fill="#1caf9d" points="7 0 0 0 0 9.21 7 14 14 9.21 14 0 7 0"></polygon></svg>   Rising Talent </div>` : ''}	
-								${profile[TopRated] ? `<div class="rated"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-name="Layer 1" viewBox="0 0 14 14" role="img"><polygon fill="#5aa2c6" points="6.98 0 0 0 0 9.21 6.98 14 13.95 9.21 13.95 0 6.98 0"></polygon><polygon fill="#0b83b2" points="0.05 9.21 7.02 14 14 9.21 14 0 0.05 9.21"></polygon></svg>   Top rated </div>` : ''}
-								${profile[TopRatedPlus] ? `<div class="rated"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-name="Layer 1" viewBox="0 0 14 14" role="img"><polygon fill="#f86d9c" points="6.98 0 0 0 0 9.21 6.98 14 13.95 9.21 13.95 0 6.98 0"></polygon><polygon fill="#fba0bd" points="0 0 14 9.21 14 0 0 0"></polygon><polygon fill="#f1367a" points="0.05 9.21 7.02 14 14 9.21 14 0 0.05 9.21"></polygon></svg>   Top rated plus </div>` : ''}
-								${profile[ExpertVetted] ? `<div class="rated"><img src="https://assets-global.website-files.com/603fea6471d9d8559d077603/6253fdd311f245fe594c9788_badge-vetted-talent.png"/>   Expert vetted </div>` : ''}
+								${profile[RisingTalent] === "TRUE" ? `<div class="rated"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-name="Layer 1" viewBox="0 0 14 14" role="img"><polygon fill="#1caf9d" points="7 0 0 0 0 9.21 7 14 14 9.21 14 0 7 0"></polygon></svg>   Rising Talent </div>` : ''}	
+								${profile[TopRated] === "TRUE" ? `<div class="rated"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-name="Layer 1" viewBox="0 0 14 14" role="img"><polygon fill="#5aa2c6" points="6.98 0 0 0 0 9.21 6.98 14 13.95 9.21 13.95 0 6.98 0"></polygon><polygon fill="#0b83b2" points="0.05 9.21 7.02 14 14 9.21 14 0 0.05 9.21"></polygon></svg>   Top rated </div>` : ''}
+								${profile[TopRatedPlus] === "TRUE" ? `<div class="rated"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" data-name="Layer 1" viewBox="0 0 14 14" role="img"><polygon fill="#f86d9c" points="6.98 0 0 0 0 9.21 6.98 14 13.95 9.21 13.95 0 6.98 0"></polygon><polygon fill="#fba0bd" points="0 0 14 9.21 14 0 0 0"></polygon><polygon fill="#f1367a" points="0.05 9.21 7.02 14 14 9.21 14 0 0.05 9.21"></polygon></svg>   Top rated plus </div>` : ''}
+								${profile[ExpertVetted] === "TRUE" ? `<div class="rated"><img src="https://assets-global.website-files.com/603fea6471d9d8559d077603/6253fdd311f245fe594c9788_badge-vetted-talent.png"/>   Expert vetted </div>` : ''}
 								<div class="experience"> <span class="years" data-years="${profile[Experience]}+"> ${profile[Experience]}</span> years experience </div>
 								<div class="professional-links">
 								${profile[Linkedin] ? `<a href="${profile[Linkedin]}" target="_blank"> <img class="profile-icon" src="images/profile/linkedin.png" alt="linkedin"> </a>` : ""}
