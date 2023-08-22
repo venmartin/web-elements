@@ -1,3 +1,7 @@
+html::-webkit-scrollbar {
+    width: 0;
+}
+
 .staff-profiles {
     display: flex;
     flex-direction: column;
@@ -542,7 +546,7 @@
     }
 
     .project-boxes {
-        gap: 10px;
+        gap: 40px;
         flex-wrap: wrap;
         width: 100%;
     }
@@ -556,7 +560,7 @@
     }
 
     .project-logo {
-        height: 96px;
+        /* height: 80px; */
         width: auto;
     }
 }
