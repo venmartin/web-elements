@@ -2,6 +2,18 @@ html::-webkit-scrollbar {
     width: 0;
 }
 
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+}
+
+button {
+    line-height: 1;
+}
+
 .staff-profiles {
     display: flex;
     flex-direction: column;
@@ -84,12 +96,13 @@ html::-webkit-scrollbar {
 
 .staff-images {
     width: 180px;
-    height: 180px;
-    border-radius: 100%;
+    height: 180px !important;
+    border-radius: 100% !important;
     align-self: center;
     padding-bottom: 20px;
     padding-top: 20px;
     object-fit: cover;
+    box-sizing: initial;
 }
 
 
@@ -170,6 +183,7 @@ html::-webkit-scrollbar {
 }
 
 .project-box {
+    box-sizing: initial;
     max-width: 100px;
     max-height: 60px;
     margin-bottom: 20px;
@@ -203,7 +217,7 @@ html::-webkit-scrollbar {
 
 .project-logo {
     width: 100%;
-    height: 100%;
+    height: 100% !important;
     align-self: center;
     object-fit: contain;
 }
