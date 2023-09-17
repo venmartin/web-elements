@@ -40,8 +40,8 @@ button {
 }
 
 .main-box>div:first-child {
-    display: flex;
-    flex-direction: row;
+    display: flex ;
+    flex-direction: row ;
 }
 
 .box1,
@@ -426,12 +426,12 @@ button {
 
 @media (max-width: 1080px) and (orientation: portrait) {
     .main-box {
-        padding: 20px 40px;
+        padding: 10px;
         width: auto;
     }
     .main-box>div:first-child {
-        flex-direction: column;
-        gap: 30px;
+        flex-direction: column !important;
+        gap: 10px;
     }
 
     .main-box>div:first-child>div{
@@ -457,8 +457,9 @@ button {
     }
 
     .rate {
-        font-size: 60px;
+        font-size: 28px;
         align-self: flex-start;
+        padding-top: 0px;
     }
 
     .innerbox1 {
@@ -468,7 +469,7 @@ button {
     }
 
     .flag {
-        width: 64px;
+        width: 32px;
     }
 
     .job-success {
@@ -498,19 +499,20 @@ button {
     }
 
     hr {
-        border-top: 8px solid #4e4ef2;
+        border-top: 3px solid #4e4ef2;
         width: 50%;
         margin: 0;
     }
 
     .profile-icon {
-        width: 64px;
-        height: 64px;
+        width: 32px;
+        height: 32px;
+        margin: 0 5px;
     }
 
     .experience {
         padding: 0;
-        font-size: 42px;
+        font-size: 18px;
         flex: 1;
         align-self: center;
         display: flex;
@@ -522,7 +524,7 @@ button {
     }
 
     .availability {
-        font-size: 32px;
+        font-size: 16px;
         padding: 0;
         margin: 0;
         flex:1;
@@ -531,7 +533,7 @@ button {
 
     .contact-btn {
         width: 100%;
-        font-size: 42px;
+        font-size: 16px;
         height: auto;
     }
 
@@ -542,13 +544,13 @@ button {
     }
 
     .job-title {
-        font-size: 42px;
+        font-size: 20px;
         padding: 0;
         margin: 0;
     }
 
     .job-details {
-        font-size: 32px;
+        font-size: 18px;
         padding: 0;
         margin: 0;
     }
@@ -560,13 +562,13 @@ button {
     }
 
     .project-boxes {
-        gap: 40px;
+        gap: 15px;
         flex-wrap: wrap;
         width: 100%;
     }
 
     .project-box {
-        height: 80px;
+        height: 24px;
         width: auto;
         margin: 0;
         padding: 0;
@@ -576,5 +578,27 @@ button {
     .project-logo {
         /* height: 80px; */
         width: auto;
+    }
+    
+    .staff-images {
+        width: 80px !important;
+        height: 80px !important;
+    }
+    
+    .innerbox1 {
+        font-size: 18px !important;
+    }
+    
+    .qualification-box p {
+        font-size: 10px;
+        padding: 0 8px;
+    }
+    
+    .qualification-box {
+        margin: 0 8px 4px 0;
+    }
+    
+    .qualification-boxes {
+        max-height: 33px;
     }
 }
