@@ -215,9 +215,9 @@
 						);
 					}
 
-					var contactButton = document.querySelector(`.contact-btn.${profile[Name].replace(' ', '.')}`);
+					var contactButton = document.querySelector(`.contact-btn.${profile[Name].replaceAll(' ', '.')}`);
 					const onClickContactButton = function () {
-						const contactModal = document.querySelector(`.contact-modal.${profile[Name].replace(' ', '.')}`);
+						const contactModal = document.querySelector(`.contact-modal.${profile[Name].replaceAll(' ', '.')}`);
 						contactModal.style.display = contactModal.style.display == 'block' ? 'none' : 'block';
 					}
 					contactButton.addEventListener('click', onClickContactButton);
