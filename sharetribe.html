@@ -40,8 +40,17 @@
     justify-content: center;
   }
 
-  .sharetribe-pricing-table tr[data-show-more]~tr {
-    display: none;
+  .sharetribe-pricing-table tr~tr td {
+    line-height: 1.4;
+    opacity: 1;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .sharetribe-pricing-table tr[data-show-more]~tr td {
+    line-height: 0;
+    padding: 0;
+    border: 0;
+    opacity: 0;
   }
 
   @media (max-width: 900px) {
