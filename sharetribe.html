@@ -5,7 +5,7 @@
     margin-bottom: 20px;
     font-family: "Source Sans Pro", sans-serif; /* Set font to Source Sans Pro */
     font-size: 18px; /* Set font size to 16px \*/
-  }
+    }
 
   .sharetribe-pricing-table td {
     border: 1px solid #ccc;
@@ -13,7 +13,7 @@
     text-align: left;
   }
 
-  /* Right-align data in the price column (Column 3) */
+/* Right-align data in the price column (Column 3) */
   .sharetribe-pricing-table td:nth-child(2) {
     text-align: right;
     width: 180px; /* Adjust the width of the price column */
@@ -21,6 +21,19 @@
 
   .sharetribe-price-name {
     font-weight: 600;
+  }
+
+  .row4::after {
+    content: "show more";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -10px;
+    background: linear-gradient(transparent, white);
+    height: 100%;
+    display: flex;
+    align-items: end;
+    justify-content: center;
   }
 
   @media (max-width: 900px) {
@@ -50,10 +63,10 @@
 
   <tr>
     <td>
-      <span class="sharetribe-price-name">Top bar links</span><br />
+      <span class="sharetribe-price-name">Top Bar Links</span><br />
       For example, links to pre-filtered search results or special pages.
     </td>
-    <td>$ 0</td>
+    <td>$ 49</td>
   </tr>
 
   <tr>
@@ -65,14 +78,14 @@
     <td>$ 99</td>
   </tr>
 
-  <tr>
+<tr>
     <td>
       <span class="sharetribe-price-name">Custom email trigger & content</span
       ><br />
       For example, a buyer adds an image during checkout to be given to the
       provider.
     </td>
-    <td>$ 160</td>
+    <td>$ 150</td>
   </tr>
 
   <tr>
@@ -80,7 +93,7 @@
       <span class="sharetribe-price-name">Whole Prices</span><br />
       Disallowing sellers from entering prices with cents/pence.
     </td>
-    <td>$ 160</td>
+    <td>$ 150</td>
   </tr>
 
   <tr>
@@ -99,7 +112,7 @@
 
   <tr>
     <td>
-      <span class="sharetribe-price-name">My order pages</span><br />
+      <span class="sharetribe-price-name">My Order Pages</span><br />
       Similar to the Inbox pages, but filtered to only show orders.
     </td>
     <td>$ 299</td>
@@ -159,15 +172,15 @@
 
   <tr>
     <td>
-      <span class="sharetribe-price-name">Variable Shipping Costs</span><br />
-      Requires account with Shippo.
+      <span class="sharetribe-price-name">Variable Shipping Costs</span><br>
+      Requires account with <a href="https://goshippo.com/" target="_blank" class="blue-link">Shippo.</a>
     </td>
     <td>$ 499</td>
   </tr>
 
   <tr>
     <td>
-      <span class="sharetribe-price-name">Provider sales analytics</span><br />
+      <span class="sharetribe-price-name">Provider Sales Analytics</span><br />
       Providers can see charts on their dashboard.
     </td>
     <td>$ 499</td>
@@ -242,8 +255,9 @@
 
   <tr>
     <td>
-      <span class="sharetribe-price-name">Mobile App</span><br />Similar to
-      Median, the web app is wrapped in a mobile app so it is available in
+      <span class="sharetribe-price-name">Mobile App</span><br />Similar to <a
+        href="https://median.co/pricing#self-service" target="_blank" class="blue-link">
+        Median,</a> the web app is wrapped in a mobile app so it is available in
       stores for download and stays in sync with the web app.
     </td>
     <td>$ 599</td>
@@ -281,23 +295,23 @@
       <span class="sharetribe-price-name">User subscription fees</span><br />For
       example, buyers can search/browse only after paying a subscription, or
       providers can list in a category only after paying a subscription.
-    </td>
+        </td>
     <td>$ 699</td>
   </tr>
 
   <tr>
     <td>
-      <span class="sharetribe-price-name">3rd-party file sources</span><br />For
-      example, browsing and selecting files in Google Drive instead of only from
-      the provider's local device.
+      <span class="sharetribe-price-name">3rd-party file sources</span><br />For example, browsing and selecting files
+      in Google Drive
+      instead of only from the provider's local device.
     </td>
     <td>$ 799</td>
   </tr>
 
   <tr>
     <td>
-      <span class="sharetribe-price-name">Different commission tiers</span
-      ><br />For example, lower commissions only for paid users or
+      <span class="sharetribe-price-name">Different Commission Tiers</span><br />For example, lower commissions only
+      for paid users or
       platform-exclusive listings.
     </td>
     <td>$ 799</td>
@@ -305,15 +319,118 @@
 
   <tr>
     <td>
-      <span class="sharetribe-price-name">2-factor authentication</span>
+      <span class="sharetribe-price-name">Digital Files Selling</span>
     </td>
-    <td>$ 799</td>
+    <td>$ 1,200</td>
   </tr>
 
   <tr>
     <td>
-      <span class="sharetribe-price-name">3rd party social login & SSO</span>
+      <span class="sharetribe-price-name">Shopping Cart</span> <br> This is implemented as multiple single-vendor
+      shopping carts. Please visit <a href="https://www.depop.com/bag/" target="_blank" class="blue-link">Depop</a> as
+      an example.
+
     </td>
-    <td>$ 799</td>
+    <td>$ 1,500</td>
   </tr>
+
+  <tr>
+    <td>
+      <span class="sharetribe-price-name">Advanced rules for booking times</span> <br> For example, a service provider
+      cannot be booked at the same time for different listings.
+
+    </td>
+    <td>$ 1,800</td>
+  </tr>
+
+  <tr>
+    <td>
+      <span class="sharetribe-price-name">Non-image Media</span> <br> For example, audio, video, or 3D-models on
+      listings or profiles. May require 3rd-party storage solution such as <a
+        href="https://developers.cloudflare.com/r2/pricing/" target="_blank" class="blue-link">R2</a>
+
+    </td>
+    <td>$ 1,800</td>
+  </tr>
+
 </table>
+
+
+
+<script>
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var table = document.getElementById('pricingTable');
+    var rows = table.getElementsByTagName('tr');
+    var totalRows = rows.length;
+    var visibleRows = 4; // Show 4 rows initially
+
+    // Hide rows after the initially visible rows
+    for (var i = visibleRows; i < totalRows; i++) {
+      rows[i].style.display = 'none';
+    }
+
+    var moreButton = document.getElementById('moreButton');
+    moreButton.addEventListener('click', function () {
+      for (var i = visibleRows; i < totalRows; i++) {
+        rows[i].style.display = (rows[i].style.display === 'none' || rows[i].style.display === '') ? 'table-row' : 'none';
+      }
+      moreButton.textContent = (rows[visibleRows].style.display === 'none' || rows[visibleRows].style.display === '') ? 'Show More' : 'Show Less';
+    });
+  });
+
+</script>
+
+<!--  <script>
+document.addEventListener('DOMContentLoaded', function() {
+var table = document.getElementById('pricingTable');
+var rows = table.getElementsByTagName('tr');
+var visibleRows = 4; // Show 4 rows initially
+var totalRows = rows.length;
+
+// Hide rows after the initially visible rows
+for (var i = visibleRows; i < totalRows; i++) {
+  rows[i].style.display = 'none';
+}
+
+function toggleRows() {
+  for (var i = visibleRows; i < totalRows; i++) {
+    rows[i].style.display = (rows[i].style.display === 'none' || rows[i].style.display === '') ? 'table-row' : 'none';
+  }
+}
+
+var moreButton = document.getElementById('moreButton');
+moreButton.addEventListener('click', function() {
+  toggleRows();
+  moreButton.textContent = (rows[visibleRows].style.display === 'none' || rows[visibleRows].style.display === '') ? 'Show More' : 'Show Less';
+});
+});
+
+</script>
+
+
+<button id="moreButton"> Show More</button>
+
+<script>
+  var table = document.getElementById('pricingTable');
+  var rows = table.getElementsByTagName('tr');
+  var visibleRows = 3; // Show 3.5 rows initially
+  var totalRows = rows.length;
+
+  // Hide rows after the initially visible rows
+  for (var i = visibleRows; i < totalRows; i++) {
+    rows[i].style.display = 'none';
+  }
+
+  function toggleRows() {
+    for (var i = visibleRows; i < totalRows; i++) {
+      rows[i].style.display = (rows[i].style.display === 'none' || rows[i].style.display === '') ? 'table-row' : 'none';
+    }
+  }
+
+  var moreButton = document.getElementById('moreButton');
+  moreButton.addEventListener('click', function() {
+    toggleRows();
+    moreButton.textContent = (rows[visibleRows].style.display === 'none' || rows[visibleRows].style.display === '') ? 'More' : 'Show Less';
+  });
+</script> -->
