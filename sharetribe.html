@@ -23,17 +23,25 @@
     font-weight: 600;
   }
 
-  .row4::after {
+  .sharetribe-pricing-table tr[data-show-more] {
+    position: relative;
+  }
+
+  .sharetribe-pricing-table tr[data-show-more]::after {
     content: "show more";
     position: absolute;
     left: 0;
     right: 0;
-    bottom: -10px;
-    background: linear-gradient(transparent, white);
+    bottom: 0;
+    background: linear-gradient(transparent, white 80%);
     height: 100%;
     display: flex;
     align-items: end;
     justify-content: center;
+  }
+
+  .sharetribe-pricing-table tr[data-show-more]~tr {
+    display: none;
   }
 
   @media (max-width: 900px) {
@@ -78,7 +86,7 @@
     <td>$ 99</td>
   </tr>
 
-<tr>
+<tr data-show-more>
     <td>
       <span class="sharetribe-price-name">Custom email trigger & content</span
       ><br />
@@ -360,77 +368,17 @@
 <script>
 
   document.addEventListener('DOMContentLoaded', function () {
-    var table = document.getElementById('pricingTable');
-    var rows = table.getElementsByTagName('tr');
-    var totalRows = rows.length;
-    var visibleRows = 4; // Show 4 rows initially
+    // TODO: get all tables with class sharetribe-pricing-table and loop through them
+    var table = document.getElementsByClassName('sharetribe-pricing-table')[0];
+    var showMoreRow = table.querySelector('tr[data-show-more]');
 
-    // Hide rows after the initially visible rows
-    for (var i = visibleRows; i < totalRows; i++) {
-      rows[i].style.display = 'none';
-    }
-
-    var moreButton = document.getElementById('moreButton');
-    moreButton.addEventListener('click', function () {
-      for (var i = visibleRows; i < totalRows; i++) {
-        rows[i].style.display = (rows[i].style.display === 'none' || rows[i].style.display === '') ? 'table-row' : 'none';
+    showMoreRow.addEventListener('click', function () {
+      if (showMoreRow.hasAttribute('data-show-more')) {
+        showMoreRow.removeAttribute('data-show-more');
+      } else {
+        showMoreRow.setAttribute('data-show-more', '');
       }
-      moreButton.textContent = (rows[visibleRows].style.display === 'none' || rows[visibleRows].style.display === '') ? 'Show More' : 'Show Less';
     });
   });
 
 </script>
-
-<!--  <script>
-document.addEventListener('DOMContentLoaded', function() {
-var table = document.getElementById('pricingTable');
-var rows = table.getElementsByTagName('tr');
-var visibleRows = 4; // Show 4 rows initially
-var totalRows = rows.length;
-
-// Hide rows after the initially visible rows
-for (var i = visibleRows; i < totalRows; i++) {
-  rows[i].style.display = 'none';
-}
-
-function toggleRows() {
-  for (var i = visibleRows; i < totalRows; i++) {
-    rows[i].style.display = (rows[i].style.display === 'none' || rows[i].style.display === '') ? 'table-row' : 'none';
-  }
-}
-
-var moreButton = document.getElementById('moreButton');
-moreButton.addEventListener('click', function() {
-  toggleRows();
-  moreButton.textContent = (rows[visibleRows].style.display === 'none' || rows[visibleRows].style.display === '') ? 'Show More' : 'Show Less';
-});
-});
-
-</script>
-
-
-<button id="moreButton"> Show More</button>
-
-<script>
-  var table = document.getElementById('pricingTable');
-  var rows = table.getElementsByTagName('tr');
-  var visibleRows = 3; // Show 3.5 rows initially
-  var totalRows = rows.length;
-
-  // Hide rows after the initially visible rows
-  for (var i = visibleRows; i < totalRows; i++) {
-    rows[i].style.display = 'none';
-  }
-
-  function toggleRows() {
-    for (var i = visibleRows; i < totalRows; i++) {
-      rows[i].style.display = (rows[i].style.display === 'none' || rows[i].style.display === '') ? 'table-row' : 'none';
-    }
-  }
-
-  var moreButton = document.getElementById('moreButton');
-  moreButton.addEventListener('click', function() {
-    toggleRows();
-    moreButton.textContent = (rows[visibleRows].style.display === 'none' || rows[visibleRows].style.display === '') ? 'More' : 'Show Less';
-  });
-</script> -->
