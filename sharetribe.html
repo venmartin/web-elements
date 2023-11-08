@@ -23,11 +23,11 @@
     font-weight: 600;
   }
 
-  .sharetribe-pricing-table tr[data-show-more] {
+  .sharetribe-pricing-table tr[data-show-more-row] {
     position: relative;
   }
 
-  .sharetribe-pricing-table tr[data-show-more]::after {
+  .sharetribe-pricing-table tr[data-show-more-row]::after {
     content: "show more";
     position: absolute;
     left: 0;
@@ -38,15 +38,21 @@
     display: flex;
     align-items: end;
     justify-content: center;
+    opacity: 0;
+    transition: all 200ms ease-in-out;
   }
 
-  .sharetribe-pricing-table tr~tr td {
+  .sharetribe-pricing-table tr[data-show-more-row][data-show-more-active]::after {
+    opacity: 1;
+  }
+
+  .sharetribe-pricing-table tr[data-show-more-row]~tr td {
     line-height: 1.4;
     opacity: 1;
-    transition: all 0.2s ease-in-out;
+    transition: all 200ms ease-in-out;
   }
 
-  .sharetribe-pricing-table tr[data-show-more]~tr td {
+  .sharetribe-pricing-table tr[data-show-more-row][data-show-more-active]~tr td {
     line-height: 0;
     padding: 0;
     border: 0;
@@ -95,7 +101,7 @@
     <td>$ 99</td>
   </tr>
 
-<tr data-show-more>
+<tr data-show-more-row data-show-more-active>
     <td>
       <span class="sharetribe-price-name">Custom Email Trigger & Content</span
       ><br />
@@ -390,14 +396,10 @@
   (function () {
     // TODO: get all tables with class sharetribe-pricing-table and loop through them
     var table = document.getElementsByClassName('sharetribe-pricing-table')[0];
-    var showMoreRow = table.querySelector('tr[data-show-more]');
+    var showMoreRow = table.querySelector('tr[data-show-more-row]');
 
     showMoreRow.onclick = (function () {
-      if (showMoreRow.hasAttribute('data-show-more')) {
-        showMoreRow.removeAttribute('data-show-more');
-      } else {
-        showMoreRow.setAttribute('data-show-more', '');
-      }
+      showMoreRow.toggleAttribute('data-show-more-active');
     });
   })();
 
