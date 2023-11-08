@@ -1,4 +1,15 @@
 <style>
+  /* override hover effect on unclickable rows */
+  table.sharetribe-pricing-table
+    tbody
+    tr:nth-child(2n + 1):not([data-show-more-row]):hover
+    > td {
+    background-color: hsla(0, 0%, 50.2%, 0.0705882353);
+  }
+  table.sharetribe-pricing-table tbody tr:not([data-show-more-row]):hover > td {
+    background: none;
+  }
+
   .sharetribe-pricing-table {
     width: 100%;
     border-collapse: collapse;
@@ -48,17 +59,21 @@
     transition: all 200ms ease-in-out;
   }
 
-  .sharetribe-pricing-table tr[data-show-more-row][data-show-more-active]::after {
+  .sharetribe-pricing-table
+    tr[data-show-more-row][data-show-more-active]::after {
     opacity: 1;
   }
 
-  .sharetribe-pricing-table tr[data-show-more-row]~tr td {
+  .sharetribe-pricing-table tr[data-show-more-row] ~ tr td {
     line-height: 1.4;
     opacity: 1;
     transition: all 200ms ease-in-out;
   }
 
-  .sharetribe-pricing-table tr[data-show-more-row][data-show-more-active]~tr td {
+  .sharetribe-pricing-table
+    tr[data-show-more-row][data-show-more-active]
+    ~ tr
+    td {
     line-height: 0;
     padding: 0;
     border: 0;
