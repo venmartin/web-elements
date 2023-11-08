@@ -387,7 +387,7 @@
 
 <script>
 
-  document.addEventListener('DOMContentLoaded', function () {
+  (function () {
     // TODO: get all tables with class sharetribe-pricing-table and loop through them
     var table = document.getElementsByClassName('sharetribe-pricing-table')[0];
     var showMoreRow = table.querySelector('tr[data-show-more]');
@@ -399,6 +399,6 @@
         showMoreRow.setAttribute('data-show-more', '');
       }
     });
-  });
+  })();
 
 </script>
