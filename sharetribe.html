@@ -5,7 +5,13 @@
     margin-bottom: 20px;
     font-family: "Source Sans Pro", sans-serif; /* Set font to Source Sans Pro */
     font-size: 18px; /* Set font size to 16px \*/
-    }
+  }
+
+  .blue-link {
+    color: blue;
+    /* You can also specify other styles such as text-decoration, font-weight, etc. */
+    text-decoration: underline; /* Adds an underline to the link */
+  }
 
   .sharetribe-pricing-table td {
     border: 1px solid #ccc;
@@ -13,7 +19,7 @@
     text-align: left;
   }
 
-/* Right-align data in the price column (Column 3) */
+  /* Right-align data in the price column (Column 3) */
   .sharetribe-pricing-table td:nth-child(2) {
     text-align: right;
     width: 180px; /* Adjust the width of the price column */
@@ -101,7 +107,7 @@
     <td>$ 99</td>
   </tr>
 
-<tr data-show-more-row data-show-more-active>
+  <tr data-show-more-row data-show-more-active>
     <td>
       <span class="sharetribe-price-name">Custom Email Trigger & Content</span
       ><br />
@@ -121,7 +127,8 @@
 
   <tr>
     <td>
-      <span class="sharetribe-price-name">3rd Party Social Login & SSO</span><br />
+      <span class="sharetribe-price-name">3rd Party Social Login & SSO</span
+      ><br />
       For example, Google and Facebook.
     </td>
     <td>$ 160</td>
@@ -195,8 +202,11 @@
 
   <tr>
     <td>
-      <span class="sharetribe-price-name">Variable Shipping Costs</span><br>
-      Requires account with <a href="https://goshippo.com/" target="_blank" class="blue-link">Shippo.</a>
+      <span class="sharetribe-price-name">Variable Shipping Costs</span><br />
+      Requires account with
+      <a href="https://goshippo.com/" target="_blank" class="blue-link"
+        >Shippo.</a
+      >
     </td>
     <td>$ 499</td>
   </tr>
@@ -278,10 +288,16 @@
 
   <tr>
     <td>
-      <span class="sharetribe-price-name">Mobile App</span><br />Similar to <a
-        href="https://median.co/pricing#self-service" target="_blank" class="blue-link">
-        Median,</a> the web app is wrapped in a mobile app so it is available in
-      stores for download and stays in sync with the web app.
+      <span class="sharetribe-price-name">Mobile App</span><br />Similar to
+      <a
+        href="https://median.co/pricing#self-service"
+        target="_blank"
+        class="blue-link"
+      >
+        Median,</a
+      >
+      the web app is wrapped in a mobile app so it is available in stores for
+      download and stays in sync with the web app.
     </td>
     <td>$ 599</td>
   </tr>
@@ -318,34 +334,33 @@
       <span class="sharetribe-price-name">User Subscription Fees</span><br />For
       example, buyers can search/browse only after paying a subscription, or
       providers can list in a category only after paying a subscription.
-        </td>
+    </td>
     <td>$ 699</td>
   </tr>
 
   <tr>
     <td>
-      <span class="sharetribe-price-name">2-Factor Authentication</span><br />For
-      example, buyers can search/browse only after paying a subscription, or
-      providers can list in a category only after paying a subscription.
-        </td>
+      <span class="sharetribe-price-name">2-Factor Authentication</span
+      ><br />For example, buyers can search/browse only after paying a
+      subscription, or providers can list in a category only after paying a
+      subscription.
+    </td>
     <td>$ 699</td>
   </tr>
 
-  
-  
   <tr>
     <td>
-      <span class="sharetribe-price-name">3rd-party File Sources</span><br />For example, browsing and selecting files
-      in Google Drive
-      instead of only from the provider's local device.
+      <span class="sharetribe-price-name">3rd-party File Sources</span><br />For
+      example, browsing and selecting files in Google Drive instead of only from
+      the provider's local device.
     </td>
     <td>$ 799</td>
   </tr>
 
   <tr>
     <td>
-      <span class="sharetribe-price-name">Different Commission Tiers</span><br />For example, lower commissions only
-      for paid users or
+      <span class="sharetribe-price-name">Different Commission Tiers</span
+      ><br />For example, lower commissions only for paid users or
       platform-exclusive listings.
     </td>
     <td>$ 799</td>
@@ -360,47 +375,52 @@
 
   <tr>
     <td>
-      <span class="sharetribe-price-name">Shopping Cart</span> <br> This is implemented as multiple single-vendor
-      shopping carts. Please visit <a href="https://www.depop.com/bag/" target="_blank" class="blue-link">Depop</a> as
-      an example.
-
+      <span class="sharetribe-price-name">Shopping Cart</span> <br />
+      This is implemented as multiple single-vendor shopping carts. Please visit
+      <a href="https://www.depop.com/bag/" target="_blank" class="blue-link"
+        >Depop</a
+      >
+      as an example.
     </td>
     <td>$ 1,600</td>
   </tr>
 
   <tr>
     <td>
-      <span class="sharetribe-price-name">Advanced Rules For Booking Times</span> <br> For example, a service provider
-      cannot be booked at the same time for different listings.
-
+      <span class="sharetribe-price-name"
+        >Advanced Rules For Booking Times</span
+      >
+      <br />
+      For example, a service provider cannot be booked at the same time for
+      different listings.
     </td>
     <td>$ 1,900</td>
   </tr>
 
   <tr>
     <td>
-      <span class="sharetribe-price-name">Non-image Media</span> <br> For example, audio, video, or 3D-models on
-      listings or profiles. May require 3rd-party storage solution such as <a
-        href="https://developers.cloudflare.com/r2/pricing/" target="_blank" class="blue-link">R2</a>
-
+      <span class="sharetribe-price-name">Non-image Media</span> <br />
+      For example, audio, video, or 3D-models on listings or profiles. May
+      require 3rd-party storage solution such as
+      <a
+        href="https://developers.cloudflare.com/r2/pricing/"
+        target="_blank"
+        class="blue-link"
+        >R2</a
+      >
     </td>
     <td>$ 1,900</td>
   </tr>
-
 </table>
 
-
-
 <script>
-
   (function () {
     // TODO: get all tables with class sharetribe-pricing-table and loop through them
-    var table = document.getElementsByClassName('sharetribe-pricing-table')[0];
-    var showMoreRow = table.querySelector('tr[data-show-more-row]');
+    var table = document.getElementsByClassName("sharetribe-pricing-table")[0];
+    var showMoreRow = table.querySelector("tr[data-show-more-row]");
 
-    showMoreRow.onclick = (function () {
-      showMoreRow.toggleAttribute('data-show-more-active');
-    });
+    showMoreRow.onclick = function () {
+      showMoreRow.toggleAttribute("data-show-more-active");
+    };
   })();
-
 </script>
