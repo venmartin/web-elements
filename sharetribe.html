@@ -9,6 +9,10 @@
   table.sharetribe-pricing-table tbody tr:not([data-show-more-row]):hover > td {
     background: none;
   }
+  /* apply hover effect to clickable row */
+  table.sharetribe-pricing-table tbody tr[data-show-more-row]:hover::after {
+    opacity: 0;
+  }
 
   .sharetribe-pricing-table {
     width: 100%;
