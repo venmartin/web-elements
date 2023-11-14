@@ -230,6 +230,37 @@
     <script>
         let displayValue = '';
         let selectedService = '';
+
+        const inputs = [
+            {
+                name: "React.js Developer",
+                rate: 49,
+                numMembers: '2',
+                numHoursPerMonth: '174',
+                numMonths: '6',
+            },
+            {
+                name: "Mid Level Developer",
+                rate: 79,
+                numMembers: '',
+                numHoursPerMonth: '174',
+                numMonths: '',
+            },
+            {
+                name: "Senior Developer",
+                rate: 99,
+                numMembers: '',
+                numHoursPerMonth: '174',
+                numMonths: '',
+            },
+            {
+                name: "Tech Lead/Architect",
+                rate: 199,
+                numMembers: '0.5',
+                numHoursPerMonth: '174',
+                numMonths: '',
+            }
+        ];
     
         function updateDisplay() {  
             document.getElementById('display').innerText = displayValue;
