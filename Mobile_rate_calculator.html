@@ -34,11 +34,14 @@
             height: 150px;
             width: 370px;
             background-color: #fff;
-            align-items: center;
-            justify-content: center;
             border: 1px solid #ddd; /* Gray border */
             border-radius: 5px;
             margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            font-size: 14px;
+            justify-content: space-evenly;
         }
 
         .total-box {
@@ -75,18 +78,25 @@
             background-color: #ffffff;
             padding: 10px;
             font-size: 14px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            height: 100%;
+            display: contents;
         }
-        
+
         .service {
             display: flex;
             justify-content: space-between;
+            flex: 1 0;
         }
 
         .subtotal {
+            font-size: 16px;
+        }
+
+        .current-service {
+            flex: 1 0;
+            align-items: flex-end;
+        }
+
+        .current-service .subtotal {
             font-size: 18px;
         }
 
@@ -181,16 +191,7 @@
         Software Developer Rates <br> (excluding GST)
     </header>
     <div class="input-box">
-        <div class="display" id="display">
-            <div class="service">
-                <div>
-                    <div>React.js Developer</div>
-                    <div>$49/hr x 2p x 174hr/mo x 6mo</div>
-                </div>
-                <div class="subtotal">
-                    $102,312
-                </div>
-            </div>
+        <div class="display currently-editing" id="display">
             <div class="service">
                 <div>
                     <div>React.js Developer</div>
@@ -219,7 +220,16 @@
                 </div>
             </div>
         </div>
-        <div class="current-service" id="current-service"></div>
+        <!-- remove service div if not currently editing -->
+        <div class="service current-service" id="current-service">
+            <div>
+                <div>Tech Lead/Architect</div>
+                <div>$199/hr x 0.5p x 174hr/mo x</div>
+            </div>
+            <div class="subtotal">
+                6<span class="pipe"></span> months
+            </div>
+        </div>
     </div>
     <div class="total-box">
         <div id="result"></div>
