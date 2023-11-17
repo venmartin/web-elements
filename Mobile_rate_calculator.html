@@ -74,7 +74,20 @@
             grid-column: span 4;
             background-color: #ffffff;
             padding: 10px;
-            font-size: 1.5em;
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            height: 100%;
+        }
+        
+        .service {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .subtotal {
+            font-size: 18px;
         }
 
         .btn {
@@ -168,7 +181,45 @@
         Software Developer Rates <br> (excluding GST)
     </header>
     <div class="input-box">
-        <div class="display" id="display"></div>
+        <div class="display" id="display">
+            <div class="service">
+                <div>
+                    <div>React.js Developer</div>
+                    <div>$49/hr x 2p x 174hr/mo x 6mo</div>
+                </div>
+                <div class="subtotal">
+                    $102,312
+                </div>
+            </div>
+            <div class="service">
+                <div>
+                    <div>React.js Developer</div>
+                    <div>$49/hr x 2p x 174hr/mo x 6mo</div>
+                </div>
+                <div class="subtotal">
+                    $102,312
+                </div>
+            </div>
+            <div class="service">
+                <div>
+                    <div>React.js Developer</div>
+                    <div>$49/hr x 2p x 174hr/mo x 6mo</div>
+                </div>
+                <div class="subtotal">
+                    $102,312
+                </div>
+            </div>
+            <div class="service">
+                <div>
+                    <div>React.js Developer</div>
+                    <div>$49/hr x 2p x 174hr/mo x 6mo</div>
+                </div>
+                <div class="subtotal">
+                    $102,312
+                </div>
+            </div>
+        </div>
+        <div class="current-service" id="current-service"></div>
     </div>
     <div class="total-box">
         <div id="result"></div>
