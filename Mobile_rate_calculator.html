@@ -245,7 +245,7 @@
         <button class="btn" onclick="appendToDisplay('4')">4</button>
         <button class="btn" onclick="appendToDisplay('5')">5</button>
         <button class="btn" onclick="appendToDisplay('6')">6</button>
-        <button class="btn1" onclick="appendToDisplay('5')">X <br> Hours Per <br> Month</button>
+        <button class="btn1" onclick="appendToDisplay('X')">X <br> Hours Per <br> Month</button>
         <button class="btn" onclick="appendToDisplay('1')">1</button>
         <button class="btn" onclick="appendToDisplay('2')">2</button>
         <button class="btn" onclick="appendToDisplay('3')">3</button>
@@ -293,6 +293,7 @@
     <script>
         let displayValue = '';
         let selectedService = '';
+        let currentInput = null;
 
         const inputs = [
             {
@@ -352,8 +353,45 @@
             const serviceOptions = document.querySelector('.service-options');
             calculator.style.display = 'grid';
             serviceOptions.style.display = 'none';
+
+            // Find the selected input based on its name
+            currentInput = inputs.find(input => input.name === selectedService);
+
             updateDisplay();
         }
+
+           
+        function calculateTotal() {
+            if (currentInput) {
+                // Extract values from the currentInput object
+                const rate = currentInput.rate || 0;
+                const numMembers = parseFloat(displayValue) || 0;
+                const numHoursPerMonth = parseFloat(currentInput.numHoursPerMonth) || 0;
+                const numMonths = parseFloat(displayValue) || 0;
+
+                // Calculate the subtotal
+                const subtotal = rate * numMembers * numHoursPerMonth * numMonths;
+
+                // Update the current-service section with the calculated values
+                const currentServiceElement = document.getElementById('current-service');
+                currentServiceElement.querySelector('.current-service div').innerText = currentInput.name;
+                currentServiceElement.querySelector('.current-service .subtotal').innerText = `$${subtotal.toFixed(2)}`;
+
+                // Display the months and pipe symbol
+                const monthsElement = currentServiceElement.querySelector('.subtotal');
+                monthsElement.innerHTML = `${numMonths} <span class="pipe"></span> months`;
+
+                // Update the total box with the calculated total
+                const resultElement = document.getElementById('result');
+                resultElement.innerText = `$${subtotal.toFixed(2)}`;
+
+                // Reset display and current input after showing the result
+                displayValue = '';
+                currentInput = null;
+                updateDisplay();
+            }
+        }
+
     </script>
     
 
