@@ -67,7 +67,7 @@
             margin-top: 10px;
         }
 
-        .service-options {
+       .service-options {
             display: none;
             grid-template-columns: repeat(2, 1fr); /* Updated to display in pairs of two */
             grid-gap: 10px; /* Added gap between buttons */
@@ -102,52 +102,35 @@
             font-size: 18px;
         }
 
-        .btn {
+        .btn, .btn1, .btn2 {
             font-family: 'source sans pro', sans-serif;
             font-weight: 500;
-            background-color: #d7d7d7;
-            color: black;
-            border: none;
             width: 72px;
             height: 72px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
-            font-size: 18px;
+            border: none;
             cursor: pointer;
             border-radius: 5px;
+        }
+       
+        .btn {
+            background-color: #d7d7d7;
+            color: black;
+            font-size: 18px;
         }
 
         .btn1 {
-            font-family: 'source sans pro', sans-serif;
-            font-weight: 500;
             background-color: #7e7eaa;
             color: white;
-            border: none;
-            width: 72px;
-            height: 72px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
             font-size: 13px;
-            cursor: pointer;
-            border-radius: 5px;
         }
 
         .btn2 {
-            font-family: 'source sans pro', sans-serif;
-            font-weight: 400;
             background-color: #4e4ef2;
             color: white;
-            border: none;
-            width: 72px;
-            height: 72px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
             font-size: 15px;
-            cursor: pointer;
-            border-radius: 5px;
         }
 
         .btn3 {
@@ -186,6 +169,144 @@
             text-align: center;
             margin-top: 10px;
         }
+       
+       
+        @media only screen and (max-width: 369px) {
+        /* Styles for screens with a maximum width of 600 pixels */
+        
+        body {
+            font-family: 'source sans pro', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .current-service .subtotal {
+            font-size: 16px;
+        }
+
+        header {
+            margin-top: 10px;
+            font-family: 'Source Sans Pro', sans-serif;
+            height: 50px;
+            width: 350px;
+            background-color: #4e4ef2;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            text-align: center;
+            border-radius: 5px; /* Rounded corners */
+        }
+
+        .input-box {
+            height: 150px;
+            width: 350px;
+            background-color: #fff;
+            border: 1px solid #ddd; /* Gray border */
+            border-radius: 5px;
+            margin-top: 10px;
+            display: flex;
+           /* flex-direction: column;
+            align-items: stretch;*/
+            font-size: 14px;
+            justify-content: space-evenly;
+        }
+
+        .total-box {
+            height: 50px;
+            width: 350px;
+            background-color: #000000;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            border-radius: 5px; /* Rounded corners */
+            margin-top: 10px;
+        }
+
+        .subtotal {
+            font-size: 14px;
+            margin-right: 5px;
+        }
+
+        .calculator,
+        .service-options {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+            max-width: 350px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .service-options {
+            display: none;
+            grid-template-columns: repeat(2, 1fr); /* Updated to display in pairs of two */
+            grid-gap: 15px; /* Added gap between buttons */
+        }
+        
+        
+        
+        .btn, .btn1, .btn2 {
+            font-family: 'source sans pro', sans-serif;
+            font-weight: 500;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        .btn {
+            background-color: #d7d7d7;
+            color: black;
+            font-size: 14px;
+        }
+
+        .btn1 {
+            background-color: #7e7eaa;
+            color: white;
+            font-size: 10px;
+        }
+
+        .btn2 {
+            background-color: #4e4ef2;
+            color: white;
+            font-size: 15px;            
+        }
+
+        .btn3 {
+            font-family: 'source sans pro', sans-serif;
+            font-weight: 400;
+            background-color: rgb(215, 215, 247);
+            color: black;
+            border: none;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 15px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .btn3 span span {
+            font-size: smaller; /* Adjust the font size for smaller screens */
+        }
+
+    }
+    
+
     </style>
 </head>
 <body>
