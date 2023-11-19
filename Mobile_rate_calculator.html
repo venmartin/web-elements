@@ -357,15 +357,15 @@
         <button class="btn" onclick="appendToDisplay('7')">7</button>
         <button class="btn" onclick="appendToDisplay('8')">8</button>
         <button class="btn" onclick="appendToDisplay('9')">9</button>
-        <button class="btn1" onclick="appendToDisplay('X')">X <br> Team <br> Members</button>
+        <button class="btn1" onclick="setInputField()" data-field="numMembers">X <br> Team <br> Members</button>
         <button class="btn" onclick="appendToDisplay('4')">4</button>
         <button class="btn" onclick="appendToDisplay('5')">5</button>
         <button class="btn" onclick="appendToDisplay('6')">6</button>
-        <button class="btn1" onclick="appendToDisplay('X')">X <br> Hours Per <br> Month</button>
+        <button class="btn1" onclick="setInputField()" data-field="numHoursPerMonth">X <br> Hours Per <br> Month</button>
         <button class="btn" onclick="appendToDisplay('1')">1</button>
         <button class="btn" onclick="appendToDisplay('2')">2</button>
         <button class="btn" onclick="appendToDisplay('3')">3</button>
-        <button class="btn1" onclick="appendToDisplay('X')">X <br> Months</button>
+        <button class="btn1" onclick="setInputField()" data-field="numMonths">X <br> Months</button>
         <button class="btn mobile-calculator-button-decimal-point" onclick="appendToDisplay('.')">.</button>
         <button class="btn" onclick="appendToDisplay('0')">0</button>
         <button class="btn mobile-calculator-button-backspace" onclick="backspace()">←</button>
@@ -446,6 +446,7 @@
             const displayElement = document.getElementById('display');
             displayElement.innerHTML =
             inputs
+            .filter(input => input !== currentInput)
             .filter(input => input.numMembers && input.numHoursPerMonth && input.numMonths)
             .map(input => {
                 const subtotal = input.rate * input.numMembers * input.numHoursPerMonth * input.numMonths;
@@ -535,6 +536,13 @@
             updateDisplay();
         }
     
+        function setInputField() {
+            currentInput[currentInputField] = currentInputValue;
+            currentInputField = event.target.dataset.field;
+            currentInputValue = currentInput?.[currentInputField];
+            updateDisplay();
+        }
+
         function toggleServiceOptions() {
             currentInput = null;
             updateDisplay();
