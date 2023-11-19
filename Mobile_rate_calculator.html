@@ -84,7 +84,7 @@
         .service {
             display: flex;
             justify-content: space-between;
-            flex: 1 0;
+            /* flex: 1 0; */
             margin-left: 5px;
         }
 
@@ -100,6 +100,22 @@
 
         .current-service .subtotal {
             font-size: 18px;
+        }
+
+        .blink {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 0;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
         }
 
         .btn, .btn1, .btn2 {
@@ -314,7 +330,7 @@
         Software Developer Rates <br> (excluding GST)
     </header>
     <div class="input-box">
-        <div class="display currently-editing" id="display">
+        <div class="display" id="display">
             <div class="service">
                 <div>
                     <div>React.js Developer</div>
@@ -344,13 +360,13 @@
             </div>
         </div>
         <!-- remove service div if not currently editing -->
-        <div class="service current-service" id="current-service">
+        <div class="service current-service">
             <div>
                 <div>Tech Lead/Architect</div>
                 <div>$199/hr x 0.5p x 174hr/mo x</div>
             </div>
             <div class="subtotal">
-                6<span class="pipe"></span> months
+                6<span class="blink"></span> months
             </div>
         </div>
     </div>
@@ -378,25 +394,25 @@
     </div>
     <div class="service-options">
 
-        <button class="btn3" onclick="selectService('Service 1')">
+        <button class="btn3" onclick="selectService('React.js Developer')">
             <span style="color: black;">React.js</span> <br>
             <span style="color: black;">Developer</span> <br>
             <span style="color: blue;">$49<span style="color: black; font-size: medium;">/hr</span></span>
         </button>
         
-        <button class="btn3" onclick="selectService('Service 2')">
+        <button class="btn3" onclick="selectService('Mid Level Developer')">
             <span style="color: black;">Mid Level</span> <br>
             <span style="color: black;">Developer</span> <br>
             <span style="color: blue;">$79<span style="color: black; font-size: medium;">/hr</span></span>
         </button>
         
-        <button class="btn3" onclick="selectService('Service 3')">
+        <button class="btn3" onclick="selectService('Senior Developer')">
             <span style="color: black;">Senior</span> <br>
             <span style="color: black;">Developer</span> <br>
             <span style="color: blue;">$99<span style="color: black; font-size: medium;">/hr</span></span>
         </button>
         
-        <button class="btn3" onclick="selectService('Service 4')">
+        <button class="btn3" onclick="selectService('Tech Lead/Architect')">
             <span style="color: black;">Tech Lead/</span><br>
             <span style="color: black;">Architect</span> <br>
             <span style="color: blue;">$199<span style="color: black; font-size: medium;">/hr</span></span>
@@ -412,10 +428,6 @@
     </div>
 
     <script>
-        let displayValue = '';
-        let selectedService = '';
-        let currentInput = null;
-
         const inputs = [
             {
                 name: "React.js Developer",
@@ -427,9 +439,9 @@
             {
                 name: "Mid Level Developer",
                 rate: 79,
-                numMembers: '',
+                numMembers: '2',
                 numHoursPerMonth: '174',
-                numMonths: '',
+                numMonths: '6',
             },
             {
                 name: "Senior Developer",
@@ -446,38 +458,98 @@
                 numMonths: '',
             }
         ];
-    
+
+        let currentInput = null;
+        let currentInputField = '';
+        let currentInputValue = '';
+        
         function updateDisplay() {  
-            document.getElementById('display').innerText = displayValue;
+            const displayElement = document.getElementById('display');
+            displayElement.innerHTML =
+            inputs
+            .filter(input => input.numMembers && input.numHoursPerMonth && input.numMonths)
+            .map(input => {
+                const subtotal = input.rate * input.numMembers * input.numHoursPerMonth * input.numMonths;
+                const subtotalString = subtotal.toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0});
+                return `
+                    <div class="service">
+                        <div>
+                            <div>${input.name}</div>
+                            <div>$${input.rate}/hr x ${input.numMembers}p x ${input.numHoursPerMonth}hr/mo x ${input.numMonths}mo</div>
+                        </div>
+                        <div class="subtotal">
+                            $${subtotalString}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            const currentServiceElement = document.getElementsByClassName('current-service')[0];
+            if (currentInput) {
+                if (currentInputField === 'numMembers')
+                    currentServiceElement.innerHTML = `
+                        <div>
+                            <div>${currentInput.name}</div>
+                            <div>$${currentInput.rate}/hr x</div>
+                        </div>
+                        <div class="subtotal">
+                            ${currentInputValue}<span class="blink">|</span> people
+                        </div>
+                    `;
+                else if (currentInputField === 'numHoursPerMonth')
+                    currentServiceElement.innerHTML = `
+                        <div>
+                            <div>${currentInput.name}</div>
+                            <div>$${currentInput.rate}/hr x ${currentInput.numMembers}p x</div>
+                        </div>
+                        <div class="subtotal">
+                            ${currentInputValue}<span class="blink">|</span> hours/mo
+                        </div>
+                    `;
+                else if (currentInputField === 'numMonths')
+                    currentServiceElement.innerHTML = `
+                        <div>
+                            <div>${currentInput.name}</div>
+                            <div>$${currentInput.rate}/hr x ${currentInput.numMembers}p x ${currentInput.numHoursPerMonth}hr/mo x</div>
+                        </div>
+                        <div class="subtotal">
+                            ${currentInputValue}<span class="blink">|</span> months
+                        </div>
+                    `;
+                currentServiceElement.style.display = 'flex';
+
+                const calculator = document.querySelector('.calculator');
+                const serviceOptions = document.querySelector('.service-options');
+                calculator.style.display = 'grid';
+                serviceOptions.style.display = 'none';
+            } else {
+                currentServiceElement.style.display = 'none';
+
+                const calculator = document.querySelector('.calculator');
+                const serviceOptions = document.querySelector('.service-options');
+                calculator.style.display = 'none';
+                serviceOptions.style.display = 'grid';
+            }
         }
     
         function appendToDisplay(value) {
-            displayValue += value;
+            currentInputValue += value;
             updateDisplay();
         }
     
         function backspace() {
-            displayValue = displayValue.slice(0, -1);
+            currentInputValue = currentInputValue.slice(0, -1);
             updateDisplay();
         }
     
         function toggleServiceOptions() {
-            const calculator = document.querySelector('.calculator');
-            const serviceOptions = document.querySelector('.service-options');
-            calculator.style.display = 'none';
-            serviceOptions.style.display = 'grid';
+            currentInput = null;
+            updateDisplay();
         }
     
         function selectService(service) {
-            selectedService = service;
-            const calculator = document.querySelector('.calculator');
-            const serviceOptions = document.querySelector('.service-options');
-            calculator.style.display = 'grid';
-            serviceOptions.style.display = 'none';
-
-            // Find the selected input based on its name
-            currentInput = inputs.find(input => input.name === selectedService);
-
+            currentInput = inputs.find(input => input.name === service);
+            currentInputField = 'numMembers';
+            currentInputValue = currentInput.numMembers;
             updateDisplay();
         }
 
@@ -513,6 +585,7 @@
             }
         }
 
+        updateDisplay();
     </script>
     
 
