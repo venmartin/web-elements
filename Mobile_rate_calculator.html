@@ -1,9 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Calculator</title>
     <style>
         body {
             font-family: 'source sans pro', sans-serif;
@@ -14,7 +8,10 @@
             align-items: center;
             height: 100vh;
         }
-
+    </style>
+    <!-- copy from here -->
+    <style>
+        /* TODO: use class names only and have all class names start with "mobile-calculator-" */
         header {
             margin-top: 10px;
             font-family: 'Source Sans Pro', sans-serif;
@@ -60,6 +57,7 @@
         .calculator,
         .service-options {
             display: grid;
+            /* TODO: move grid-template-columns and grid-gap to separate sections for .calculator and .service-options */
             grid-template-columns: repeat(4, 1fr);
             grid-gap: 10px;
             max-width: 350px;
@@ -68,6 +66,7 @@
         }
 
        .service-options {
+            /* TODO: display: none for .calculator since service options are shown first */
             display: none;
             grid-template-columns: repeat(2, 1fr); /* Updated to display in pairs of two */
             grid-gap: 10px; /* Added gap between buttons */
@@ -79,6 +78,14 @@
             padding: 10px;
             font-size: 14px;
             display: contents;
+        }
+
+        .no-roles {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            font-size: 18px;
         }
 
         .service {
@@ -118,6 +125,7 @@
             }
         }
 
+        /* TODO: rename to what the button is (change current value, change current field, change current role) */
         .btn, .btn1, .btn2 {
             font-family: 'source sans pro', sans-serif;
             font-weight: 500;
@@ -165,13 +173,21 @@
             border-radius: 5px;
         }
 
-        .btn:hover,
-        .btn1:hover {
+        .btn:not(:disabled):hover,
+        .btn1:not(:disabled):hover,
+        .btn2:not(:disabled):hover,
+        .btn3:not(:disabled):hover {
             background-color: #45a049;
         }
 
+        .btn:disabled,
+        .btn1:disabled,
+        .btn2:disabled,
+        .btn3:disabled {
+            opacity: 0.5;
+        }
         
-
+        /* remove show-service-options if unused */
         .show-service-options .calculator {
             display: none;
         }
@@ -186,7 +202,7 @@
             margin-top: 10px;
         }
        
-       
+       /* TODO: media query contents should only contain sizes and maybe display: none.  should not contain colours. */
         @media only screen and (max-width: 369px) {
         /* Styles for screens with a maximum width of 600 pixels */
         
@@ -324,50 +340,13 @@
     
 
     </style>
-</head>
-<body>
     <header>
         Software Developer Rates <br> (excluding GST)
     </header>
     <div class="input-box">
-        <div class="display" id="display">
-            <div class="service">
-                <div>
-                    <div>React.js Developer</div>
-                    <div>$49/hr x 2p x 174hr/mo x 6mo</div>
-                </div>
-                <div class="subtotal">
-                    $102,312
-                </div>
-            </div>
-            <div class="service">
-                <div>
-                    <div>React.js Developer</div>
-                    <div>$49/hr x 2p x 174hr/mo x 6mo</div>
-                </div>
-                <div class="subtotal">
-                    $102,312
-                </div>
-            </div>
-            <div class="service">
-                <div>
-                    <div>React.js Developer</div>
-                    <div>$49/hr x 2p x 174hr/mo x 6mo</div>
-                </div>
-                <div class="subtotal">
-                    $102,312
-                </div>
-            </div>
-        </div>
+        <div class="display" id="display"></div>
         <!-- remove service div if not currently editing -->
         <div class="service current-service">
-            <div>
-                <div>Tech Lead/Architect</div>
-                <div>$199/hr x 0.5p x 174hr/mo x</div>
-            </div>
-            <div class="subtotal">
-                6<span class="blink"></span> months
-            </div>
         </div>
     </div>
     <div class="total-box">
@@ -387,7 +366,7 @@
         <button class="btn" onclick="appendToDisplay('2')">2</button>
         <button class="btn" onclick="appendToDisplay('3')">3</button>
         <button class="btn1" onclick="appendToDisplay('X')">X <br> Months</button>
-        <button class="btn" onclick="appendToDisplay('.')">.</button>
+        <button class="btn mobile-calculator-button-decimal-point" onclick="appendToDisplay('.')">.</button>
         <button class="btn" onclick="appendToDisplay('0')">0</button>
         <button class="btn operation-btn" onclick="backspace()">←</button>
         <button class="btn2" onclick="toggleServiceOptions()"> + <br> Role </button>
@@ -432,16 +411,16 @@
             {
                 name: "React.js Developer",
                 rate: 49,
-                numMembers: '2',
+                numMembers: '',
                 numHoursPerMonth: '174',
-                numMonths: '6',
+                numMonths: '',
             },
             {
                 name: "Mid Level Developer",
                 rate: 79,
-                numMembers: '2',
+                numMembers: '',
                 numHoursPerMonth: '174',
-                numMonths: '6',
+                numMonths: '',
             },
             {
                 name: "Senior Developer",
@@ -453,7 +432,7 @@
             {
                 name: "Tech Lead/Architect",
                 rate: 199,
-                numMembers: '0.5',
+                numMembers: '',
                 numHoursPerMonth: '174',
                 numMonths: '',
             }
@@ -516,18 +495,22 @@
                         </div>
                     `;
                 currentServiceElement.style.display = 'flex';
-
-                const calculator = document.querySelector('.calculator');
-                const serviceOptions = document.querySelector('.service-options');
-                calculator.style.display = 'grid';
-                serviceOptions.style.display = 'none';
             } else {
+                if (!displayElement.innerHTML) {
+                    displayElement.innerHTML = '<div class="no-roles">Please select a role</div>';
+                }
                 currentServiceElement.style.display = 'none';
+            }
 
-                const calculator = document.querySelector('.calculator');
-                const serviceOptions = document.querySelector('.service-options');
-                calculator.style.display = 'none';
+            const serviceOptions = document.querySelector('.service-options');
+            const calculator = document.querySelector('.calculator');
+            document.querySelector('.mobile-calculator-button-decimal-point').disabled = currentInputValue.includes('.');
+            if (currentInput) {
+                serviceOptions.style.display = 'none';
+                calculator.style.display = '';
+            } else {
                 serviceOptions.style.display = 'grid';
+                calculator.style.display = 'none';
             }
         }
     
@@ -587,7 +570,3 @@
 
         updateDisplay();
     </script>
-    
-
-</body>
-</html>
