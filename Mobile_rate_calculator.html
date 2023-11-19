@@ -368,7 +368,7 @@
         <button class="btn1" onclick="appendToDisplay('X')">X <br> Months</button>
         <button class="btn mobile-calculator-button-decimal-point" onclick="appendToDisplay('.')">.</button>
         <button class="btn" onclick="appendToDisplay('0')">0</button>
-        <button class="btn operation-btn" onclick="backspace()">←</button>
+        <button class="btn mobile-calculator-button-backspace" onclick="backspace()">←</button>
         <button class="btn2" onclick="toggleServiceOptions()"> + <br> Role </button>
     </div>
     <div class="service-options">
@@ -504,7 +504,7 @@
 
             const serviceOptions = document.querySelector('.service-options');
             const calculator = document.querySelector('.calculator');
-            document.querySelector('.mobile-calculator-button-decimal-point').disabled = currentInputValue.includes('.');
+            document.querySelector('.mobile-calculator-button-decimal-point').disabled = currentInputValue?.includes('.');
             if (currentInput) {
                 serviceOptions.style.display = 'none';
                 calculator.style.display = '';
@@ -520,7 +520,18 @@
         }
     
         function backspace() {
-            currentInputValue = currentInputValue.slice(0, -1);
+            if (currentInputValue.length === 0) {
+                if (currentInputField === 'numMonths') {
+                    currentInputField = 'numHoursPerMonth';
+                } else if (currentInputField === 'numHoursPerMonth') {
+                    currentInputField = 'numMembers';
+                } else if (currentInputField === 'numMembers') {
+                    currentInput = null;
+                }
+                currentInputValue = currentInput?.[currentInputField];
+            } else {
+                currentInputValue = currentInputValue.slice(0, -1);
+            }
             updateDisplay();
         }
     
@@ -532,7 +543,7 @@
         function selectService(service) {
             currentInput = inputs.find(input => input.name === service);
             currentInputField = 'numMembers';
-            currentInputValue = currentInput.numMembers;
+            currentInputValue = currentInput[currentInputField];
             updateDisplay();
         }
 
