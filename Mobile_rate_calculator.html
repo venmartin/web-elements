@@ -369,7 +369,7 @@
         <button class="mobile-calculator-numpad mobile-calculator-button-decimal-point" onclick="appendToDisplay('.')">.</button>
         <button class="mobile-calculator-numpad" onclick="appendToDisplay('0')">0</button>
         <button class="mobile-calculator-numpad mobile-calculator-button-backspace" onclick="backspace()">←</button>
-        <button class="mobile-calculator-role-btn" onclick="toggleServiceOptions()"> + <br> Role </button>
+        <button class="mobile-calculator-role-btn" onclick="showServiceOptions()"> + <br> Role </button>
     </div>
     <div class="service-options" style="display: none;">
 
@@ -440,9 +440,10 @@
 
         let currentInput = null;
         let currentInputField = '';
-        let currentInputValue = '';
         
         function updateDisplay() {  
+            const currentInputValue = currentInput?.[currentInputField] ?? '';
+
             const displayElement = document.getElementById('display');
             displayElement.innerHTML =
             inputs
@@ -505,7 +506,10 @@
 
             const serviceOptions = document.querySelector('.service-options');
             const calculator = document.querySelector('.calculator');
-            document.querySelector('.mobile-calculator-button-decimal-point').disabled = currentInputValue?.includes('.');
+            document.querySelector('.mobile-calculator-button-decimal-point').disabled = currentInputValue.includes('.');
+            document.querySelector('[data-field="numMembers"]').disabled = currentInputField === 'numMembers' || currentInputValue.length === 0;
+            document.querySelector('[data-field="numHoursPerMonth"]').disabled = currentInputField === 'numHoursPerMonth' || currentInputValue.length === 0;
+            document.querySelector('[data-field="numMonths"]').disabled = currentInputField === 'numMonths' || currentInputValue.length === 0;
             if (currentInput) {
                 serviceOptions.style.display = 'none';
                 calculator.style.display = '';
@@ -516,12 +520,12 @@
         }
     
         function appendToDisplay(value) {
-            currentInputValue += value;
+            currentInput[currentInputField] += value;
             updateDisplay();
         }
     
         function backspace() {
-            if (currentInputValue.length === 0) {
+            if (currentInput[currentInputField].length === 0) {
                 if (currentInputField === 'numMonths') {
                     currentInputField = 'numHoursPerMonth';
                 } else if (currentInputField === 'numHoursPerMonth') {
@@ -529,21 +533,18 @@
                 } else if (currentInputField === 'numMembers') {
                     currentInput = null;
                 }
-                currentInputValue = currentInput?.[currentInputField];
             } else {
-                currentInputValue = currentInputValue.slice(0, -1);
+                currentInput[currentInputField] = currentInput[currentInputField].slice(0, -1);
             }
             updateDisplay();
         }
     
         function setInputField() {
-            currentInput[currentInputField] = currentInputValue;
             currentInputField = event.target.dataset.field;
-            currentInputValue = currentInput?.[currentInputField];
             updateDisplay();
         }
 
-        function toggleServiceOptions() {
+        function showServiceOptions() {
             currentInput = null;
             updateDisplay();
         }
@@ -551,7 +552,6 @@
         function selectService(service) {
             currentInput = inputs.find(input => input.name === service);
             currentInputField = 'numMembers';
-            currentInputValue = currentInput[currentInputField];
             updateDisplay();
         }
 
