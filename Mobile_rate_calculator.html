@@ -355,10 +355,7 @@
         <div class="service mobile-calculator-current-service">
         </div>
     </div>
-    <div class="mobile-calculator-total-box">
-        <div id="heading">Total </div>
-            <span id="Totalofservie"> $123,456</span>
-    </div>
+    <div class="mobile-calculator-total-box"></div>
     <div class="calculator">
         <!-- Calculator buttons -->
         <button class="mobile-calculator-numpad" onclick="appendToDisplay('7')">7</button>
@@ -511,6 +508,19 @@
                 currentServiceElement.style.display = 'none';
             }
 
+            const total = inputs
+            .filter(input => input.numMembers && input.numHoursPerMonth && input.numMonths)
+            .reduce((total, input) => total + input.rate * input.numMembers * input.numHoursPerMonth * input.numMonths, 0);
+            document.querySelector('.mobile-calculator-total-box').innerHTML = total > 0 ? `
+                <div>Total:</div>
+                <div>
+                    $${inputs
+                        .filter(input => input.numMembers && input.numHoursPerMonth && input.numMonths)
+                        .reduce((total, input) => total + input.rate * input.numMembers * input.numHoursPerMonth * input.numMonths, 0)
+                        .toLocaleString('en-US', {minimumFractionDigits: 0, maximumFractionDigits: 0})}
+                </div>
+            ` : '';
+
             const serviceOptions = document.querySelector('.service-options');
             const calculator = document.querySelector('.calculator');
             document.querySelector('.mobile-calculator-button-decimal-point').disabled = currentInputValue.includes('.');
@@ -560,38 +570,6 @@
             currentInput = inputs.find(input => input.name === service);
             currentInputField = 'numMembers';
             updateDisplay();
-        }
-
-           
-        function calculateTotal() {
-            if (currentInput) {
-                // Extract values from the currentInput object
-                const rate = currentInput.rate || 0;
-                const numMembers = parseFloat(displayValue) || 0;
-                const numHoursPerMonth = parseFloat(currentInput.numHoursPerMonth) || 0;
-                const numMonths = parseFloat(displayValue) || 0;
-
-                // Calculate the subtotal
-                const subtotal = rate * numMembers * numHoursPerMonth * numMonths;
-
-                // Update the current-service section with the calculated values
-                const currentServiceElement = document.getElementById('mobile-calculator-current-service');
-                currentServiceElement.querySelector('.mobile-calculator-current-service div').innerText = currentInput.name;
-                currentServiceElement.querySelector('.mobile-calculator-current-service .mobile-calculator-subtotal').innerText = `$${subtotal.toFixed(2)}`;
-
-                // Display the months and pipe symbol
-                const monthsElement = currentServiceElement.querySelector('.mobile-calculator-subtotal');
-                monthsElement.innerHTML = `${numMonths} <span class="pipe"></span> months`;
-
-                // Update the total box with the calculated total
-                const resultElement = document.getElementById('result');
-                resultElement.innerText = `$${subtotal.toFixed(2)}`;
-
-                // Reset display and current input after showing the result
-                displayValue = '';
-                currentInput = null;
-                updateDisplay();
-            }
         }
 
         updateDisplay();
