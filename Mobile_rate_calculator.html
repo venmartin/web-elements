@@ -27,7 +27,7 @@
             border-radius: 5px; /* Rounded corners */
         }
 
-        .input-box {
+        .mobile-calculator-input-box {
             height: 150px;
             width: 370px;
             background-color: #fff;
@@ -41,7 +41,7 @@
             justify-content: space-evenly;
         }
 
-        .total-box {
+        .mobile-calculator-total-box {
             height: 70px;
             width: 370px;
             background-color: #000000;
@@ -54,8 +54,7 @@
             margin-top: 10px;
         }
 
-        .calculator,
-        .service-options {
+        .calculator {
             display: grid;
             /* TODO: move grid-template-columns and grid-gap to separate sections for .calculator and .service-options */
             grid-template-columns: repeat(4, 1fr);
@@ -70,9 +69,12 @@
             display: none;
             grid-template-columns: repeat(2, 1fr); /* Updated to display in pairs of two */
             grid-gap: 10px; /* Added gap between buttons */
+            max-width: 350px;
+            text-align: center;
+            margin-top: 10px;
         }
 
-        .display {
+        .mobile-calculator-display {
             grid-column: span 4;
             background-color: #ffffff;
             padding: 10px;
@@ -80,7 +82,7 @@
             display: contents;
         }
 
-        .no-roles {
+        .mobile-calculator-no-roles {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -95,17 +97,17 @@
             margin-left: 5px;
         }
 
-        .subtotal {
+        .mobile-calculator-subtotal {
             font-size: 16px;
             margin-right: 5px;
         }
 
-        .current-service {
+        .mobile-calculator-current-service {
             flex: 1 0;
             align-items: flex-end;
         }
 
-        .current-service .subtotal {
+        .mobile-calculator-current-service .mobile-calculator-subtotal {
             font-size: 18px;
         }
 
@@ -126,7 +128,7 @@
         }
 
         /* TODO: rename to what the button is (change current value, change current field, change current role) */
-        .btn, .btn1, .btn2 {
+        .mobile-calculator-numpad, .mobile-calculator-mo-hr-team-btn, .mobile-calculator-role-btn {
             font-family: 'source sans pro', sans-serif;
             font-weight: 500;
             width: 72px;
@@ -139,25 +141,25 @@
             border-radius: 5px;
         }
        
-        .btn {
+        .mobile-calculator-btn-numpad {
             background-color: #d7d7d7;
             color: black;
             font-size: 18px;
         }
 
-        .btn1 {
+        .mobile-calculator-mo-hr-team-btn {
             background-color: #7e7eaa;
             color: white;
             font-size: 13px;
         }
 
-        .btn2 {
+        .mobile-calculator-role-btn {
             background-color: #4e4ef2;
             color: white;
             font-size: 15px;
         }
 
-        .btn3 {
+        .mobile-calculator-service-btn {
             font-family: 'source sans pro', sans-serif;
             font-weight: 400;
             background-color: rgb(215, 215, 247);
@@ -173,17 +175,17 @@
             border-radius: 5px;
         }
 
-        .btn:not(:disabled):hover,
-        .btn1:not(:disabled):hover,
-        .btn2:not(:disabled):hover,
-        .btn3:not(:disabled):hover {
+        .mobile-calculator-numpad:not(:disabled):hover,
+        .mobile-calculator-mo-hr-team-btn:not(:disabled):hover,
+        .mobile-calculator-role-btn:not(:disabled):hover,
+        .mobile-calculator-service-btn:not(:disabled):hover {
             background-color: #45a049;
         }
 
-        .btn:disabled,
-        .btn1:disabled,
-        .btn2:disabled,
-        .btn3:disabled {
+        .mobile-calculator-numpad:disabled,
+        .mobile-calculator-mo-hr-team-btn:disabled,
+        .mobile-calculator-role-btn:disabled,
+        .mobile-calculator-service-btn:disabled {
             opacity: 0.5;
         }
         
@@ -216,7 +218,7 @@
             height: 100vh;
         }
 
-        .current-service .subtotal {
+        .mobile-calculator-current-service .mobile-calculator-subtotal {
             font-size: 16px;
         }
 
@@ -235,7 +237,7 @@
             border-radius: 5px; /* Rounded corners */
         }
 
-        .input-box {
+        .mobile-calculator-input-box {
             height: 150px;
             width: 350px;
             background-color: #fff;
@@ -249,7 +251,7 @@
             justify-content: space-evenly;
         }
 
-        .total-box {
+        .mobile-calculator-total-box {
             height: 50px;
             width: 350px;
             background-color: #000000;
@@ -262,7 +264,7 @@
             margin-top: 10px;
         }
 
-        .subtotal {
+        .mobile-calculator-subtotal {
             font-size: 14px;
             margin-right: 5px;
         }
@@ -285,7 +287,7 @@
         
         
         
-        .btn, .btn1, .btn2 {
+        .mobile-calculator-numpad, .mobile-calculator-mo-hr-team-btn, .mobile-calculator-role-btn {
             font-family: 'source sans pro', sans-serif;
             font-weight: 500;
             width: 60px;
@@ -298,25 +300,25 @@
             border-radius: 5px;
         }
         
-        .btn {
+        .mobile-calculator-numpad {
             background-color: #d7d7d7;
             color: black;
             font-size: 14px;
         }
 
-        .btn1 {
+        .mobile-calculator-mo-hr-team-btn {
             background-color: #7e7eaa;
             color: white;
             font-size: 10px;
         }
 
-        .btn2 {
+        .mobile-calculator-role-btn {
             background-color: #4e4ef2;
             color: white;
             font-size: 15px;            
         }
 
-        .btn3 {
+        .mobile-calculator-service-btn {
             font-family: 'source sans pro', sans-serif;
             font-weight: 400;
             background-color: rgb(215, 215, 247);
@@ -332,7 +334,7 @@
             border-radius: 5px;
         }
 
-        .btn3 span span {
+        .mobile-calculator-service-btn span span {
             font-size: smaller; /* Adjust the font size for smaller screens */
         }
 
@@ -343,55 +345,55 @@
     <header>
         Software Developer Rates <br> (excluding GST)
     </header>
-    <div class="input-box">
-        <div class="display" id="display"></div>
+    <div class="mobile-calculator-input-box">
+        <div class="mobile-calculator-display" id="display"></div>
         <!-- remove service div if not currently editing -->
-        <div class="service current-service">
+        <div class="service mobile-calculator-current-service">
         </div>
     </div>
-    <div class="total-box">
+    <div class="mobile-calculator-total-box">
         <div id="result"></div>
     </div>
     <div class="calculator">
         <!-- Calculator buttons -->
-        <button class="btn" onclick="appendToDisplay('7')">7</button>
-        <button class="btn" onclick="appendToDisplay('8')">8</button>
-        <button class="btn" onclick="appendToDisplay('9')">9</button>
-        <button class="btn1" onclick="setInputField()" data-field="numMembers">X <br> Team <br> Members</button>
-        <button class="btn" onclick="appendToDisplay('4')">4</button>
-        <button class="btn" onclick="appendToDisplay('5')">5</button>
-        <button class="btn" onclick="appendToDisplay('6')">6</button>
-        <button class="btn1" onclick="setInputField()" data-field="numHoursPerMonth">X <br> Hours Per <br> Month</button>
-        <button class="btn" onclick="appendToDisplay('1')">1</button>
-        <button class="btn" onclick="appendToDisplay('2')">2</button>
-        <button class="btn" onclick="appendToDisplay('3')">3</button>
-        <button class="btn1" onclick="setInputField()" data-field="numMonths">X <br> Months</button>
-        <button class="btn mobile-calculator-button-decimal-point" onclick="appendToDisplay('.')">.</button>
-        <button class="btn" onclick="appendToDisplay('0')">0</button>
-        <button class="btn mobile-calculator-button-backspace" onclick="backspace()">←</button>
-        <button class="btn2" onclick="showServiceOptions()"> + <br> Role </button>
+        <button class="mobile-calculator-numpad" onclick="appendToDisplay('7')">7</button>
+        <button class="mobile-calculator-numpad" onclick="appendToDisplay('8')">8</button>
+        <button class="mobile-calculator-numpad" onclick="appendToDisplay('9')">9</button>
+        <button class="mobile-calculator-mo-hr-team-btn" onclick="setInputField()" data-field="numMembers">X <br> Team <br> Members</button>
+        <button class="mobile-calculator-numpad" onclick="appendToDisplay('4')">4</button>
+        <button class="mobile-calculator-numpad" onclick="appendToDisplay('5')">5</button>
+        <button class="mobile-calculator-numpad" onclick="appendToDisplay('6')">6</button>
+        <button class="mobile-calculator-mo-hr-team-btn" onclick="setInputField()" data-field="numHoursPerMonth">X <br> Hours Per <br> Month</button>
+        <button class="mobile-calculator-numpad" onclick="appendToDisplay('1')">1</button>
+        <button class="mobile-calculator-numpad" onclick="appendToDisplay('2')">2</button>
+        <button class="mobile-calculator-numpad" onclick="appendToDisplay('3')">3</button>
+        <button class="mobile-calculator-mo-hr-team-btn" onclick="setInputField()" data-field="numMonths">X <br> Months</button>
+        <button class="mobile-calculator-numpad mobile-calculator-button-decimal-point" onclick="appendToDisplay('.')">.</button>
+        <button class="mobile-calculator-numpad" onclick="appendToDisplay('0')">0</button>
+        <button class="mobile-calculator-numpad mobile-calculator-button-backspace" onclick="backspace()">←</button>
+        <button class="mobile-calculator-role-btn" onclick="showServiceOptions()"> + <br> Role </button>
     </div>
     <div class="service-options">
 
-        <button class="btn3" onclick="selectService('React.js Developer')">
+        <button class="mobile-calculator-service-btn" onclick="selectService('React.js Developer')">
             <span style="color: black;">React.js</span> <br>
             <span style="color: black;">Developer</span> <br>
             <span style="color: blue;">$49<span style="color: black; font-size: medium;">/hr</span></span>
         </button>
         
-        <button class="btn3" onclick="selectService('Mid Level Developer')">
+        <button class="mobile-calculator-service-btn" onclick="selectService('Mid Level Developer')">
             <span style="color: black;">Mid Level</span> <br>
             <span style="color: black;">Developer</span> <br>
             <span style="color: blue;">$79<span style="color: black; font-size: medium;">/hr</span></span>
         </button>
         
-        <button class="btn3" onclick="selectService('Senior Developer')">
+        <button class="mobile-calculator-service-btn" onclick="selectService('Senior Developer')">
             <span style="color: black;">Senior</span> <br>
             <span style="color: black;">Developer</span> <br>
             <span style="color: blue;">$99<span style="color: black; font-size: medium;">/hr</span></span>
         </button>
         
-        <button class="btn3" onclick="selectService('Tech Lead/Architect')">
+        <button class="mobile-calculator-service-btn" onclick="selectService('Tech Lead/Architect')">
             <span style="color: black;">Tech Lead/</span><br>
             <span style="color: black;">Architect</span> <br>
             <span style="color: blue;">$199<span style="color: black; font-size: medium;">/hr</span></span>
@@ -399,10 +401,10 @@
         
         
         <!-- New set of buttons for service selection
-        <button class="btn3" onclick="selectService('Service 1')">React.js <br> Developer <br> $49/hr</button>
-        <button class="btn3" onclick="selectService('Service 2')">Mid Level <br> Developer <br> $79/hr</button>
-        <button class="btn3" onclick="selectService('Service 3')">Senior <br> Developer <br> $99/hr</button>
-        <button class="btn3" onclick="selectService('Service 4')">Tech Lead/<br> Architect <br> $199/hr</button>
+        <button class="mobile-calculator-service-btn" onclick="selectService('Service 1')">React.js <br> Developer <br> $49/hr</button>
+        <button class="mobile-calculator-service-btn" onclick="selectService('Service 2')">Mid Level <br> Developer <br> $79/hr</button>
+        <button class="mobile-calculator-service-btn" onclick="selectService('Service 3')">Senior <br> Developer <br> $99/hr</button>
+        <button class="mobile-calculator-service-btn" onclick="selectService('Service 4')">Tech Lead/<br> Architect <br> $199/hr</button>
         Add more buttons as needed -->
     </div>
 
@@ -458,13 +460,13 @@
                             <div>${input.name}</div>
                             <div>$${input.rate}/hr x ${input.numMembers}p x ${input.numHoursPerMonth}hr/mo x ${input.numMonths}mo</div>
                         </div>
-                        <div class="subtotal">
+                        <div class="mobile-calculator-subtotal">
                             $${subtotalString}
                         </div>
                     </div>
                 `;
             }).join('');
-            const currentServiceElement = document.getElementsByClassName('current-service')[0];
+            const currentServiceElement = document.getElementsByClassName('mobile-calculator-current-service')[0];
             if (currentInput) {
                 if (currentInputField === 'numMembers')
                     currentServiceElement.innerHTML = `
@@ -472,7 +474,7 @@
                             <div>${currentInput.name}</div>
                             <div>$${currentInput.rate}/hr x</div>
                         </div>
-                        <div class="subtotal">
+                        <div class="mobile-calculator-subtotal">
                             ${currentInputValue}<span class="blink">|</span> people
                         </div>
                     `;
@@ -482,7 +484,7 @@
                             <div>${currentInput.name}</div>
                             <div>$${currentInput.rate}/hr x ${currentInput.numMembers}p x</div>
                         </div>
-                        <div class="subtotal">
+                        <div class="mobile-calculator-subtotal">
                             ${currentInputValue}<span class="blink">|</span> hours/mo
                         </div>
                     `;
@@ -492,14 +494,14 @@
                             <div>${currentInput.name}</div>
                             <div>$${currentInput.rate}/hr x ${currentInput.numMembers}p x ${currentInput.numHoursPerMonth}hr/mo x</div>
                         </div>
-                        <div class="subtotal">
+                        <div class="mobile-calculator-subtotal">
                             ${currentInputValue}<span class="blink">|</span> months
                         </div>
                     `;
                 currentServiceElement.style.display = 'flex';
             } else {
                 if (!displayElement.innerHTML) {
-                    displayElement.innerHTML = '<div class="no-roles">Please select a role</div>';
+                    displayElement.innerHTML = '<div class="mobile-calculator-no-roles">Please select a role</div>';
                 }
                 currentServiceElement.style.display = 'none';
             }
@@ -568,12 +570,12 @@
                 const subtotal = rate * numMembers * numHoursPerMonth * numMonths;
 
                 // Update the current-service section with the calculated values
-                const currentServiceElement = document.getElementById('current-service');
-                currentServiceElement.querySelector('.current-service div').innerText = currentInput.name;
-                currentServiceElement.querySelector('.current-service .subtotal').innerText = `$${subtotal.toFixed(2)}`;
+                const currentServiceElement = document.getElementById('mobile-calculator-current-service');
+                currentServiceElement.querySelector('.mobile-calculator-current-service div').innerText = currentInput.name;
+                currentServiceElement.querySelector('.mobile-calculator-current-service .mobile-calculator-subtotal').innerText = `$${subtotal.toFixed(2)}`;
 
                 // Display the months and pipe symbol
-                const monthsElement = currentServiceElement.querySelector('.subtotal');
+                const monthsElement = currentServiceElement.querySelector('.mobile-calculator-subtotal');
                 monthsElement.innerHTML = `${numMonths} <span class="pipe"></span> months`;
 
                 // Update the total box with the calculated total
