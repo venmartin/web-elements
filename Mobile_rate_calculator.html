@@ -18,7 +18,7 @@
         header {
             margin-top: 10px;
             font-family: 'source sans pro', sans-serif;
-            height: 10vw;
+            height: 14vw;
             width: 95%;
             background-color: #4e4ef2;
             color: white;
@@ -36,16 +36,16 @@
             background-color: #fff;
             border: 1px solid #ddd; /* Gray border */
             border-radius: 5px;
-            margin-top: 10px;
+            margin-top: 3vw;
             display: flex;
             flex-direction: column;
             align-items: stretch;
-            font-size: 14px;
+            font-size: 4vw;
             justify-content: space-evenly;
         }
 
         .mobile-calculator-total-box {
-            height: 10vw;
+            height: 14vw;
             width: 95%;
             background-color: #000000;
             color: white;
@@ -54,6 +54,7 @@
             font-size: 5vw; 
             border-radius: 5px; /* Rounded corners */
             justify-content: space-around;
+            margin-top: 3vw;
         }
 
         .calculator, .service-options {
@@ -72,13 +73,14 @@
             grid-template-columns: repeat(2, 1fr); /* Updated to display in pairs of two */
             max-width: 95%;
             grid-gap: 2vw;
+            margin-top: 3vw;
         }
 
         .mobile-calculator-display {
             grid-column: span 4;
             background-color: #ffffff;
             padding: 10px;
-            font-size: 14px;
+            font-size: 3.5vw;   
             display: contents;
         }
 
@@ -87,7 +89,7 @@
             justify-content: center;
             align-items: center;
             height: 100%;
-            font-size: 6vw;
+            font-size: 4vw;
         }
 
         .service {
@@ -98,7 +100,7 @@
         }
 
         .mobile-calculator-subtotal {
-            font-size: 16px;
+            font-size: 4.5vw;
             margin-right: 5px;
         }
 
@@ -107,8 +109,8 @@
             align-items: flex-end;
         }
 
-        .mobile-calculator-current-service .mobile-calculator-subtotal {
-            font-size: 18px;
+        .mobile-calculator-current-service {
+            font-size: 3.5vw;
         }
 
         .blink {
@@ -170,13 +172,14 @@
             color: black;
             border: none;
             width: 44vw;
-            height: 44vw;
+            height: 35vw;
             text-align: center;
             text-decoration: none;
             display: inline-block;
             font-size: 5vw;
             cursor: pointer;
             border-radius: 5px;
+            margin-top: 1vw;
         }
 
         .mobile-calculator-numpad:not(:disabled):hover,
@@ -193,22 +196,8 @@
            opacity: 0.5;
         }
         
-        /* remove show-service-options if unused */
-        .show-service-options .calculator {
-            display: none;
-        }
-
-        .show-service-options .service-options {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 10px;
-            max-width: 350px;
-            margin: auto;
-            text-align: center;
-            margin-top: 10px;
-        }
-       
-       /* TODO: media query contents should only contain sizes and maybe display: none.  should not contain colours. */
+              
+       /* TODO: media query contents should only contain sizes and maybe display: none.  should not contain colours. 
         @media only screen and (max-width: 369px) {
         /* Styles for screens with a maximum width of 600 pixels 
         
@@ -245,7 +234,7 @@
             height: 150px;
             width: 350px;
             background-color: #fff;
-            border: 1px solid #ddd; /* Gray border */
+            border: 1px solid #ddd; /* Gray border 
             border-radius: 5px;
             margin-top: 10px;
             display: flex;
@@ -285,7 +274,7 @@
 
         .service-options {
             display: none;
-            grid-template-columns: repeat(2, 1fr); /* Updated to display in pairs of two */
+            grid-template-columns: repeat(2, 1fr); /* Updated to display in pairs of two *
             grid-gap: 15px; /* Added gap between buttons *
         }
         
@@ -372,7 +361,7 @@
         <button class="mobile-calculator-mo-hr-team-btn" onclick="setInputField()" data-field="numMonths">X <br> Months</button>
         <button class="mobile-calculator-numpad mobile-calculator-button-decimal-point" onclick="appendToDisplay('.')">.</button>
         <button class="mobile-calculator-numpad" onclick="appendToDisplay('0')">0</button>
-        <button class="mobile-calculator-numpad mobile-calculator-button-backspace" onclick="backspace()">←</button>
+        <button class="mobile-calculator-numpad mobile-calculator-button-backspace" onclick="backspace()">← Back</button>
         <button class="mobile-calculator-role-btn" onclick="showServiceOptions()"> + <br> Role </button>
     </div>
     <div class="service-options" style="display: none;">
