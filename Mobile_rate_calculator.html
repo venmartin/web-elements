@@ -14,22 +14,22 @@
         /* TODO: use class names only and have all class names start with "mobile-calculator-" */
         header {
             margin-top: 10px;
-            font-family: 'Source Sans Pro', sans-serif;
-            height: 70px;
-            width: 370px;
+            font-family: 'source sans pro', sans-serif;
+            height: 10vw;
+            width: 95%;
             background-color: #4e4ef2;
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 4vw;
             text-align: center;
             border-radius: 5px; /* Rounded corners */
         }
 
         .mobile-calculator-input-box {
-            height: 150px;
-            width: 370px;
+            height: 40vw;
+            width: 95%;
             background-color: #fff;
             border: 1px solid #ddd; /* Gray border */
             border-radius: 5px;
@@ -42,36 +42,34 @@
         }
 
         .mobile-calculator-total-box {
-            height: 70px;
-            width: 370px;
+            height: 10vw;
+            width: 95%;
             background-color: #000000;
             color: white;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5em;
+            font-size: 4vw; 
             border-radius: 5px; /* Rounded corners */
             margin-top: 10px;
         }
 
-        .calculator {
+        .calculator, .service-options {
             display: grid;
-            /* TODO: move grid-template-columns and grid-gap to separate sections for .calculator and .service-options */
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 10px;
-            max-width: 350px;
             text-align: center;
             margin-top: 10px;
         }
 
-       .service-options {
-            /* TODO: display: none for .calculator since service options are shown first */
-            display: none;
-            grid-template-columns: repeat(2, 1fr); /* Updated to display in pairs of two */
-            grid-gap: 10px; /* Added gap between buttons */
+        .calculator {
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
             max-width: 350px;
-            text-align: center;
-            margin-top: 10px;
+        }
+
+       .service-options {
+            grid-template-columns: repeat(2, 1fr); /* Updated to display in pairs of two */
+            grid-gap: justify; /* Added gap between buttons */
+            max-width: 95%;
         }
 
         .mobile-calculator-display {
@@ -206,7 +204,7 @@
        
        /* TODO: media query contents should only contain sizes and maybe display: none.  should not contain colours. */
         @media only screen and (max-width: 369px) {
-        /* Styles for screens with a maximum width of 600 pixels */
+        /* Styles for screens with a maximum width of 600 pixels 
         
         body {
             font-family: 'source sans pro', sans-serif;
@@ -234,7 +232,7 @@
             justify-content: center;
             font-size: 14px;
             text-align: center;
-            border-radius: 5px; /* Rounded corners */
+            border-radius: 5px; /* Rounded corners *
         }
 
         .mobile-calculator-input-box {
@@ -246,7 +244,7 @@
             margin-top: 10px;
             display: flex;
            /* flex-direction: column;
-            align-items: stretch;*/
+            align-items: stretch;*
             font-size: 14px;
             justify-content: space-evenly;
         }
@@ -260,7 +258,7 @@
             align-items: center;
             justify-content: center;
             font-size: 1.5em;
-            border-radius: 5px; /* Rounded corners */
+            border-radius: 5px; /* Rounded corners *
             margin-top: 10px;
         }
 
@@ -282,7 +280,7 @@
         .service-options {
             display: none;
             grid-template-columns: repeat(2, 1fr); /* Updated to display in pairs of two */
-            grid-gap: 15px; /* Added gap between buttons */
+            grid-gap: 15px; /* Added gap between buttons *
         }
         
         
@@ -335,8 +333,8 @@
         }
 
         .mobile-calculator-service-btn span span {
-            font-size: smaller; /* Adjust the font size for smaller screens */
-        }
+            font-size: smaller; /* Adjust the font size for smaller screens *
+        } */
 
     }
     
@@ -352,7 +350,7 @@
         </div>
     </div>
     <div class="mobile-calculator-total-box">
-        <div id="result"></div>
+        <div id="result">Total</div>
     </div>
     <div class="calculator">
         <!-- Calculator buttons -->
@@ -373,7 +371,7 @@
         <button class="mobile-calculator-numpad mobile-calculator-button-backspace" onclick="backspace()">←</button>
         <button class="mobile-calculator-role-btn" onclick="toggleServiceOptions()"> + <br> Role </button>
     </div>
-    <div class="service-options">
+    <div class="service-options" style="display: none;">
 
         <button class="mobile-calculator-service-btn" onclick="selectService('React.js Developer')">
             <span style="color: black;">React.js</span> <br>
@@ -512,7 +510,7 @@
                 serviceOptions.style.display = 'none';
                 calculator.style.display = '';
             } else {
-                serviceOptions.style.display = 'grid';
+                serviceOptions.style.display = '';
                 calculator.style.display = 'none';
             }
         }
