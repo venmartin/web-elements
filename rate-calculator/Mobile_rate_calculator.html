@@ -53,7 +53,7 @@
             align-items: center;
             font-size: 5vw; 
             border-radius: 5px; /* Rounded corners */
-            justify-content: space-around;
+            justify-content: space-between;
             margin-top: 3vw;
         }
 
@@ -501,8 +501,8 @@
             .filter(input => input.numMembers && input.numHoursPerMonth && input.numMonths)
             .reduce((total, input) => total + input.rate * input.numMembers * input.numHoursPerMonth * input.numMonths, 0);
             document.querySelector('.mobile-calculator-total-box').innerHTML = total > 0 ? `
-                <div>Total:</div>
-                <div>
+                <div style="padding-left: 2vw;">Total:</div>
+                <div style="padding-right: 1vw">
                     $${inputs
                         .filter(input => input.numMembers && input.numHoursPerMonth && input.numMonths)
                         .reduce((total, input) => total + input.rate * input.numMembers * input.numHoursPerMonth * input.numMonths, 0)
