@@ -21,7 +21,7 @@
             margin-top: 10px;
             font-family: 'source sans pro', sans-serif;
             height: 14vw;
-            width: 95%;
+            width: 98%;
             background-color: #4e4ef2;
             color: white;
             display: flex;
@@ -34,7 +34,7 @@
 
         .mobile-calculator-input-box {
             height: 40vw;
-            width: 95%;
+            width: 98%;
             background-color: #fff;
             border: 1px solid #ddd; /* Gray border */
             border-radius: 5px;
@@ -48,7 +48,7 @@
 
         .mobile-calculator-total-box {
             height: 14vw;
-            width: 95%;
+            width: 98%;
             background-color: #000000;
             color: white;
             display: flex;
@@ -59,13 +59,13 @@
             margin-top: 3vw;
         }
 
-        .calculator, .service-options {
+        .mobile-calculator-main, .service-options {
             display: grid;
             text-align: center;
             margin-top: 10px;
         }
 
-        .calculator {
+        .mobile-calculator-main {
             grid-template-columns: repeat(4, 1fr);
             grid-gap: 10px;
             max-width: 100%;
@@ -134,7 +134,7 @@
         /* TODO: rename to what the button is (change current value, change current field, change current role) */
         .mobile-calculator-numpad, .mobile-calculator-mo-hr-team-btn, .mobile-calculator-role-btn {
             font-family: 'source sans pro', sans-serif;
-            width: 95%;
+            width: 96%;
             font-weight: 500;
             width: 18vw;
             height: 18vw;
@@ -146,6 +146,7 @@
             border-radius: 5px;
             align-items: center;
             margin:1vw;
+            padding: 0;
         }
        
         .mobile-calculator-numpad {
@@ -201,141 +202,8 @@
               
        /* TODO: media query contents should only contain sizes and maybe display: none.  should not contain colours. 
         @media only screen and (max-width: 369px) {
-        /* Styles for screens with a maximum width of 600 pixels 
-        
-        body {
-            font-family: 'source sans pro', sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            height: 100vh;
-        }
-
-        .mobile-calculator-current-service .mobile-calculator-subtotal {
-            font-size: 16px;
-        }
-
-        header {
-            margin-top: 10px;
-            font-family: 'Source Sans Pro', sans-serif;
-            height: 50px;
-            width: 350px;
-            background-color: #4e4ef2;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            text-align: center;
-            border-radius: 5px; /* Rounded corners *
-        }
-
-        .mobile-calculator-input-box {
-            height: 150px;
-            width: 350px;
-            background-color: #fff;
-            border: 1px solid #ddd; /* Gray border 
-            border-radius: 5px;
-            margin-top: 10px;
-            display: flex;
-           /* flex-direction: column;
-            align-items: stretch;*
-            font-size: 14px;
-            justify-content: space-evenly;
-        }
-
-        .mobile-calculator-total-box {
-            height: 50px;
-            width: 350px;
-            background-color: #000000;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5em;
-            border-radius: 5px; /* Rounded corners *
-            margin-top: 10px;
-        }
-
-        .mobile-calculator-subtotal {
-            font-size: 14px;
-            margin-right: 5px;
-        }
-
-        .calculator,
-        .service-options {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 10px;
-            max-width: 350px;
-            text-align: center;
-            margin-top: 10px;
-        }
-
-        .service-options {
-            display: none;
-            grid-template-columns: repeat(2, 1fr); /* Updated to display in pairs of two *
-            grid-gap: 15px; /* Added gap between buttons *
-        }
-        
-        
-        
-        .mobile-calculator-numpad, .mobile-calculator-mo-hr-team-btn, .mobile-calculator-role-btn {
-            font-family: 'source sans pro', sans-serif;
-            font-weight: 500;
-            width: 60px;
-            height: 60px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        
-        .mobile-calculator-numpad {
-            background-color: #d7d7d7;
-            color: black;
-            font-size: 14px;
-        }
-
-        .mobile-calculator-mo-hr-team-btn {
-            background-color: #7e7eaa;
-            color: white;
-            font-size: 10px;
-        }
-
-        .mobile-calculator-role-btn {
-            background-color: #4e4ef2;
-            color: white;
-            font-size: 15px;            
-        }
-
-        .mobile-calculator-service-btn {
-            font-family: 'source sans pro', sans-serif;
-            font-weight: 400;
-            background-color: rgb(215, 215, 247);
-            color: black;
-            border: none;
-            width: 100px;
-            height: 100px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 15px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-
-        .mobile-calculator-service-btn span span {
-            font-size: smaller; /* Adjust the font size for smaller screens *
-        } 
-
-    }*/
+        /* Styles for screens with a maximum width of 600 pixels */
     
-
     </style>
     <header>
         Software Developer Rates (ex. GST)
@@ -347,7 +215,7 @@
         </div>
     </div>
     <div class="mobile-calculator-total-box"></div>
-    <div class="calculator">
+    <div class="mobile-calculator-main">
         <!-- Calculator buttons -->
         <button class="mobile-calculator-numpad" onclick="appendToDisplay('7')">7</button>
         <button class="mobile-calculator-numpad" onclick="appendToDisplay('8')">8</button>
@@ -513,7 +381,7 @@
             ` : '';
 
             const serviceOptions = document.querySelector('.service-options');
-            const calculator = document.querySelector('.calculator');
+            const calculator = document.querySelector('.mobile-calculator-main');
             document.querySelector('.mobile-calculator-button-decimal-point').disabled = currentInputValue.includes('.');
             document.querySelector('[data-field="numMembers"]').disabled = currentInputField === 'numMembers' || currentInputValue.length === 0;
             document.querySelector('[data-field="numHoursPerMonth"]').disabled = currentInputField === 'numHoursPerMonth' || currentInputValue.length === 0;
