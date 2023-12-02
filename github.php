@@ -6,7 +6,9 @@ $event_type = $_SERVER['HTTP_X_GITHUB_EVENT'];
 // Mattermost webhook URL
 $url = $_GET['mattermost'];
 $postData = [
-    'text' => $event_type == 'ping' ? 'ping from github.com' : $event_type . ' from github.com\n```json\n' . $text_from_github . '\n```',
+    'text' => $event_type == 'ping' ? 'ping from github.com' :
+    "#### " . $event_type . " from github.com\n" .
+    "```json\n" . $text_from_github . "\n```",
     'username' => $json_from_github['sender']['login'],
     'icon_url' => $json_from_github['sender']['avatar_url'],
 ];
@@ -29,9 +31,9 @@ echo "response: $response\n";
 
 // Check for errors
 if($response === FALSE){
-    echo 'curl_getinfo: \n';
+    echo "curl_getinfo: \n";
     echo print_r(curl_getinfo($ch), true);
-    echo '\n';
+    echo "\n";
     die(curl_error($ch));
 }
 
