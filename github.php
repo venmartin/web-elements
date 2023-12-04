@@ -9,6 +9,10 @@ function get_text($event_type, $json_from_github) {
     } else if ($event_type == 'push') {
         $commits = $json_from_github['commits'];
         $text = '#### ' . $event_type . " from github.com\n";
+        $ref = $json_from_github['ref'];
+        // $ref_type = explode('/', $ref)[1];
+        $ref_url = $json_from_github['repository']['html_url'] . '/tree/' . $ref;
+        $text .= '[' . $ref . '](' . $ref_url . ")\n";
         foreach ($commits as $commit) {
             $text .= '[' . $commit['id'] . '](' . $commit['url'] . ') ' . $commit['message'] . "\n";
             $added = $commit['added'];
