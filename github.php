@@ -45,7 +45,11 @@ function get_text($event_type, $json_from_github) {
         $action = $json_from_github['action'];
         $pull_request = $json_from_github['pull_request'];
         $comment = $json_from_github['comment'];
-        $text = '#### ' . $action . " comment on pull request: [" . $pull_request['title'] . "](" . $pull_request['html_url'] . ")\n";
+        $text = '#### ' . $action . " comment on pull request: [" . $pull_request['title'] . "](" . $comment['html_url'] . ")\n";
+        $text .= "```diff\n" . $comment['diff_hunk'] . "\n```\n";
+        if ($comment['in_reply_to_id'] != null) {
+            $text .= "in reply to [" . $comment['in_reply_to_id'] . "](" . str_replace($comment['id'], $comment['in_reply_to_id'], $comment['html_url']) . ")\n";
+        }
         $text .= $comment['body'] . "\n";
         return $text;
     } else if ($event_type == 'issues') {
