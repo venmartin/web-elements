@@ -1,113 +1,44 @@
-<style>
-    .sharetribe-table-heading {
-      font-family: 'Poppins', sans-serif;
-      font-size: 40px;
-      margin-bottom: 10px;
-      font-weight: 400;
-    }
+<div class="sharetribe-table-heading">Third-party Costs</div>
   
-    .third-party-cost-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 20px;
-      font-family: "Source Sans Pro", sans-serif;
-      font-size: 18px;
-    }
-  
-    .blue-link {
-      color: blue;
-      text-decoration: underline;
-    }
-  
-    .third-party-price-name {
-      font-weight: 600;
-    }
-  
-    .third-party-cost-table td {
-      border: 1px solid #ccc;
-      padding: 10px;
-      text-align: left;
-      width: 50em;
-    }
-  
-    .third-party-cost-table td:nth-child(2) {
-      text-align: right;
-      width: 180px;
-    }
-  
-    .third-party-cost-table tr[data-show-more-row] {
-      position: relative;
-    }
-  
-    .third-party-cost-table
-      tr[data-show-more-row][data-show-more-active]
-      ~ tr
-      td {
-      line-height: 0;
-      padding: 0;
-      border: 0;
-      opacity: 0;
-    }
-  
-    @media (max-width: 900px) {
-      .third-party-cost-table {
-        margin: 0;
-      }
-  
-      .third-party-cost-table td {
-        padding: 6px;
-        font-size: 13px;
-        width: 70%;
-      }
-      .third-party-cost-table td:nth-child(2) {
-        text-align: right;
-        width:30% ;
-      }
-    }
-  </style>
-  
-  <div class="sharetribe-table-heading">Third-party Costs</div>
-  
-  <table class="third-party-cost-table">
-    <tr>
-      <td>
-        <span class="third-party-price-name">Sharetribe</span><br />
-        Pay only when you need to start processing payments.
-      </td>
-      <td>USD 299 - 369/month</td>
-    </tr>
-  
-    <tr>
-      <td>
-        <span class="third-party-price-name">Hosting</span><br />
-        Amazon Web Services is recommended and is free for the first year.
-      </td>
-      <td>About USD 5/month</td>
-    </tr>
-  
-    <tr>
-      <td>
-        <span class="third-party-price-name">Domain</span>
-      </td>
-      <td>About USD 14/year</td>
-    </tr>
-  
-    <tr>
-      <td>
-        <span class="third-party-price-name">Mapbox</span><br />
-        We've always stayed in the free tier.
-      </td>
-      <td>Varies by usage</td>
-    </tr>
-  
-    <tr>
-      <td>
-        <span class="third-party-price-name">Stripe Billing & Stripe Connect</span><br>
-        Billing: <a href="https://stripe.com/pricing" target="_blank" class="blue-link"> https://stripe.com/pricing </a><br>
-        Connect: <a href="https://stripe.com/connect/pricing" target="_blank" class="blue-link">https://stripe.com/connect/pricing </a>
-      </td>
-      <td>Varies by country</td>
-    </tr>
-  
-  </table>
-  
+<table class="sharetribe-pricing-table">
+  <tr>
+    <td>
+      <span class="sharetribe-price-name">Sharetribe</span><br />
+      Pay only when you need to start processing payments.
+    </td>
+    <td>USD 299 - 369/month</td>
+  </tr>
+
+  <tr>
+    <td>
+      <span class="sharetribe-price-name">Hosting</span><br />
+      Amazon Web Services is recommended and is free for the first year.
+    </td>
+    <td>About USD 5/month</td>
+  </tr>
+
+  <tr>
+    <td>
+      <span class="sharetribe-price-name">Domain</span>
+    </td>
+    <td>About USD 14/year</td>
+  </tr>
+
+  <tr>
+    <td>
+      <span class="sharetribe-price-name">Mapbox</span><br />
+      We've always stayed in the free tier.
+    </td>
+    <td>Varies by usage</td>
+  </tr>
+
+  <tr>
+    <td>
+      <span class="sharetribe-price-name">Stripe Billing & Stripe Connect</span><br>
+      Billing: <a href="https://stripe.com/pricing" target="_blank" class="blue-link"> https://stripe.com/pricing </a><br>
+      Connect: <a href="https://stripe.com/connect/pricing" target="_blank" class="blue-link">https://stripe.com/connect/pricing </a>
+    </td>
+    <td>Varies by country</td>
+  </tr>
+
+</table>
